@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Text Sensor Component on ESPHome - Smart Home Made Simple</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/</link><description>Recent content in Text Sensor Component on ESPHome - Smart Home Made Simple</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bharvey88.github.io/esphome-docs/components/text_sensor/index.xml" rel="self" type="application/rss+xml"/><item><title>BLE Client Text Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/ble_client/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/ble_client/</guid><description>&lt;p>The &lt;code>ble_client&lt;/code> component is a text sensor platform that can
+query BLE devices for specific values of service characteristics.&lt;/p>
+&lt;p>For more information on BLE services and characteristics, see
+&lt;a href="https://bharvey88.github.io/esphome-docs/components/ble_client/">BLE Client&lt;/a>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">esp32_ble_tracker&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">ble_client&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">mac_address&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">XX:XX:XX:XX:XX:XX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">itag_black&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">text_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ble_client&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ble_client_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">itag_black&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Sensor Location&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">service_uuid&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;180d&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">characteristic_uuid&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;2a38&amp;#39;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>ble_client_id&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): ID of the associated BLE client.&lt;/p></description></item><item><title>ESP32 Bluetooth Low Energy Scanner</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/ble_scanner/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/ble_scanner/</guid><description>&lt;p>The &lt;code>ble_scanner&lt;/code> text sensor platform lets you track reachable BLE devices.&lt;/p>
+&lt;p>See the &lt;a href="https://bharvey88.github.io/esphome-docs/components/esp32_ble_tracker#config-esp32_ble_tracker">BLE Tracker Configuration variables&lt;/a> for instructions for setting up scan parameters.&lt;/p>
+&lt;p>The sensor platform is similar to &lt;a href="https://bharvey88.github.io/esphome-docs/components/sensor/ble_rssi/">ESP32 Bluetooth Low Energy RSSI Sensor&lt;/a> but in contrast to that platform, this text
+sensor sends out all raw BLE scan information and does not filter devices.&lt;/p>
+&lt;p>The data this sensor publishes is intended to be processed by the remote (for example an MQTT client) and sends
+the data in JSON format.&lt;/p></description></item><item><title>Ethernet Info Text Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/ethernet_info/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/ethernet_info/</guid><description>&lt;p>The &lt;code>ethernet_info&lt;/code> text sensor platform exposes different Ethernet information
+via text sensors.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">text_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ethernet_info&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ip_address&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP IP Address&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">address_0&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP IP Address 0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">address_1&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP IP Address 1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">address_2&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP IP Address 2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">address_3&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP IP Address 3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">address_4&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP IP Address 4&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">dns_address&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP DNS Address&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">mac_address&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP MAC Address&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>ip_address&lt;/strong> (&lt;em>Optional&lt;/em>): Expose the IP Address of the ESP as a text sensor. All options from
+&lt;a href="https://bharvey88.github.io/esphome-docs/components/text_sensor#config-text_sensor">Text Sensor&lt;/a>.&lt;/p></description></item><item><title>Haier Climate Text Sensors</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/haier/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/haier/</guid><description>&lt;p>Additional sensors for Haier Climate device. &lt;strong>These sensors are supported only by the hOn protocol&lt;/strong>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">text_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">haier&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">haier_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">haier_ac&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">appliance_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Haier appliance name&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">cleaning_status&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Haier cleaning status&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">protocol_version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Haier protocol version&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>haier_id&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The id of haier climate component&lt;/p></description></item><item><title>Home Assistant Text Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/homeassistant/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/homeassistant/</guid><description>&lt;p>The &lt;code>homeassistant&lt;/code> text sensor platform allows you to create sensors that import
+states from your Home Assistant instance using the &lt;a href="https://bharvey88.github.io/esphome-docs/components/api/">native API&lt;/a>.&lt;/p>
+
+
+&lt;blockquote class="alert alert-note">
+ &lt;p class="alert-heading">
+ ℹ️
+ 
+ Note
+ 
+ &lt;/p>
+ &lt;p>Although you might not plan to &lt;em>export&lt;/em> states from the node and you do not need an entity of the node
+in Home Assistant, this component still requires you to register the node under Home Assistant. See:
+&lt;a href="https://bharvey88.github.io/esphome-docs/guides/getting_started_hassio#connecting-your-device-to-home-assistant">Connecting your device to Home Assistant&lt;/a>.&lt;/p>
+&lt;/blockquote>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">text_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">homeassistant&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">weather_fom_ha&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">entity_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sensor.weather_forecast&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;p>Entity state attributes can also be imported:&lt;/p></description></item><item><title>LibreTiny Text Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/libretiny/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/libretiny/</guid><description>&lt;p>The &lt;code>libretiny&lt;/code> text sensor platform exposes various LibreTiny core
+information via text sensors.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">text_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">libretiny&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">LibreTiny Version&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>version&lt;/strong> (&lt;em>Optional&lt;/em>): Expose the version of LibreTiny core as a text sensor. All options from
+&lt;a href="https://bharvey88.github.io/esphome-docs/components/text_sensor#config-text_sensor">Text Sensor&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="see-also">
+ See Also
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="see-also" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://bharvey88.github.io/esphome-docs/components/libretiny/">LibreTiny Platform&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://api-docs.esphome.io/lt__component_8h">API Reference&lt;/a>
+&lt;/li>
+&lt;/ul></description></item><item><title>LVGL Text Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/lvgl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/lvgl/</guid><description>&lt;p>The &lt;code>lvgl&lt;/code> text sensor platform creates a Text Sensor from an LVGL textual widget
+and requires &lt;a href="https://bharvey88.github.io/esphome-docs/components/lvgl/">LVGL&lt;/a> to be configured.&lt;/p>
+&lt;p>Supported widgets are &lt;a href="https://bharvey88.github.io/esphome-docs/components/lvgl/widgets#lvgl-widget-label">&lt;code>label&lt;/code>&lt;/a> and &lt;a href="https://bharvey88.github.io/esphome-docs/components/lvgl/widgets#lvgl-widget-textarea">&lt;code>textarea&lt;/code>&lt;/a>. A single text sensor supports only a single widget; in other words, it&amp;rsquo;s not possible to have multiple widgets associated with a single ESPHome text sensor component.&lt;/p>
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>widget&lt;/strong> (&lt;strong>Required&lt;/strong>): The ID of a &lt;code>textarea&lt;/code> widget configured in LVGL, which will reflect the state of the text sensor.&lt;/li>
+&lt;li>All other variables from &lt;a href="https://bharvey88.github.io/esphome-docs/components/text_sensor#config-text_sensor">Text Sensor&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p></description></item><item><title>Modbus Controller Text Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/modbus_controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/modbus_controller/</guid><description>&lt;p>The &lt;code>modbus_controller&lt;/code> sensor platform creates a text sensor from a modbus_controller component
+and requires &lt;a href="https://bharvey88.github.io/esphome-docs/components/modbus_controller/">Modbus Controller&lt;/a> to be configured.&lt;/p>
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>register_type&lt;/strong> (&lt;strong>Required&lt;/strong>): type of the modbus register.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>coil&lt;/code> : Coils are 1-bit registers (on/off values) that are used to control discrete outputs. They may be read and/or written. Modbus &lt;em>Function Code 1 (Read Coil Status)&lt;/em> will be used.&lt;/li>
+&lt;li>&lt;code>discrete_input&lt;/code> : discrete input register (read only coil) are similar to coils but can only be read. Modbus &lt;em>Function Code 2 (Read Input Status)&lt;/em> will be used.&lt;/li>
+&lt;li>&lt;code>holding&lt;/code> : Holding Registers - Holding registers are the most universal 16-bit register. They may be read and/or written. Modbus &lt;em>Function Code 3 (Read Holding Registers)&lt;/em> will be used.&lt;/li>
+&lt;li>&lt;code>read&lt;/code> : Read Input Registers - registers are 16-bit registers used for input, and may only be read. Modbus &lt;em>Function Code 4 (Read Input Registers)&lt;/em> will be used.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>address&lt;/strong> (&lt;strong>Required&lt;/strong>, int): start address of the first register in a range (can be decimal or hexadecimal).&lt;/p></description></item><item><title>MQTT Subscribe Text Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/mqtt_subscribe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/mqtt_subscribe/</guid><description>&lt;p>The &lt;code>mqtt_subscribe&lt;/code> text sensor platform allows you to get external data into ESPHome.
+The sensor will subscribe to messages on the given MQTT topic and save the most recent value
+in its &lt;code>id(mysensor).state&lt;/code>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">text_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">mqtt_subscribe&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Data from topic&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">mysensor&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">topic&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">the/topic&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>topic&lt;/strong> (&lt;strong>Required&lt;/strong>, string): The MQTT topic to listen for string data.&lt;/li>
+&lt;li>&lt;strong>qos&lt;/strong> (&lt;em>Optional&lt;/em>, int): The MQTT QoS to subscribe with. Defaults to &lt;code>0&lt;/code>.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/text_sensor#config-text_sensor">Text Sensor&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="example-usage-for-displays">
+ Example Usage for Displays
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="example-usage-for-displays" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>This component is especially useful for displays, to show external data on the display.
+Please note you have to use the &lt;code>.c_str()&lt;/code> method on the &lt;code>.state&lt;/code> object together with the &lt;code>%s&lt;/code> format
+to use it in &lt;code>printf&lt;/code> expressions.&lt;/p></description></item><item><title>Nextion Text Sensor Component</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/nextion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/nextion/</guid><description>&lt;a class="anchor" id="nextion_text_sensor" role="none">&lt;/a>
+
+&lt;p>The &lt;code>nextion&lt;/code> text sensor platform supports text strings. It can be a component or variable in the Nextion display.
+It is best to set the components vscope to global in the Nextion Editor. This way the component will be available
+if the page is shown or not.&lt;/p>
+&lt;p>See &lt;a href="https://bharvey88.github.io/esphome-docs/components/display/nextion/">Nextion TFT LCD Display&lt;/a> for setting up the display&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">display&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nextion&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nextion1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># ...&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">text_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nextion&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">nextion_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nextion1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">text0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">text0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">update_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">4s&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">component_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">text0&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>nextion_id&lt;/strong> (&lt;em>Optional&lt;/em>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The ID of the Nextion display.&lt;/li>
+&lt;li>&lt;strong>component_name&lt;/strong> (&lt;em>Optional&lt;/em>, string): The name of the Nextion component.&lt;/li>
+&lt;li>&lt;strong>update_interval&lt;/strong> (&lt;em>Optional&lt;/em>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#time">Time&lt;/a>): The duration to update the sensor. If using a &lt;a href="#nextion_custom_text_sensor_protocol">Nextion Custom Text Sensor Protocol&lt;/a> this should not be used&lt;/li>
+&lt;li>&lt;strong>background_color&lt;/strong> (&lt;em>Optional&lt;/em>, &lt;a href="https://bharvey88.github.io/esphome-docs/components/display#config-color">Color&lt;/a>): The background color&lt;/li>
+&lt;li>&lt;strong>foreground_color&lt;/strong> (&lt;em>Optional&lt;/em>, &lt;a href="https://bharvey88.github.io/esphome-docs/components/display#config-color">Color&lt;/a>): The foreground color&lt;/li>
+&lt;li>&lt;strong>font_id&lt;/strong> (&lt;em>Optional&lt;/em>, int): The font id for the component&lt;/li>
+&lt;li>&lt;strong>visible&lt;/strong> (&lt;em>Optional&lt;/em>, boolean): Visible or not&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/text_sensor#config-text_sensor">Text Sensor&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Only one&lt;/strong> &lt;em>component_name&lt;/em> &lt;strong>or&lt;/strong> &lt;em>variable_name&lt;/em> &lt;strong>can be set&lt;/strong>&lt;/p></description></item><item><title>Template Text Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/template/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/template/</guid><description>&lt;p>The &lt;code>template&lt;/code> text sensor platform allows you to create a text sensor with templated values
+using &lt;a href="https://bharvey88.github.io/esphome-docs/automations/templates#config-lambda">lambdas&lt;/a>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">text_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Template Text Sensor&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">lambda&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|-&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> return {&amp;#34;Hello World&amp;#34;};&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">update_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">60s&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;p>Possible return values for the lambda:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>return {&amp;quot;STRING LITERAL&amp;quot;};&lt;/code> the new value for the sensor of type &lt;code>std::string&lt;/code>. &lt;strong>Has to be&lt;/strong> in
+brackets &lt;code>{}&lt;/code> !&lt;/p></description></item><item><title>Tuya Text Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/tuya/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/tuya/</guid><description>&lt;p>The &lt;code>tuya&lt;/code> text sensor platform creates a sensor from a tuya component
+and requires &lt;a href="https://bharvey88.github.io/esphome-docs/components/tuya/">Tuya MCU&lt;/a> to be configured.&lt;/p>
+&lt;p>You can create the text sensor as follows:&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Create a sensor&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">text_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;tuya&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;MyTextSensor&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">sensor_datapoint&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">18&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>sensor_datapoint&lt;/strong> (&lt;strong>Required&lt;/strong>, int): The datapoint id number of the sensor.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/text_sensor#config-text_sensor">Text Sensor&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="see-also">
+ See Also
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="see-also" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://bharvey88.github.io/esphome-docs/components/tuya/">Tuya MCU&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://bharvey88.github.io/esphome-docs/components/text_sensor/">Text Sensor Component&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://api-docs.esphome.io/tuya__text__sensor_8h">API Reference&lt;/a>
+&lt;/li>
+&lt;/ul></description></item><item><title>Uptime Text Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/uptime/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/uptime/</guid><description>&lt;p>The &lt;code>uptime&lt;/code> text sensor provides a human-readable representation the time since. The
+elements can be separated by a custom string, and more significant elements will be omitted if they are zero. For example,
+if the uptime is 1 day, 2 hours, 3 minutes, and 4 seconds, the sensor will report &lt;code>1d2h3m4s&lt;/code> with the default
+configuration. By default leading zero elements will be trimmed from the output, e.g. if the uptime is 0 days, 0 hours, 3 minutes, and 0 seconds, the sensor will report &lt;code>3m0s&lt;/code>.
+This can be disabled by setting &lt;code>expand&lt;/code> to &lt;code>true&lt;/code>.&lt;/p></description></item><item><title>Version Text Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/version/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/version/</guid><description>&lt;p>The &lt;code>version&lt;/code> text sensor platform exposes the ESPHome version the firmware
+was compiled against as a text sensor.&lt;/p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/components/text_sensor/images/version-ui.png" alt="Image"/>
+ 
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 497px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/components/text_sensor/images/version-ui.png"
+ fetchpriority="high"
+ 
+ srcset="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAAcCAMAAAD/XGWDAAABFFBMVEWZ2er4&amp;#43;Pjw8PDn5&amp;#43;fk5OTi4uLg4ODo6Ojq6url5eXu7u729vb6&amp;#43;vr&amp;#43;/v7////r6&amp;#43;vy8vLh4eHt7e3z8/Pv7&amp;#43;/j4&amp;#43;P39/fx8fH8/Pz7&amp;#43;/v09PT5&amp;#43;fn9/f3m5ubp6enQ3OdbhKpEc55ahKmUlJTQ0NCysrLBwcEiIiLAwMAhISE1NTWGhoYqKip4eHjf39&amp;#43;ioqJPT09qampCQkIrKys2NjaFhYWjo6OxsbFDQ0OHh4eVlZXPz88jIyOzs7NcXFxra2ve3t6hoaGTk5MsLCzCwsJERERQUFB5eXl3d3c3NzddXV1RUVGhuM7z9vlpaWnc5e1ylbZzlrbR3OeKp8Ld3d3n7fO4ytp&amp;#43;n7x&amp;#43;nrxPe6Ps7Oz19fVxRY3/AAAAAXRSTlMAQObYZgAABDpJREFUeJzUWE2T2jgTFobB38jIBsvGOJfGpctLbqFSKheTlA5zgFBvaMyU/P//x5Zk2M1kdw&amp;#43;5bIauYdSWWq2nP&amp;#43;axBkII&amp;#43;d/&amp;#43;Zf/ycvv1rsf9nuwNYvLypRWNEspIo5p3PSrA3WcD&amp;#43;pN0k7RM07IszfCexz4sg6n6Ssh&amp;#43;U/P4caRa4kdCvom8mj2QcK8lZC&amp;#43;S&amp;#43;HcD&amp;#43;RWpgoaQvUofCzRrCCHOg2WaKUK&amp;#43;qv7xQO/VPdMVL4qoKKr3HcMN9K2n&amp;#43;fFyOp1Ol&amp;#43;PqHkRR8DiezSzVzGazuCpuwquqiu&amp;#43;xxXF1e7wb3hfu9pzzyhjFnPM4rng1eOPVX6p1yu/m1h//YdIMfMjnALoZMl0dv3eHw6HrPlyGg6uQ0SxcRavVsl&amp;#43;uiqiIUlp7tUc96iRpGq6sRFE0KtMkXZqHURguoyKKLIfGRR9Qj2rNHMcJV2USjhLmjFZpkI6iqCh6J0mccmXUkHlUZ2XKqKZUs7xMymiVME11nmZMU5qngQ60Lov4bab5pTtcz6//P3cnbieiGgDRn0z8yXTqu2OaPYGUUoKZRsTpYj6fzv1xXS8Q8Xk&amp;#43;XTw9zafTdT0ZlwZ1PPLQmiMguHqLvrcFXHsocT7x62ACiICTycRLKEoJOPZRAkjrfetkUwAp0dgALHwEABgv47c9XVy68/l6vZ67U2RrNpqr4UYipf3gFptGibZRSiolWrMkRKNgC0oYGW4HUio5joyD0JfG2hgLmEoFz6AUgNiZrRJRtKIVqlGw9mUrpNyitG7MBumvUYqNeZAK4HkLZnqbVrMq&amp;#43;CHT0ak7nM/n86E7rQbQTwaaEK2SSgglJIJUUhj3AMahmdy1Qj6jEqJtWxNC0xrs6wH0RNrQpGoFoDLbTExit2mFUAhis9m07a6V87EUQoHx01jUQqj5HMxZytYWJwtztsSkGjJ952l&amp;#43;6c7X6&amp;#43;vr&amp;#43;XBvDwqmQKZcpjSA6wkCmIS57mJrFES7TtcIQyMM1YXngFvQa7sPJAJO52hLDYjSAkG3BlMUUwVq22Prb60D4wFwO342fTVscQPX6n5YveXpoT1er&amp;#43;fuUgx/mcuMaupqJ3MyHWSa9QnV2quzfrTsS1ZrxpyAel4W9k6eeWsv82oWUJrn&amp;#43;VCqKA00Y8yrg9xJck11wIK8dLzaHbteFo4c1/XGC4R132tXZ1maeTSg45pmfcpYnme5o1kWaJYvRwljAQt6/lNPV8fTh647dB&amp;#43;&amp;#43;H3l8p7wbYfGi4IbnbnxnSO7GR3zgP7tkdPu57Y/5nwxpmcv4&amp;#43;cGJdREt86DnbynPaNHKnjsczauY34jzZ56ujpfT5XK5HP/T14uh63&amp;#43;ajv8Nwxuens1M8LwY4nm/8jbTs9nf3mnvUSzlkfwBb3mfVfh4oMkifyzQtSDk286Nqt/6v&amp;#43;ovCe/xEyHki7K3tseQnMLOfluz&amp;#43;SQeR3ZkAE2IUR7l5yMh5I8AAAD//9SY/RARv/GeAAAAAElFTkSuQmCC"
+ data-src="https://bharvey88.github.io/esphome-docs/components/text_sensor/images/version-ui.png"
+ data-srcset="https://bharvey88.github.io/esphome-docs/components/text_sensor/images/version-ui.png 497w, https://bharvey88.github.io/esphome-docs/components/text_sensor/images/version-ui_hu_7f8b06c16318b60d.png 99w, https://bharvey88.github.io/esphome-docs/components/text_sensor/images/version-ui_hu_200454ea2c2dfe14.png 165w, https://bharvey88.github.io/esphome-docs/components/text_sensor/images/version-ui_hu_9f9ece20da80f523.png 248w, https://bharvey88.github.io/esphome-docs/components/text_sensor/images/version-ui_hu_6fb4a07025a74336.png 331w, https://bharvey88.github.io/esphome-docs/components/text_sensor/images/version-ui_hu_e0e3989dcca6f2d9.png 497w"
+ 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;/figure>
+
+
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">text_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">version&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;ESPHome Version&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>hide_timestamp&lt;/strong> (&lt;em>Optional&lt;/em>, boolean): Allows you to hide the compilation timestamp from the version string. Defaults to &lt;code>false&lt;/code>.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/text_sensor#config-text_sensor">Text Sensor&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="disabling-the-compilation-timestamp">
+ Disabling the compilation timestamp
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="disabling-the-compilation-timestamp" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">text_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">version&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;ESPHome Version&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">hide_timestamp&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;p>This will, for example, change the output of the sensor from:&lt;/p></description></item><item><title>WiFi Info Text Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/wifi_info/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/wifi_info/</guid><description>&lt;p>The &lt;code>wifi_info&lt;/code> text sensor platform exposes different WiFi information
+via text sensors.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">text_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">wifi_info&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ip_address&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP IP Address&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">address_0&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP IP Address 0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">address_1&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP IP Address 1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">address_2&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP IP Address 2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">address_3&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP IP Address 3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">address_4&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP IP Address 4&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ssid&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP Connected SSID&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">bssid&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP Connected BSSID&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">mac_address&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP Mac Wifi Address&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_results&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP Latest Scan Results&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">dns_address&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESP DNS Address&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>ip_address&lt;/strong> (&lt;em>Optional&lt;/em>): Expose the IP Address of the ESP as a text sensor.
+All options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/text_sensor#config-text_sensor">Text Sensor&lt;/a>.&lt;/p></description></item><item><title>WL-134 Pet Tag Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/text_sensor/wl_134/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/text_sensor/wl_134/</guid><description>&lt;p>The &lt;code>wl_134&lt;/code> text sensor platform exposes the last read pet tag as text sensor.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">text_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">wl_134&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Transponder Code&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>reset&lt;/strong> (&lt;em>Optional&lt;/em>, boolean): Reset the text sensor state back to &amp;quot;&amp;quot; 1s after reading a tag. Defaults to &lt;code>false&lt;/code>.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/text_sensor#config-text_sensor">Text Sensor&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="see-also">
+ See Also
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="see-also" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;a href="https://api-docs.esphome.io/wl__134_8h">API Reference&lt;/a>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

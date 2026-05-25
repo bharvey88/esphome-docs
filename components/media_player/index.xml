@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Media Player Components on ESPHome - Smart Home Made Simple</title><link>https://bharvey88.github.io/esphome-docs/components/media_player/</link><description>Recent content in Media Player Components on ESPHome - Smart Home Made Simple</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bharvey88.github.io/esphome-docs/components/media_player/index.xml" rel="self" type="application/rss+xml"/><item><title>I²S Audio Media Player</title><link>https://bharvey88.github.io/esphome-docs/components/media_player/i2s_audio/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/media_player/i2s_audio/</guid><description>&lt;p>The &lt;code>i2s_audio&lt;/code> media player platform allows you to play media from webservers and web streams
+via the &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2s_audio/">I²S Audio Component&lt;/a>. This platform only works on ESP32 based chips.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">media_player&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">i2s_audio&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ESPHome I2S Media Player&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">dac_type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">external&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">i2s_dout_pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">mode&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">mono&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>dac_type&lt;/strong> (&lt;strong>Required&lt;/strong>, enum):&lt;/p></description></item><item><title>Speaker Audio Media Player</title><link>https://bharvey88.github.io/esphome-docs/components/media_player/speaker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/media_player/speaker/</guid><description>&lt;p>The &lt;code>speaker&lt;/code> media player platform allows you to play on-device and online audio media via &lt;a href="https://bharvey88.github.io/esphome-docs/components/speaker/">speaker components&lt;/a>.&lt;/p>
+&lt;p>This platform greatly benefits from having external PSRAM. See the &lt;a href="#media_player-speaker-performance">performance section&lt;/a> for details.&lt;/p>
+&lt;p>It natively supports decoding &lt;code>FLAC&lt;/code>, &lt;code>MP3&lt;/code>, and &lt;code>WAV&lt;/code> audio files. Home Assistant (since version 2024.10) can proxy any media it sends and transcode it to a specified format and sample rate to minimize the device&amp;rsquo;s computational load.&lt;/p>
+&lt;p>It supports two different audio pipelines: announcement and media. Each audio pipeline must output to a unique speaker. Use a &lt;a href="https://bharvey88.github.io/esphome-docs/components/speaker/mixer/">mixer speaker&lt;/a> component to create two different speakers that output to a single audio speaker.&lt;/p></description></item></channel></rss>

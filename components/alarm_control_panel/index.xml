@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alarm Control Panel Component on ESPHome - Smart Home Made Simple</title><link>https://bharvey88.github.io/esphome-docs/components/alarm_control_panel/</link><description>Recent content in Alarm Control Panel Component on ESPHome - Smart Home Made Simple</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bharvey88.github.io/esphome-docs/components/alarm_control_panel/index.xml" rel="self" type="application/rss+xml"/><item><title>Template Alarm Control Panel</title><link>https://bharvey88.github.io/esphome-docs/components/alarm_control_panel/template/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/alarm_control_panel/template/</guid><description>&lt;p>The &lt;code>template&lt;/code> alarm control panel platform allows you to turn your binary sensors into a state machine
+managed alarm control panel.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">alarm_control_panel&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Alarm Panel&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">codes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;1234&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">binary_sensors&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">input&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">zone_1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">input&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">zone_2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">bypass_armed_home&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>codes&lt;/strong> (&lt;em>Optional&lt;/em>, list of string): A list of codes for disarming the alarm, if &lt;em>requires_code_to_arm&lt;/em> set to true
+then for arming the alarm too.&lt;/p></description></item></channel></rss>

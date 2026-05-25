@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Time Component on ESPHome - Smart Home Made Simple</title><link>https://bharvey88.github.io/esphome-docs/components/time/</link><description>Recent content in Time Component on ESPHome - Smart Home Made Simple</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bharvey88.github.io/esphome-docs/components/time/index.xml" rel="self" type="application/rss+xml"/><item><title>DS1307 Time Source</title><link>https://bharvey88.github.io/esphome-docs/components/time/ds1307/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/time/ds1307/</guid><description>&lt;p>You first need to set up the &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c/">I2C&lt;/a> component.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">time&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ds1307&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ds1307_time&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>address&lt;/strong> (&lt;em>Optional&lt;/em>, int): Manually specify the I²C address of the RTC. Defaults to &lt;code>0x68&lt;/code>.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/time#base_time_config">Base Time Configuration&lt;/a>.&lt;/li>
+&lt;/ul>
+
+&lt;a class="anchor" id="ds1307-write_time_action" role="none">&lt;/a>
+
+&lt;h2 id="ds1307write_time-action">
+ &lt;code>ds1307.write_time&lt;/code> Action
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="ds1307write_time-action" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>This &lt;a href="https://bharvey88.github.io/esphome-docs/automations/actions#all-actions">Action&lt;/a> triggers a synchronization of the current system time to the RTC hardware.&lt;/p></description></item><item><title>GPS Time Source</title><link>https://bharvey88.github.io/esphome-docs/components/time/gps/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/time/gps/</guid><description>&lt;p>You first need to set up the &lt;a href="https://bharvey88.github.io/esphome-docs/components/gps/">GPS&lt;/a> component.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">time&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gps&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gps_time&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>All options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/time#base_time_config">Base Time Configuration&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="see-also">
+ See Also
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="see-also" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2></description></item><item><title>Home Assistant Time Source</title><link>https://bharvey88.github.io/esphome-docs/components/time/homeassistant/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/time/homeassistant/</guid><description>&lt;p>The preferred way to get time in ESPHome is using Home Assistant.
+With the &lt;code>homeassistant&lt;/code> time platform, the &lt;a href="https://bharvey88.github.io/esphome-docs/components/api/">native API&lt;/a> connection
+to Home Assistant will be used to periodically synchronize the current time.&lt;/p>
+
+
+&lt;blockquote class="alert alert-note">
+ &lt;p class="alert-heading">
+ ℹ️
+ 
+ Note
+ 
+ &lt;/p>
+ &lt;p>Although you might not plan to &lt;em>export&lt;/em> states from the node and you do not need an entity of the node
+in Home Assistant, this component still requires you to register the node under Home Assistant. See:
+&lt;a href="https://bharvey88.github.io/esphome-docs/guides/getting_started_hassio#connecting-your-device-to-home-assistant">Connecting your device to Home Assistant&lt;/a>.&lt;/p></description></item><item><title>Host Time Source</title><link>https://bharvey88.github.io/esphome-docs/components/time/host/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/time/host/</guid><description>&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">time&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">host&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sntp_time&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">timezone&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Europe/Sofia&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>All options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/time#base_time_config">Base Time Configuration&lt;/a>.&lt;/p>
+&lt;h2 id="see-also">
+ See Also
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="see-also" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://bharvey88.github.io/esphome-docs/components/host/">Host Platform&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>PCF85063 Time Source</title><link>https://bharvey88.github.io/esphome-docs/components/time/pcf85063/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/time/pcf85063/</guid><description>&lt;p>You first need to set up the &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c/">I2C&lt;/a> component.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">time&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pcf85063&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pcf85063_time&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>address&lt;/strong> (&lt;em>Optional&lt;/em>, int): Manually specify the I²C address of the RTC. Defaults to &lt;code>0x51&lt;/code>.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/time#base_time_config">Base Time Configuration&lt;/a>.&lt;/li>
+&lt;/ul>
+
+&lt;a class="anchor" id="pcf85063-write_time_action" role="none">&lt;/a>
+
+&lt;h2 id="pcf85063write_time-action">
+ &lt;code>pcf85063.write_time&lt;/code> Action
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="pcf85063write_time-action" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>This &lt;a href="https://bharvey88.github.io/esphome-docs/automations/actions#all-actions">Action&lt;/a> triggers a synchronization of the current system time to the RTC hardware.&lt;/p></description></item><item><title>PCF8563 Time Source</title><link>https://bharvey88.github.io/esphome-docs/components/time/pcf8563/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/time/pcf8563/</guid><description>&lt;p>You first need to set up the &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c/">I2C&lt;/a> component.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">time&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pcf8563&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pcf8563_time&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>address&lt;/strong> (&lt;em>Optional&lt;/em>, int): Manually specify the I²C address of the RTC. Defaults to &lt;code>0xA3&lt;/code>.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/time#base_time_config">Base Time Configuration&lt;/a>.&lt;/li>
+&lt;/ul>
+
+&lt;a class="anchor" id="pcf8563-write_time_action" role="none">&lt;/a>
+
+&lt;h2 id="pcf8563write_time-action">
+ &lt;code>pcf8563.write_time&lt;/code> Action
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="pcf8563write_time-action" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>This &lt;a href="https://bharvey88.github.io/esphome-docs/automations/actions#all-actions">Action&lt;/a> triggers a synchronization of the current system time to the RTC hardware.&lt;/p></description></item><item><title>SNTP Time Source</title><link>https://bharvey88.github.io/esphome-docs/components/time/sntp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/time/sntp/</guid><description>&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">time&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sntp&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sntp_time&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">timezone&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Europe/Sofia&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">servers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">0.&lt;/span>&lt;span class="l">pool.ntp.org&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">1.&lt;/span>&lt;span class="l">pool.ntp.org&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">2.&lt;/span>&lt;span class="l">pool.ntp.org&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>servers&lt;/strong> (&lt;em>Optional&lt;/em>, list of strings): Choose up to 3 NTP servers that are used for the clock source.
+Defaults to &lt;code>0.pool.ntp.org&lt;/code>, &lt;code>1.pool.ntp.org&lt;/code> and &lt;code>2.pool.ntp.org&lt;/code>&lt;/p></description></item></channel></rss>

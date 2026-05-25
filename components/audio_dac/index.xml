@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Audio DAC Core on ESPHome - Smart Home Made Simple</title><link>https://bharvey88.github.io/esphome-docs/components/audio_dac/</link><description>Recent content in Audio DAC Core on ESPHome - Smart Home Made Simple</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bharvey88.github.io/esphome-docs/components/audio_dac/index.xml" rel="self" type="application/rss+xml"/><item><title>AIC3204</title><link>https://bharvey88.github.io/esphome-docs/components/audio_dac/aic3204/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/audio_dac/aic3204/</guid><description>&lt;p>The &lt;code>aic3204&lt;/code> platform allows your ESPHome devices to use the AIC3204 ultra low power stereo audio codec (DAC).
+This allows the playback of audio via the microcontroller from a range of sources via
+&lt;a href="https://bharvey88.github.io/esphome-docs/components/media_player/">Media Player Components&lt;/a>.&lt;/p>
+&lt;p>The &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C bus&lt;/a> is required in your configuration as this is used to communicate with the AIC3204.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">audio_dac&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">aic3204&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+
+&lt;a class="anchor" id="config-aic3204" role="none">&lt;/a>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>address&lt;/strong> (&lt;em>Optional&lt;/em>, int): The I²C address of the driver. Defaults to &lt;code>0x18&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>i2c_id&lt;/strong> (&lt;em>Optional&lt;/em>): The ID of the &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C bus&lt;/a> the AIC3204 is connected to.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/audio_dac#config-audio_dac">Audio DAC&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="automations">
+ Automations
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="automations" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;h3 id="aic3204set_auto_mute_mode-action">
+ &lt;code>aic3204.set_auto_mute_mode&lt;/code> Action
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="aic3204set_auto_mute_mode-action" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h3>
+&lt;p>This action sets the auto-mute mode of the AIC3204. See page 111 in the
+&lt;a href="https://www.ti.com/lit/ml/slaa557/slaa557.pdf?ts=1727495047647&amp;amp;ref_url=ti.com">reference manual&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>
+for more information.&lt;/p></description></item><item><title>ES8156</title><link>https://bharvey88.github.io/esphome-docs/components/audio_dac/es8156/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/audio_dac/es8156/</guid><description>&lt;p>The &lt;code>es8156&lt;/code> platform allows your ESPHome devices to use the ES8156 low power mono audio codec.
+This allows the playback of audio via the microcontroller from a range of sources via &lt;a href="https://bharvey88.github.io/esphome-docs/components/speaker/">Speaker Components&lt;/a> or
+&lt;a href="https://bharvey88.github.io/esphome-docs/components/media_player/">Media Player Components&lt;/a>.&lt;/p>
+&lt;p>The &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C bus&lt;/a> is required in your configuration as this is used to communicate with the ES8156.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">audio_dac&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">es8156&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+
+&lt;a class="anchor" id="config-es8156" role="none">&lt;/a>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>address&lt;/strong> (&lt;em>Optional&lt;/em>, int): The I²C address of the driver. Defaults to &lt;code>0x18&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>i2c_id&lt;/strong> (&lt;em>Optional&lt;/em>): The ID of the &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C bus&lt;/a> the ES8156 is connected to.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/audio_dac#config-audio_dac">Audio DAC&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="automations">
+ Automations
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="automations" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>All &lt;a href="https://bharvey88.github.io/esphome-docs/components/audio_dac#automations-audio_dac">Audio DAC Automations&lt;/a> are supported by this platform.&lt;/p></description></item><item><title>ES8311</title><link>https://bharvey88.github.io/esphome-docs/components/audio_dac/es8311/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/audio_dac/es8311/</guid><description>&lt;p>The &lt;code>es8311&lt;/code> platform allows your ESPHome devices to use the ES8311 low power mono audio codec.
+This allows the playback of audio via the microcontroller from a range of sources via &lt;a href="https://bharvey88.github.io/esphome-docs/components/speaker/">Speaker Components&lt;/a> or
+&lt;a href="https://bharvey88.github.io/esphome-docs/components/media_player/">Media Player Components&lt;/a>.&lt;/p>
+&lt;p>The &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C bus&lt;/a> is required in your configuration as this is used to communicate with the ES8311.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">audio_dac&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">es8311&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+
+&lt;a class="anchor" id="config-es8311" role="none">&lt;/a>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>bits_per_sample&lt;/strong> (&lt;em>Optional&lt;/em>, enum): The bit depth of the audio samples. One of &lt;code>16bit&lt;/code>, &lt;code>24bit&lt;/code>, or &lt;code>32bit&lt;/code>. Defaults to &lt;code>16bit&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>sample_rate&lt;/strong> (&lt;em>Optional&lt;/em>, positive integer): I2S sample rate. Defaults to &lt;code>16000&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>use_mclk&lt;/strong> (&lt;em>Optional&lt;/em>, bool): Use the MCLK signal to control the clock. Defaults to &lt;code>True&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>use_microphone&lt;/strong> (&lt;em>Optional&lt;/em>, bool): Configure the codec&amp;rsquo;s ADC for microphone input. Defaults to &lt;code>False&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>mic_gain&lt;/strong> (&lt;em>Optional&lt;/em>, enum): The gain applied to the ADC microphones. One of &lt;code>MIN&lt;/code>, &lt;code>0DB&lt;/code>, &lt;code>6DB&lt;/code>, &lt;code>12DB&lt;/code>, &lt;code>18DB&lt;/code>, &lt;code>24DB&lt;/code>, &lt;code>30DB&lt;/code>, &lt;code>36DB&lt;/code>, &lt;code>42DB&lt;/code>, or &lt;code>MAX&lt;/code>. Defaults to &lt;code>42DB&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>address&lt;/strong> (&lt;em>Optional&lt;/em>, int): The I²C address of the driver. Defaults to &lt;code>0x18&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>i2c_id&lt;/strong> (&lt;em>Optional&lt;/em>): The ID of the &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C bus&lt;/a> the ES8311 is connected to.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/audio_dac#config-audio_dac">Audio DAC&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="automations">
+ Automations
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="automations" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>All &lt;a href="https://bharvey88.github.io/esphome-docs/components/audio_dac#automations-audio_dac">Audio DAC Automations&lt;/a> are supported by this platform.&lt;/p></description></item><item><title>ES8388</title><link>https://bharvey88.github.io/esphome-docs/components/audio_dac/es8388/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/audio_dac/es8388/</guid><description>&lt;p>The &lt;code>es8388&lt;/code> component allows your ESPHome devices to use the es8388 low power audio codec (&lt;a href="http://www.everest-semi.com/pdf/ES8388%20DS.pdf">datasheet&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>)
+This allows the playback of audio through two channel high performance audio DAC output via the microcontroller from a range of sources via &lt;a href="https://bharvey88.github.io/esphome-docs/components/speaker/">Speaker Components&lt;/a> or
+&lt;a href="https://bharvey88.github.io/esphome-docs/components/media_player/">Media Player Components&lt;/a>.&lt;/p>
+&lt;p>It also allows your ESPHome devices to use the &lt;code>es8388&lt;/code> high performance two channel audio ADC.&lt;/p>
+&lt;p>This allows attached microphones to be used as a microphone input via &lt;a href="https://bharvey88.github.io/esphome-docs/components/microphone/i2s_audio/">I²S Audio Microphone&lt;/a>.&lt;/p></description></item></channel></rss>

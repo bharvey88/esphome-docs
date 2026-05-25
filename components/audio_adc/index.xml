@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Audio ADC Core on ESPHome - Smart Home Made Simple</title><link>https://bharvey88.github.io/esphome-docs/components/audio_adc/</link><description>Recent content in Audio ADC Core on ESPHome - Smart Home Made Simple</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bharvey88.github.io/esphome-docs/components/audio_adc/index.xml" rel="self" type="application/rss+xml"/><item><title>ES7210</title><link>https://bharvey88.github.io/esphome-docs/components/audio_adc/es7210/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/audio_adc/es7210/</guid><description>&lt;p>The &lt;code>es7210&lt;/code> platform allows your ESPHome devices to use the ES7210 high performance four channel audio ADC
+(&lt;a href="http://www.everest-semi.com/pdf/ES7210%20PB.pdf">datasheet&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>).
+This allows attached microphones to be used as a microphone input via &lt;a href="https://bharvey88.github.io/esphome-docs/components/microphone/i2s_audio/">I²S Audio Microphone&lt;/a>.&lt;/p>
+&lt;p>The &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C bus&lt;/a> is required in your configuration as this is used to communicate with the ES7210.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">audio_adc&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">es7210&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+
+&lt;a class="anchor" id="config-es7210" role="none">&lt;/a>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>bits_per_sample&lt;/strong> (&lt;em>Optional&lt;/em>, enum): The bit depth of the audio samples. One of &lt;code>16bit&lt;/code>, &lt;code>24bit&lt;/code> or &lt;code>32bit&lt;/code>.
+Defaults to &lt;code>16bit&lt;/code>.&lt;/p></description></item><item><title>ES7243E</title><link>https://bharvey88.github.io/esphome-docs/components/audio_adc/es7243e/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/audio_adc/es7243e/</guid><description>&lt;p>The &lt;code>es7243e&lt;/code> platform allows your ESPHome devices to use the ES7243E high performance four channel audio ADC
+(&lt;a href="https://www.lcsc.com/datasheet/lcsc_datasheet_2410121611_Everest-semi-Everest-Semiconductor-ES7243E_C2929446.pdf">datasheet&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>).
+This allows attached microphones to be used as a microphone input via &lt;a href="https://bharvey88.github.io/esphome-docs/components/microphone/i2s_audio/">I²S Audio Microphone&lt;/a>.&lt;/p>
+&lt;p>The &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C bus&lt;/a> is required in your configuration as this is used to communicate with the ES7243e.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">audio_adc&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">es7243e&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+
+&lt;a class="anchor" id="config-es7243e" role="none">&lt;/a>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>mic_gain&lt;/strong> (&lt;em>Optional&lt;/em>, enum): The gain applied to the ADC microphones. One of &lt;code>0DB&lt;/code>, &lt;code>3DB&lt;/code>, &lt;code>6DB&lt;/code>, &lt;code>9DB&lt;/code>,
+&lt;code>12DB&lt;/code>, &lt;code>15DB&lt;/code>, &lt;code>18DB&lt;/code>, &lt;code>21DB&lt;/code>, &lt;code>24DB&lt;/code>, &lt;code>27DB&lt;/code>, &lt;code>30DB&lt;/code>, &lt;code>33DB&lt;/code>, &lt;code>34.5DB&lt;/code>, &lt;code>36DB&lt;/code>, or &lt;code>37.5DB&lt;/code>.
+Defaults to &lt;code>24DB&lt;/code>.&lt;/p></description></item></channel></rss>

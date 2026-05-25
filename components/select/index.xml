@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Select Component on ESPHome - Smart Home Made Simple</title><link>https://bharvey88.github.io/esphome-docs/components/select/</link><description>Recent content in Select Component on ESPHome - Smart Home Made Simple</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bharvey88.github.io/esphome-docs/components/select/index.xml" rel="self" type="application/rss+xml"/><item><title>Logger Select</title><link>https://bharvey88.github.io/esphome-docs/components/select/logger/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/select/logger/</guid><description>&lt;p>The &lt;code>logger&lt;/code> Select platform allows you to create a Select that can be used to change the log level of the logger component.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">select&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">logger&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Logger select&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+
+
+&lt;blockquote class="alert alert-note">
+ &lt;p class="alert-heading">
+ ℹ️
+ 
+ Note
+ 
+ &lt;/p>
+ &lt;p>The only selections available will be log levels below the level set in the logger component definition. If not set, the default of DEBUG is used.&lt;/p></description></item><item><title>LVGL Select</title><link>https://bharvey88.github.io/esphome-docs/components/select/lvgl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/select/lvgl/</guid><description>&lt;p>The &lt;code>lvgl&lt;/code> select platform creates a select from an LVGL widget
+and requires &lt;a href="https://bharvey88.github.io/esphome-docs/components/lvgl/">LVGL&lt;/a> to be configured.&lt;/p>
+&lt;p>Supported widgets are &lt;a href="https://bharvey88.github.io/esphome-docs/components/lvgl/widgets#lvgl-widget-dropdown">&lt;code>dropdown&lt;/code>&lt;/a> and &lt;a href="https://bharvey88.github.io/esphome-docs/components/lvgl/widgets#lvgl-widget-roller">&lt;code>roller&lt;/code>&lt;/a>. A single select supports only a single widget; in other words, it&amp;rsquo;s not possible to have multiple widgets associated with a single ESPHome select component.&lt;/p>
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>widget&lt;/strong> (&lt;strong>Required&lt;/strong>): The ID of a supported widget configured in LVGL, which will reflect the state of the select.&lt;/li>
+&lt;li>&lt;strong>restore_value&lt;/strong>: (&lt;em>Optional&lt;/em>, bool) Restore the value of the select from non-volatile memory when the device is restarted. Defaults to &lt;code>false&lt;/code>.&lt;/li>
+&lt;li>All other variables from &lt;a href="https://bharvey88.github.io/esphome-docs/components/select#config-select">Select&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p></description></item><item><title>Modbus Controller Select</title><link>https://bharvey88.github.io/esphome-docs/components/select/modbus_controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/select/modbus_controller/</guid><description>&lt;p>The &lt;code>modbus_controller&lt;/code> Select platform allows you to create a Select from modbus
+registers.&lt;/p>
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>address&lt;/strong> (&lt;strong>Required&lt;/strong>, int): The start address of the first or only register
+of the Select (can be decimal or hexadecimal).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>optionsmap&lt;/strong> (&lt;strong>Required&lt;/strong>, Map[str, int]): Provide a mapping from options (str) of
+this Select to values (int) of the modbus register and vice versa. All options and
+all values have to be unique.&lt;/p></description></item><item><title>Template Select</title><link>https://bharvey88.github.io/esphome-docs/components/select/template/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/select/template/</guid><description>&lt;p>The &lt;code>template&lt;/code> Select platform allows you to create a Select with templated values
+using &lt;a href="https://bharvey88.github.io/esphome-docs/automations/templates#config-lambda">lambdas&lt;/a>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">select&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Template select&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">optimistic&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">one&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">two&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">three&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">initial_option&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">two&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>options&lt;/strong> (&lt;strong>Required&lt;/strong>, list): The list of options this Select has.&lt;/p></description></item><item><title>Tuya Select</title><link>https://bharvey88.github.io/esphome-docs/components/select/tuya/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/select/tuya/</guid><description>&lt;p>The &lt;code>tuya&lt;/code> select platform creates a select from a tuya serial component
+and requires &lt;a href="https://bharvey88.github.io/esphome-docs/components/tuya/">Tuya MCU&lt;/a> to be configured.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:032]: Tuya:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:043]: Datapoint 1: switch (value: ON)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:045]: Datapoint 24: int value (value: 220)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:045]: Datapoint 16: int value (value: 22)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:049]: Datapoint 2: enum (value: 1)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:045]: Datapoint 19: int value (value: 40)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:045]: Datapoint 101: int value (value: 1)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:045]: Datapoint 27: int value (value: -2)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:049]: Datapoint 43: enum (value: 1)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:049]: Datapoint 102: enum (value: 1)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:051]: Datapoint 45: bitmask (value: 0)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:043]: Datapoint 10: switch (value: ON)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:041]: Datapoint 38: raw (value: 06.00.14.08.00.0F.0B.1E.0F.0C.1E.0F.11.00.16.16.00.0F.08.00.16.17.00.0F (24))
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:049]: Datapoint 36: enum (value: 1)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:057]: GPIO Configuration: status: pin 14, reset: pin 0 (not supported)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:061]: Status Pin: GPIO14
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[08:51:09][C][tuya:063]: Product: &amp;#39;{&amp;#34;p&amp;#34;:&amp;#34;gogb05wrtredz3bs&amp;#34;,&amp;#34;v&amp;#34;:&amp;#34;1.0.0&amp;#34;,&amp;#34;m&amp;#34;:0}&amp;#39;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;p>On this controller, the datapoint 36 represents the temperature sensor selection
+setting which is what we are interested in controlling using this platform.&lt;/p></description></item></channel></rss>

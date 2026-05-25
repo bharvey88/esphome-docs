@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Automation on ESPHome - Smart Home Made Simple</title><link>https://bharvey88.github.io/esphome-docs/automations/</link><description>Recent content in Automation on ESPHome - Smart Home Made Simple</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bharvey88.github.io/esphome-docs/automations/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://bharvey88.github.io/esphome-docs/automations/all_actions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/automations/all_actions/</guid><description>&lt;!-- markdownlint-disable MD013 -->
+&lt;ul>
+&lt;li>&lt;strong>ags10:&lt;/strong> &lt;code>new_i2c_address&lt;/code>, &lt;code>set_zero_point&lt;/code>&lt;/li>
+&lt;li>&lt;strong>alarm_control_panel:&lt;/strong> &lt;code>arm_away&lt;/code>, &lt;code>arm_home&lt;/code>, &lt;code>arm_night&lt;/code>, &lt;code>chime&lt;/code>, &lt;code>disarm&lt;/code>, &lt;code>pending&lt;/code>, &lt;code>ready&lt;/code>, &lt;code>triggered&lt;/code>&lt;/li>
+&lt;li>&lt;strong>animation:&lt;/strong> &lt;code>next_frame&lt;/code>, &lt;code>prev_frame&lt;/code>, &lt;code>set_frame&lt;/code>&lt;/li>
+&lt;li>&lt;strong>at581x:&lt;/strong> &lt;code>reset&lt;/code>, &lt;code>settings&lt;/code>&lt;/li>
+&lt;li>&lt;strong>ble:&lt;/strong> &lt;code>disable&lt;/code>, &lt;code>enable&lt;/code>&lt;/li>
+&lt;li>&lt;strong>ble_client:&lt;/strong> &lt;code>ble_write&lt;/code>, &lt;code>connect&lt;/code>, &lt;code>disconnect&lt;/code>, &lt;code>numeric_comparison_reply&lt;/code>, &lt;code>passkey_reply&lt;/code>, &lt;code>remove_bond&lt;/code>&lt;/li>
+&lt;li>&lt;strong>bluetooth_password:&lt;/strong> &lt;code>set&lt;/code>&lt;/li>
+&lt;li>&lt;strong>button:&lt;/strong> &lt;code>press&lt;/code>&lt;/li>
+&lt;li>&lt;strong>canbus:&lt;/strong> &lt;code>send&lt;/code>&lt;/li>
+&lt;li>&lt;strong>climate:&lt;/strong> &lt;code>control&lt;/code>&lt;/li>
+&lt;li>&lt;strong>component:&lt;/strong> &lt;code>resume&lt;/code>, &lt;code>suspend&lt;/code>, &lt;code>update&lt;/code>&lt;/li>
+&lt;li>&lt;strong>cover:&lt;/strong> &lt;code>close&lt;/code>, &lt;code>control&lt;/code>, &lt;code>open&lt;/code>, &lt;code>stop&lt;/code>, &lt;code>toggle&lt;/code>&lt;/li>
+&lt;li>&lt;strong>cs5460a:&lt;/strong> &lt;code>restart&lt;/code>&lt;/li>
+&lt;li>&lt;strong>deep_sleep:&lt;/strong> &lt;code>allow&lt;/code>, &lt;code>enter&lt;/code>, &lt;code>prevent&lt;/code>&lt;/li>
+&lt;li>&lt;strong>dfplayer:&lt;/strong> &lt;code>pause&lt;/code>, &lt;code>play&lt;/code>, &lt;code>play_folder&lt;/code>, &lt;code>play_mp3&lt;/code>, &lt;code>play_next&lt;/code>, &lt;code>play_previous&lt;/code>, &lt;code>random&lt;/code>, &lt;code>reset&lt;/code>, &lt;code>set_device&lt;/code>, &lt;code>set_eq&lt;/code>, &lt;code>set_volume&lt;/code>, &lt;code>sleep&lt;/code>, &lt;code>start&lt;/code>, &lt;code>stop&lt;/code>, &lt;code>volume_down&lt;/code>, &lt;code>volume_up&lt;/code>&lt;/li>
+&lt;li>&lt;strong>dfrobot_sen0395:&lt;/strong> &lt;code>reset&lt;/code>, &lt;code>settings&lt;/code>&lt;/li>
+&lt;li>&lt;strong>display_menu:&lt;/strong> &lt;code>down&lt;/code>, &lt;code>enter&lt;/code>, &lt;code>hide&lt;/code>, &lt;code>left&lt;/code>, &lt;code>right&lt;/code>, &lt;code>show&lt;/code>, &lt;code>show_main&lt;/code>, &lt;code>up&lt;/code>&lt;/li>
+&lt;li>&lt;strong>ds1307:&lt;/strong> &lt;code>read_time&lt;/code>, &lt;code>write_time&lt;/code>&lt;/li>
+&lt;li>&lt;strong>esp32_ble_tracker:&lt;/strong> &lt;code>start_scan&lt;/code>, &lt;code>stop_scan&lt;/code>&lt;/li>
+&lt;li>&lt;strong>event:&lt;/strong> &lt;code>trigger&lt;/code>&lt;/li>
+&lt;li>&lt;strong>ezo_pmp:&lt;/strong> &lt;code>arbitrary_command&lt;/code>, &lt;code>change_i2c_address&lt;/code>, &lt;code>clear_calibration&lt;/code>, &lt;code>clear_total_volume_dosed&lt;/code>, &lt;code>dose_continuously&lt;/code>, &lt;code>dose_volume&lt;/code>, &lt;code>dose_volume_over_time&lt;/code>, &lt;code>dose_with_constant_flow_rate&lt;/code>, &lt;code>find&lt;/code>, &lt;code>pause_dosing&lt;/code>, &lt;code>set_calibration_volume&lt;/code>, &lt;code>stop_dosing&lt;/code>&lt;/li>
+&lt;li>&lt;strong>fan:&lt;/strong> &lt;code>cycle_speed&lt;/code>, &lt;code>toggle&lt;/code>, &lt;code>turn_off&lt;/code>, &lt;code>turn_on&lt;/code>&lt;/li>
+&lt;li>&lt;strong>fingerprint_grow:&lt;/strong> &lt;code>aura_led_control&lt;/code>, &lt;code>cancel_enroll&lt;/code>, &lt;code>delete&lt;/code>, &lt;code>delete_all&lt;/code>, &lt;code>enroll&lt;/code>, &lt;code>led_control&lt;/code>&lt;/li>
+&lt;li>&lt;strong>globals:&lt;/strong> &lt;code>set&lt;/code>&lt;/li>
+&lt;li>&lt;strong>grove_tb6612fng:&lt;/strong> &lt;code>break&lt;/code>, &lt;code>change_address&lt;/code>, &lt;code>no_standby&lt;/code>, &lt;code>run&lt;/code>, &lt;code>standby&lt;/code>, &lt;code>stop&lt;/code>&lt;/li>
+&lt;li>&lt;strong>homeassistant:&lt;/strong> &lt;code>event&lt;/code>, &lt;code>service&lt;/code>, &lt;code>tag_scanned&lt;/code>&lt;/li>
+&lt;li>&lt;strong>http_request:&lt;/strong> &lt;code>get&lt;/code>, &lt;code>post&lt;/code>, &lt;code>send&lt;/code>&lt;/li>
+&lt;li>&lt;strong>htu21d:&lt;/strong> &lt;code>set_heater&lt;/code>, &lt;code>set_heater_level&lt;/code>&lt;/li>
+&lt;li>&lt;strong>light:&lt;/strong> &lt;code>addressable_set&lt;/code>, &lt;code>control&lt;/code>, &lt;code>dim_relative&lt;/code>, &lt;code>toggle&lt;/code>, &lt;code>turn_off&lt;/code>, &lt;code>turn_on&lt;/code>&lt;/li>
+&lt;li>&lt;strong>lightwaverf:&lt;/strong> &lt;code>send_raw&lt;/code>&lt;/li>
+&lt;li>&lt;strong>lock:&lt;/strong> &lt;code>lock&lt;/code>, &lt;code>open&lt;/code>, &lt;code>unlock&lt;/code>&lt;/li>
+&lt;li>&lt;strong>logger:&lt;/strong> &lt;code>log&lt;/code>&lt;/li>
+&lt;li>&lt;strong>max6956:&lt;/strong> &lt;code>set_brightness_global&lt;/code>, &lt;code>set_brightness_mode&lt;/code>&lt;/li>
+&lt;li>&lt;strong>media_player:&lt;/strong> &lt;code>pause&lt;/code>, &lt;code>play&lt;/code>, &lt;code>play_media&lt;/code>, &lt;code>stop&lt;/code>, &lt;code>toggle&lt;/code>, &lt;code>volume_down&lt;/code>, &lt;code>volume_set&lt;/code>, &lt;code>volume_up&lt;/code>&lt;/li>
+&lt;li>&lt;strong>media_player.speaker:&lt;/strong> &lt;code>play_on_device_media_file&lt;/code>&lt;/li>
+&lt;li>&lt;strong>mhz19:&lt;/strong> &lt;code>abc_disable&lt;/code>, &lt;code>abc_enable&lt;/code>, &lt;code>calibrate_zero&lt;/code>&lt;/li>
+&lt;li>&lt;strong>micro_wake_word:&lt;/strong> &lt;code>start&lt;/code>, &lt;code>stop&lt;/code>&lt;/li>
+&lt;li>&lt;strong>microphone:&lt;/strong> &lt;code>capture&lt;/code>, &lt;code>stop_capture&lt;/code>&lt;/li>
+&lt;li>&lt;strong>midea_ac:&lt;/strong> &lt;code>beeper_off&lt;/code>, &lt;code>beeper_on&lt;/code>, &lt;code>display_toggle&lt;/code>, &lt;code>follow_me&lt;/code>, &lt;code>power_off&lt;/code>, &lt;code>power_on&lt;/code>, &lt;code>power_toggle&lt;/code>, &lt;code>swing_step&lt;/code>&lt;/li>
+&lt;li>&lt;strong>mixer_speaker:&lt;/strong> &lt;code>apply_ducking&lt;/code>&lt;/li>
+&lt;li>&lt;strong>mqtt:&lt;/strong> &lt;code>publish&lt;/code>, &lt;code>publish_json&lt;/code>&lt;/li>
+&lt;li>&lt;strong>number:&lt;/strong> &lt;code>decrement&lt;/code>, &lt;code>increment&lt;/code>, &lt;code>operation&lt;/code>, &lt;code>set&lt;/code>, &lt;code>to_max&lt;/code>, &lt;code>to_min&lt;/code>&lt;/li>
+&lt;li>&lt;strong>output:&lt;/strong> &lt;code>set_level&lt;/code>, &lt;code>turn_off&lt;/code>, &lt;code>turn_on&lt;/code>&lt;/li>
+&lt;li>&lt;strong>pcf85063:&lt;/strong> &lt;code>read_time&lt;/code>, &lt;code>write_time&lt;/code>&lt;/li>
+&lt;li>&lt;strong>pcf8563:&lt;/strong> &lt;code>read_time&lt;/code>, &lt;code>write_time&lt;/code>&lt;/li>
+&lt;li>&lt;strong>pmwcs3:&lt;/strong> &lt;code>air_calibration&lt;/code>, &lt;code>new_i2c_address&lt;/code>, &lt;code>water_calibration&lt;/code>&lt;/li>
+&lt;li>&lt;strong>pulse_counter:&lt;/strong> &lt;code>set_total_pulses&lt;/code>&lt;/li>
+&lt;li>&lt;strong>pulse_meter:&lt;/strong> &lt;code>set_total_pulses&lt;/code>&lt;/li>
+&lt;li>&lt;strong>pzemac:&lt;/strong> &lt;code>reset_energy&lt;/code>&lt;/li>
+&lt;li>&lt;strong>pzemdc:&lt;/strong> &lt;code>reset_energy&lt;/code>&lt;/li>
+&lt;li>&lt;strong>remote_transmitter:&lt;/strong> &lt;code>transmit_abbwelcome&lt;/code>, &lt;code>transmit_aeha&lt;/code>, &lt;code>transmit_byronsx&lt;/code>, &lt;code>transmit_canalsat&lt;/code>, &lt;code>transmit_canalsatld&lt;/code>, &lt;code>transmit_coolix&lt;/code>, &lt;code>transmit_dish&lt;/code>, &lt;code>transmit_dooya&lt;/code>, &lt;code>transmit_drayton&lt;/code>, &lt;code>transmit_haier&lt;/code>, &lt;code>transmit_jvc&lt;/code>, &lt;code>transmit_keeloq&lt;/code>, &lt;code>transmit_lg&lt;/code>, &lt;code>transmit_magiquest&lt;/code>, &lt;code>transmit_midea&lt;/code>, &lt;code>transmit_mirage&lt;/code>, &lt;code>transmit_nec&lt;/code>, &lt;code>transmit_nexa&lt;/code>, &lt;code>transmit_panasonic&lt;/code>, &lt;code>transmit_pioneer&lt;/code>, &lt;code>transmit_pronto&lt;/code>, &lt;code>transmit_raw&lt;/code>, &lt;code>transmit_rc5&lt;/code>, &lt;code>transmit_rc6&lt;/code>, &lt;code>transmit_rc_switch_raw&lt;/code>, &lt;code>transmit_rc_switch_type_a&lt;/code>, &lt;code>transmit_rc_switch_type_b&lt;/code>, &lt;code>transmit_rc_switch_type_c&lt;/code>, &lt;code>transmit_rc_switch_type_d&lt;/code>, &lt;code>transmit_roomba&lt;/code>, &lt;code>transmit_samsung&lt;/code>, &lt;code>transmit_samsung36&lt;/code>, &lt;code>transmit_sony&lt;/code>, &lt;code>transmit_toshiba_ac&lt;/code>&lt;/li>
+&lt;li>&lt;strong>rf_bridge:&lt;/strong> &lt;code>beep&lt;/code>, &lt;code>learn&lt;/code>, &lt;code>send_advanced_code&lt;/code>, &lt;code>send_code&lt;/code>, &lt;code>send_raw&lt;/code>, &lt;code>start_advanced_sniffing&lt;/code>, &lt;code>start_bucket_sniffing&lt;/code>, &lt;code>stop_advanced_sniffing&lt;/code>&lt;/li>
+&lt;li>&lt;strong>rtttl:&lt;/strong> &lt;code>play&lt;/code>, &lt;code>stop&lt;/code>&lt;/li>
+&lt;li>&lt;strong>scd30:&lt;/strong> &lt;code>force_recalibration_with_reference&lt;/code>&lt;/li>
+&lt;li>&lt;strong>scd4x:&lt;/strong> &lt;code>factory_reset&lt;/code>, &lt;code>perform_forced_calibration&lt;/code>&lt;/li>
+&lt;li>&lt;strong>script:&lt;/strong> &lt;code>execute&lt;/code>, &lt;code>stop&lt;/code>, &lt;code>wait&lt;/code>&lt;/li>
+&lt;li>&lt;strong>select:&lt;/strong> &lt;code>first&lt;/code>, &lt;code>last&lt;/code>, &lt;code>next&lt;/code>, &lt;code>operation&lt;/code>, &lt;code>previous&lt;/code>, &lt;code>set&lt;/code>, &lt;code>set_index&lt;/code>&lt;/li>
+&lt;li>&lt;strong>sen5x:&lt;/strong> &lt;code>start_fan_autoclean&lt;/code>&lt;/li>
+&lt;li>&lt;strong>senseair:&lt;/strong> &lt;code>abc_disable&lt;/code>, &lt;code>abc_enable&lt;/code>, &lt;code>abc_get_period&lt;/code>, &lt;code>background_calibration&lt;/code>, &lt;code>background_calibration_result&lt;/code>&lt;/li>
+&lt;li>&lt;strong>servo:&lt;/strong> &lt;code>detach&lt;/code>, &lt;code>write&lt;/code>&lt;/li>
+&lt;li>&lt;strong>sim800l:&lt;/strong> &lt;code>connect&lt;/code>, &lt;code>dial&lt;/code>, &lt;code>disconnect&lt;/code>, &lt;code>send_sms&lt;/code>, &lt;code>send_ussd&lt;/code>&lt;/li>
+&lt;li>&lt;strong>speaker:&lt;/strong> &lt;code>play&lt;/code>, &lt;code>stop&lt;/code>, &lt;code>finish&lt;/code>, &lt;code>volume_set&lt;/code>&lt;/li>
+&lt;li>&lt;strong>sprinkler:&lt;/strong> &lt;code>clear_queued_valves&lt;/code>, &lt;code>next_valve&lt;/code>, &lt;code>pause&lt;/code>, &lt;code>previous_valve&lt;/code>, &lt;code>queue_valve&lt;/code>, &lt;code>resume&lt;/code>, &lt;code>resume_or_start_full_cycle&lt;/code>, &lt;code>set_divider&lt;/code>, &lt;code>set_multiplier&lt;/code>, &lt;code>set_repeat&lt;/code>, &lt;code>set_valve_run_duration&lt;/code>, &lt;code>shutdown&lt;/code>, &lt;code>start_from_queue&lt;/code>, &lt;code>start_full_cycle&lt;/code>, &lt;code>start_single_valve&lt;/code>&lt;/li>
+&lt;li>&lt;strong>sps30:&lt;/strong> &lt;code>start_fan_autoclean&lt;/code>&lt;/li>
+&lt;li>&lt;strong>stepper:&lt;/strong> &lt;code>report_position&lt;/code>, &lt;code>set_acceleration&lt;/code>, &lt;code>set_deceleration&lt;/code>, &lt;code>set_speed&lt;/code>, &lt;code>set_target&lt;/code>&lt;/li>
+&lt;li>&lt;strong>switch:&lt;/strong> &lt;code>toggle&lt;/code>, &lt;code>turn_off&lt;/code>, &lt;code>turn_on&lt;/code>&lt;/li>
+&lt;li>&lt;strong>tag:&lt;/strong> &lt;code>emulation_off&lt;/code>, &lt;code>emulation_on&lt;/code>, &lt;code>polling_off&lt;/code>, &lt;code>polling_on&lt;/code>, &lt;code>set_clean_mode&lt;/code>, &lt;code>set_emulation_message&lt;/code>, &lt;code>set_format_mode&lt;/code>, &lt;code>set_read_mode&lt;/code>, &lt;code>set_write_message&lt;/code>, &lt;code>set_write_mode&lt;/code>&lt;/li>
+&lt;li>&lt;strong>text:&lt;/strong> &lt;code>set&lt;/code>&lt;/li>
+&lt;li>&lt;strong>tm1651:&lt;/strong> &lt;code>set_brightness&lt;/code>, &lt;code>set_level&lt;/code>, &lt;code>set_level_percent&lt;/code>, &lt;code>turn_off&lt;/code>, &lt;code>turn_on&lt;/code>&lt;/li>
+&lt;li>&lt;strong>uart:&lt;/strong> &lt;code>write&lt;/code>&lt;/li>
+&lt;li>&lt;strong>ufire_ec:&lt;/strong> &lt;code>calibrate_probe&lt;/code>, &lt;code>reset&lt;/code>&lt;/li>
+&lt;li>&lt;strong>ufire_ise:&lt;/strong> &lt;code>calibrate_probe_high&lt;/code>, &lt;code>calibrate_probe_low&lt;/code>, &lt;code>reset&lt;/code>&lt;/li>
+&lt;li>&lt;strong>update:&lt;/strong> &lt;code>perform&lt;/code>&lt;/li>
+&lt;li>&lt;strong>valve:&lt;/strong> &lt;code>close&lt;/code>, &lt;code>control&lt;/code>, &lt;code>open&lt;/code>, &lt;code>stop&lt;/code>, &lt;code>toggle&lt;/code>&lt;/li>
+&lt;li>&lt;strong>voice_assistant:&lt;/strong> &lt;code>start&lt;/code>, &lt;code>start_continuous&lt;/code>, &lt;code>stop&lt;/code>&lt;/li>
+&lt;li>&lt;strong>wifi:&lt;/strong> &lt;code>disable&lt;/code>, &lt;code>enable&lt;/code>&lt;/li>
+&lt;li>&lt;strong>wireguard:&lt;/strong> &lt;code>disable&lt;/code>, &lt;code>enable&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;!-- markdownlint-enable MD013 --></description></item><item><title/><link>https://bharvey88.github.io/esphome-docs/automations/all_conditions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/automations/all_conditions/</guid><description>&lt;ul>
+&lt;li>&lt;strong>alarm_control_panel:&lt;/strong> &lt;code>is_armed&lt;/code>, &lt;code>ready&lt;/code>&lt;/li>
+&lt;li>&lt;strong>api:&lt;/strong> &lt;code>connected&lt;/code>&lt;/li>
+&lt;li>&lt;strong>binary_sensor:&lt;/strong> &lt;code>is_off&lt;/code>, &lt;code>is_on&lt;/code>&lt;/li>
+&lt;li>&lt;strong>ble:&lt;/strong> &lt;code>enabled&lt;/code>&lt;/li>
+&lt;li>&lt;strong>dfplayer:&lt;/strong> &lt;code>is_playing&lt;/code>&lt;/li>
+&lt;li>&lt;strong>display:&lt;/strong> &lt;code>is_displaying_page&lt;/code>&lt;/li>
+&lt;li>&lt;strong>display_menu:&lt;/strong> &lt;code>is_active&lt;/code>&lt;/li>
+&lt;li>&lt;strong>fan:&lt;/strong> &lt;code>is_off&lt;/code>, &lt;code>is_on&lt;/code>&lt;/li>
+&lt;li>&lt;strong>light:&lt;/strong> &lt;code>is_off&lt;/code>, &lt;code>is_on&lt;/code>&lt;/li>
+&lt;li>&lt;strong>lock:&lt;/strong> &lt;code>is_locked&lt;/code>, &lt;code>is_unlocked&lt;/code>&lt;/li>
+&lt;li>&lt;strong>media_player:&lt;/strong> &lt;code>is_announcing&lt;/code>, &lt;code>is_idle&lt;/code>, &lt;code>is_paused&lt;/code>, &lt;code>is_playing&lt;/code>&lt;/li>
+&lt;li>&lt;strong>micro_wake_word:&lt;/strong> &lt;code>is_running&lt;/code>&lt;/li>
+&lt;li>&lt;strong>microphone:&lt;/strong> &lt;code>is_capturing&lt;/code>&lt;/li>
+&lt;li>&lt;strong>mqtt:&lt;/strong> &lt;code>connected&lt;/code>&lt;/li>
+&lt;li>&lt;strong>number:&lt;/strong> &lt;code>in_range&lt;/code>&lt;/li>
+&lt;li>&lt;strong>pn532:&lt;/strong> &lt;code>is_writing&lt;/code>&lt;/li>
+&lt;li>&lt;strong>pn7150:&lt;/strong> &lt;code>is_writing&lt;/code>&lt;/li>
+&lt;li>&lt;strong>pn7160:&lt;/strong> &lt;code>is_writing&lt;/code>&lt;/li>
+&lt;li>&lt;strong>rtttl:&lt;/strong> &lt;code>is_playing&lt;/code>&lt;/li>
+&lt;li>&lt;strong>script:&lt;/strong> &lt;code>is_running&lt;/code>&lt;/li>
+&lt;li>&lt;strong>sensor:&lt;/strong> &lt;code>in_range&lt;/code>&lt;/li>
+&lt;li>&lt;strong>speaker:&lt;/strong> &lt;code>is_playing&lt;/code>&lt;/li>
+&lt;li>&lt;strong>sun:&lt;/strong> &lt;code>is_above_horizon&lt;/code>, &lt;code>is_below_horizon&lt;/code>&lt;/li>
+&lt;li>&lt;strong>switch:&lt;/strong> &lt;code>is_off&lt;/code>, &lt;code>is_on&lt;/code>&lt;/li>
+&lt;li>&lt;strong>text_sensor:&lt;/strong> &lt;code>state&lt;/code>&lt;/li>
+&lt;li>&lt;strong>time:&lt;/strong> &lt;code>has_time&lt;/code>&lt;/li>
+&lt;li>&lt;strong>update:&lt;/strong> &lt;code>is_available&lt;/code>&lt;/li>
+&lt;li>&lt;strong>voice_assistant:&lt;/strong> &lt;code>connected&lt;/code>, &lt;code>is_running&lt;/code>&lt;/li>
+&lt;li>&lt;strong>wifi:&lt;/strong> &lt;code>connected&lt;/code>, &lt;code>enabled&lt;/code>&lt;/li>
+&lt;li>&lt;strong>wireguard:&lt;/strong> &lt;code>enabled&lt;/code>, &lt;code>peer_online&lt;/code>&lt;/li>
+&lt;/ul></description></item><item><title>Actions, Triggers, Conditions</title><link>https://bharvey88.github.io/esphome-docs/automations/actions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/automations/actions/</guid><description>&lt;a class="anchor" id="actions-triggers" role="none">&lt;/a>
+
+&lt;p>ESPHome &lt;em>actions&lt;/em> are how we make an ESPHome device &lt;em>do something.&lt;/em>&lt;/p>
+&lt;p>Let&amp;rsquo;s begin with an example. Suppose you have a configuration file which contains:&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">switch&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gpio&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Living Room Dehumidifier&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gpio&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Living Room Dehumidifier Toggle Button&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;p>With this file you can already perform some basic tasks. You can control the ON/OFF state of the dehumidifier in your
+living room from Home Assistant&amp;rsquo;s front-end. But in many cases, controlling everything strictly from the frontend is
+not desirable. That&amp;rsquo;s why you&amp;rsquo;ve also installed a simple push button next to the dehumidifier wired to pin GPIOXX.
+A simple push of this button should toggle the state of the dehumidifier.&lt;/p></description></item><item><title>Templates</title><link>https://bharvey88.github.io/esphome-docs/automations/templates/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/automations/templates/</guid><description>&lt;a class="anchor" id="config-lambda" role="none">&lt;/a>
+
+&lt;p>&lt;em>Templates&lt;/em> (also known as &lt;em>lambdas&lt;/em>) allow you to do almost &lt;em>anything&lt;/em> in ESPHome. For example, if you want to only
+perform a certain automation if a certain complex formula evaluates to true, you can do that with templates. Let&amp;rsquo;s look
+at an example first:&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gpio&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Cover End Stop&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">top_end_stop&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">cover&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Living Room Cover&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">lambda&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>!&lt;span class="l">lambda |-&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">if (id(top_end_stop).state) {&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">return COVER_OPEN;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>}&lt;span class="w"> &lt;/span>&lt;span class="l">else {&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">return COVER_CLOSED;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;p>What&amp;rsquo;s happening here? First, we define a binary sensor (notably with &lt;code>id: top_end_stop&lt;/code> ) and then a
+&lt;a href="https://bharvey88.github.io/esphome-docs/components/cover/template/">template cover&lt;/a>. (If you&amp;rsquo;re new to Home Assistant, a &amp;lsquo;cover&amp;rsquo; is something
+like a window blind, a roller shutter, or a garage door.) The &lt;em>state&lt;/em> of the template cover is controlled by a template,
+or &amp;ldquo;lambda&amp;rdquo;. In lambdas, you&amp;rsquo;re just writing C++ code and therefore the name lambda is used instead of Home Assistant&amp;rsquo;s
+&amp;ldquo;template&amp;rdquo; lingo to avoid confusion. Regardless, don&amp;rsquo;t let lambdas scare you just because you saw &amp;ldquo;C++&amp;rdquo; &amp;ndash; writing
+lambdas is not that hard! Here&amp;rsquo;s a bit of a primer:&lt;/p></description></item></channel></rss>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Microphone Components on ESPHome - Smart Home Made Simple</title><link>https://bharvey88.github.io/esphome-docs/components/microphone/</link><description>Recent content in Microphone Components on ESPHome - Smart Home Made Simple</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bharvey88.github.io/esphome-docs/components/microphone/index.xml" rel="self" type="application/rss+xml"/><item><title>I²S Audio Microphone</title><link>https://bharvey88.github.io/esphome-docs/components/microphone/i2s_audio/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/microphone/i2s_audio/</guid><description>&lt;p>The &lt;code>i2s_audio&lt;/code> microphone platform allows you to receive audio via the the &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2s_audio/">I²S Audio Component&lt;/a>.&lt;/p>
+&lt;p>This platform only works on ESP32 based chips.&lt;/p>
+
+
+&lt;blockquote class="alert alert-warning">
+ &lt;p class="alert-heading">
+ ⚠️
+ 
+ Warning
+ 
+ &lt;/p>
+ &lt;p>Audio and voice components consume a significant amount of resources (RAM, CPU) on the device.&lt;/p>
+&lt;p>&lt;strong>Crashes are likely to occur&lt;/strong> if you include too many additional components in your device&amp;rsquo;s
+configuration. In particular, Bluetooth/BLE components are known to cause issues when used in
+combination with Voice Assistant and/or other audio components.&lt;/p></description></item></channel></rss>

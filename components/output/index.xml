@@ -1,0 +1,1249 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Output Component on ESPHome - Smart Home Made Simple</title><link>https://bharvey88.github.io/esphome-docs/components/output/</link><description>Recent content in Output Component on ESPHome - Smart Home Made Simple</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bharvey88.github.io/esphome-docs/components/output/index.xml" rel="self" type="application/rss+xml"/><item><title>AC Dimmer Component</title><link>https://bharvey88.github.io/esphome-docs/components/output/ac_dimmer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/ac_dimmer/</guid><description>&lt;blockquote class="alert alert-warning">
+ &lt;p class="alert-heading">
+ ⚠️
+ 
+ Warning
+ 
+ &lt;/p>
+ &lt;p>This component has not been fully tested yet, if you are testing this component
+please share your experience with the dimmer hardware and light model and
+configuration here &lt;a href="https://github.com/esphome/feature-requests/issues/278">https://github.com/esphome/feature-requests/issues/278&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>&lt;/p>
+&lt;p>Thanks!&lt;/p>
+&lt;/blockquote>
+&lt;p>The &lt;code>ac_dimmer&lt;/code> component allows you to connect a dimmable light or other load
+which supports phase control dimming to your ESPHome project.&lt;/p>
+&lt;p>There are several already made boards which are compatible with this component, such as the
+&lt;a href="https://robotdyn.com/ac-light-dimmer-module-1-channel-3-3v-5v-logic-ac-50-60hz-220v-110v.html">RobotDyn dimmer&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>.&lt;/p></description></item><item><title>BLE Client Binary Output</title><link>https://bharvey88.github.io/esphome-docs/components/output/ble_client/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/ble_client/</guid><description>&lt;p>The &lt;code>ble_client&lt;/code> component is a output that can write a binary value to service characteristics of BLE devices.&lt;/p>
+&lt;p>For more information on BLE services and characteristics, see &lt;a href="https://bharvey88.github.io/esphome-docs/components/ble_client/">BLE Client&lt;/a>.&lt;/p>
+
+
+&lt;blockquote class="alert alert-warning">
+ &lt;p class="alert-heading">
+ ⚠️
+ 
+ Warning
+ 
+ &lt;/p>
+ &lt;p>The BLE software stack on the ESP32 consumes a significant amount of RAM on the device.&lt;/p>
+&lt;p>&lt;strong>Crashes are likely to occur&lt;/strong> if you include too many additional components in your device&amp;rsquo;s
+configuration. Memory-intensive components such as &lt;a href="https://bharvey88.github.io/esphome-docs/components/voice_assistant/">Voice Assistant&lt;/a> and other
+audio components are most likely to cause issues.&lt;/p></description></item><item><title>BP1658CJ LED driver</title><link>https://bharvey88.github.io/esphome-docs/components/output/bp1658cj/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/bp1658cj/</guid><description>&lt;a class="anchor" id="bp1658cj-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The BP1658CJ component represents a BP1658CJ LED driver chain in
+ESPHome. Communication is done with two GPIO pins (DATA and CLK).&lt;/p>
+&lt;p>To use the channels of this components, you first need to setup the
+global &lt;code>bp1658cj&lt;/code> hub and give it an id, and then define the
+&lt;a href="#bp1658cj-output">individual output channels&lt;/a>.
+It is used in some smart light bulbs:&lt;/p>
+&lt;ul>
+&lt;li>Orein OS0100411267 RGBCT Bulb&lt;/li>
+&lt;/ul>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">bp1658cj&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">data_pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">clock_pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max_power_color_channels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">4&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Valid values 0-15&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max_power_white_channels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">6&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Valid values 0-15&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h3 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>data_pin&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#pin-schema">Pin Schema&lt;/a>): The pin used for DATA.&lt;/p></description></item><item><title>BP5758D LED driver</title><link>https://bharvey88.github.io/esphome-docs/components/output/bp5758d/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/bp5758d/</guid><description>&lt;a class="anchor" id="bp5758d-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The BP5758D component represents a BP5758D LED driver chain in
+ESPHome. Communication is done with two GPIO pins (DATA and CLK).&lt;/p>
+&lt;p>To use the channels of this components, you first need to setup the
+global &lt;code>bp5758d&lt;/code> hub and give it an id, and then define the
+&lt;a href="#bp5758d-output">individual output channels&lt;/a>.
+It is used in some smart light bulbs:&lt;/p>
+&lt;ul>
+&lt;li>DoHome G25 Globe bulb&lt;/li>
+&lt;/ul>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">bp5758d&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">data_pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">clock_pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h3 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>data_pin&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#pin-schema">Pin Schema&lt;/a>): The pin used for DATA.&lt;/p></description></item><item><title>DAC7678</title><link>https://bharvey88.github.io/esphome-docs/components/output/dac7678/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/dac7678/</guid><description>&lt;a class="anchor" id="dac7678-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The DAC7678 component represents a DAC7678 12-bit 8 channel DAC with internal reference
+(&lt;a href="https://www.ti.com/lit/ds/symlink/dac7678.pdf">datasheet&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>) in ESPHome. It
+uses the &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C Bus&lt;/a> for communication.&lt;/p>
+&lt;p>To use the channels of this components, you first need to setup the
+global &lt;code>dac7678&lt;/code> hub and give it an id, and then define the
+&lt;a href="#dac7678-output">individual output channels&lt;/a>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">dac7678&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">address&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">0x4A&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">dac7678_hub1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">internal_reference&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Individual outputs&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">dac7678&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">dac7678_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;dac7678_hub1&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">channel&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h3 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>address&lt;/strong> (&lt;em>Optional&lt;/em>, int): The I²C address of the driver.
+Defaults to &lt;code>0x48&lt;/code>.&lt;/p></description></item><item><title>ESP32 DAC</title><link>https://bharvey88.github.io/esphome-docs/components/output/esp32_dac/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/esp32_dac/</guid><description>&lt;p>The ESP32 DAC platform allows you to output analog voltages using the 8-bit digital-to-analog
+converter of the ESP32. Unlike the &lt;a href="https://bharvey88.github.io/esphome-docs/components/output/ledc/">ESP32 LEDC Output&lt;/a>, which can simulate an analog
+signal by using a fast switching frequency, the hardware DAC can output a &lt;em>real&lt;/em> analog signal with
+no need for additional filtering.&lt;/p>
+&lt;p>The DAC spans across two pins, each on its own channel:&lt;/p>
+&lt;ul>
+&lt;li>ESP32: GPIO25 (Channel 0) and GPIO26 (Channel 1).&lt;/li>
+&lt;li>ESP32 S2: GPIO17 (Channel 0) and GPIO18 (Channel 1).&lt;/li>
+&lt;/ul>
+&lt;p>The output level is a percentage of the board supply voltage (VDD_A) - generally this will be 3.3 V.&lt;/p></description></item><item><title>ESP32 LEDC Output</title><link>https://bharvey88.github.io/esphome-docs/components/output/ledc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/ledc/</guid><description>&lt;p>The LEDC output component exposes a &lt;a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-reference/peripherals/ledc.html">LEDC PWMchannel&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>
+of the ESP32 as an output component.&lt;/p>
+&lt;p>The frequency range of LEDC is from 10Hz to 40MHz - however, higher frequencies require a smaller
+bit depth which means the output is not that accurate for frequencies above ~300kHz.&lt;/p>
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>pin&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#pin">Pin&lt;/a>): The pin to use LEDC on. Can only be GPIO0-GPIO33.&lt;/p></description></item><item><title>ESP8266 Software PWM Output</title><link>https://bharvey88.github.io/esphome-docs/components/output/esp8266_pwm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/esp8266_pwm/</guid><description>&lt;p>The ESP8266 Software PWM platform allows you to use a software PWM on
+the pins GPIO0-GPIO16 on your ESP8266. Note that this is a software PWM,
+so there can be some flickering during periods of high WiFi activity. Hardware PWMs
+like the one on the ESP32 (see &lt;a href="https://bharvey88.github.io/esphome-docs/components/output/ledc/">ESP32 LEDC Output&lt;/a>) are preferred.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">esp8266_pwm&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">frequency&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1000&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Hz&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pwm_output&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Example usage in a light&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">light&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">monochromatic&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pwm_output&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Kitchen Light&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>pin&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#pin-schema">Pin Schema&lt;/a>): The pin to use PWM on.&lt;/p></description></item><item><title>GP8403 Component</title><link>https://bharvey88.github.io/esphome-docs/components/output/gp8403/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/gp8403/</guid><description>&lt;p>The &lt;code>gp8403&lt;/code> is a 2-channel DAC output module. It requires an &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c/">I²C Bus&lt;/a> to be setup.&lt;/p>
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">gp8403&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my_gp8403&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">voltage&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">5V&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;p>Configuration variables:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>id&lt;/strong> (&lt;em>Optional&lt;/em>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): Manually specify the ID used for code generation.&lt;/li>
+&lt;li>&lt;strong>voltage&lt;/strong> (&lt;strong>Required&lt;/strong>, voltage): The output voltage range of the DAC. Must be one of &lt;code>5V&lt;/code> or &lt;code>10V&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="output">
+ Output
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="output" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gp8403&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my_gp8403_output_1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">gp8403_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my_gp8403&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">channel&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gp8403&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my_gp8403_output_2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">gp8403_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my_gp8403&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">channel&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;p>Configuration variables:&lt;/p></description></item><item><title>GPIO Output</title><link>https://bharvey88.github.io/esphome-docs/components/output/gpio/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/gpio/</guid><description>&lt;p>The GPIO output component is quite simple: It exposes a single GPIO pin
+as an output component. Note that output components are &lt;strong>not&lt;/strong> switches and
+will not show up in Home Assistant. See &lt;a href="https://bharvey88.github.io/esphome-docs/components/switch/gpio/">GPIO Switch&lt;/a>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gpio&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gpio_d1&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>pin&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#pin-schema">Pin Schema&lt;/a>): The pin to turn on and off.&lt;/li>
+&lt;li>&lt;strong>id&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The id to use for this output component.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/output#config-output">Output&lt;/a>.&lt;/li>
+&lt;/ul>
+
+
+&lt;blockquote class="alert alert-warning">
+ &lt;p class="alert-heading">
+ ⚠️
+ 
+ Warning
+ 
+ &lt;/p></description></item><item><title>LibreTiny PWM Output</title><link>https://bharvey88.github.io/esphome-docs/components/output/libretiny_pwm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/libretiny_pwm/</guid><description>&lt;p>The LibreTiny PWM platform allows you to use a hardware PWM on BK72xx and RTL87xx chips.
+Refer to &lt;a href="https://docs.libretiny.eu/link/boards">LibreTiny/Boards&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a> to find your board
+and which PWM pins it supports.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">libretiny_pwm&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">P8&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">frequency&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1000&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Hz&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pwm_output&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Example usage in a light&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">light&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">monochromatic&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pwm_output&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Kitchen Light&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>pin&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#pin-schema">Pin Schema&lt;/a>): The pin to use PWM on.&lt;/p></description></item><item><title>MCP4461 Component</title><link>https://bharvey88.github.io/esphome-docs/components/output/mcp4461/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/mcp4461/</guid><description>&lt;a class="anchor" id="mcp4461-component" role="none">&lt;/a>
+
+&lt;p>The MCP4461 output component enables the use of an 8‑bit external quad digital potentiometer/rheostat via I²C. See the &lt;a href="https://www.microchip.com/en-us/product/mcp4461">MCP4461 Datasheet&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a> for more information.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">mcp4461&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">mcp4461_output&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>id&lt;/strong> (&lt;em>Optional&lt;/em>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The id to use for this output component.&lt;/p></description></item><item><title>MCP4725 Output</title><link>https://bharvey88.github.io/esphome-docs/components/output/mcp4725/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/mcp4725/</guid><description>&lt;p>The MCP4725 output component allows to use &lt;a href="https://learn.sparkfun.com/tutorials/mcp4725-digital-to-analog-converter-hookup-guide/all">12bit external DAC&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>
+in order to have analog output(s) on any board by using I2C. Devices default address is &lt;code>0x60&lt;/code>
+and configurable alternative is &lt;code>0x61&lt;/code>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Set a global i2c connection&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">i2c&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">sda&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">21&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">scl&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">22&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">scan&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Set the output with default (address: 0x60 / global i2c)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">mcp4725&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">dac_output&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">on_...&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">then&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">output.set_level&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">dac_output&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">level&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">100&lt;/span>&lt;span class="l">%&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>id&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The id to use for this output component.&lt;/p></description></item><item><title>MCP4728 Component</title><link>https://bharvey88.github.io/esphome-docs/components/output/mcp4728/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/mcp4728/</guid><description>&lt;a class="anchor" id="mcp4728-component" role="none">&lt;/a>
+
+&lt;p>The MCP4728 output component allows to use &lt;a href="https://www.adafruit.com/product/4470">12bit external quad DAC&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>
+in order to have analog outputs on any board by using &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C&lt;/a>. Devices default address is &lt;code>0x60&lt;/code>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Set a global I²C connection&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">i2c&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">sda&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">21&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">scl&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">22&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">scan&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Set the component with default (address: 0x60 / global I²C)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">mcp4728&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">dac_output&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>id&lt;/strong> (&lt;em>Optional&lt;/em>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The id to use for this output component.&lt;/p></description></item><item><title>MCP47A1 Output</title><link>https://bharvey88.github.io/esphome-docs/components/output/mcp47a1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/mcp47a1/</guid><description>&lt;p>The &lt;code>mcp47a1&lt;/code> output component allows to use &lt;a href="https://www.microchip.com/en-us/product/MCP47A1">6bit external DAC&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>
+in order to have analog output(s) on any board by using I²C. Devices default address is &lt;code>0x2E&lt;/code>
+and configurable alternative is &lt;code>0x3E&lt;/code>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Set a global I²C connection&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">i2c&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">sda&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">21&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">scl&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">22&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">scan&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Set the output with default (address: 0x2E / global I²C)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">mcp47a1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">dac_output&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">on_...&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">then&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">output.set_level&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">dac_output&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">level&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">100&lt;/span>&lt;span class="l">%&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>id&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The id to use for this output component.&lt;/p></description></item><item><title>Modbus Controller Output</title><link>https://bharvey88.github.io/esphome-docs/components/output/modbus_controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/modbus_controller/</guid><description>&lt;p>The &lt;code>modbus_controller&lt;/code> platform creates an output from a modbus_controller. The goal is to write a value to a modbus register on a device.&lt;/p>
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>address&lt;/strong> (&lt;strong>Required&lt;/strong>, int): start address of the first register in a range (can be decimal or hexadecimal).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>value_type&lt;/strong> (&lt;strong>Required&lt;/strong>): data type of the modbus register data. The default data type for modbus is a 16 bit integer in big endian format (MSB first).&lt;/p></description></item><item><title>MY9231/MY9291 LED driver</title><link>https://bharvey88.github.io/esphome-docs/components/output/my9231/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/my9231/</guid><description>&lt;a class="anchor" id="my9231-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The MY9231/MY9291 component represents a MY9231/MY9291 LED driver chain
+(&lt;a href="http://www.my-semi.com.tw/file/MY9231_BF_0.91.pdf">MY9231 description&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>,
+&lt;a href="http://www.my-semi.com.tw/file/MY9291_BF_0.91.pdf">MY9291 description&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>) in
+ESPHome. Communication is done with two GPIO pins (DI and DCKI) and multiple
+driver chips can be chained. There are two models with different number of
+output channels (MY9291 with 4 channels and MY9231 with 3 channels). They are
+popular driver chips used in smart light bulbs:&lt;/p></description></item><item><title>PCA9685</title><link>https://bharvey88.github.io/esphome-docs/components/output/pca9685/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/pca9685/</guid><description>&lt;a class="anchor" id="pca9685-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The PCA9685 component represents a PCA9685 12-bit PWM driver
+(&lt;a href="https://www.nxp.com/docs/en/data-sheet/PCA9685.pdf">datasheet&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>,
+&lt;a href="https://www.adafruit.com/product/815">adafruit&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>) in ESPHome. It
+uses &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C Bus&lt;/a> for communication.&lt;/p>
+&lt;p>To use the channels of this components, you first need to setup the
+global &lt;code>pca9685&lt;/code> hub and give it an id, and then define the
+&lt;a href="#pca9685-output">individual output channels&lt;/a>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">pca9685&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pca9685_hub1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">frequency&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">500&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Individual outputs&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pca9685&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pca9685_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;pca9685_hub1&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">channel&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry with external clock enable and clock source from ESP32&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">pca9685&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pca9685_hub1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">external_clock_input&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Individual outputs&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># generate PWM from ESP32 ledc&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ledc&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">extclk&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">min_power&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">frequency&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">40MHz&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pca9685&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pca9685_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;pca9685_hub1&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">channel&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h3 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>frequency&lt;/strong> (&lt;em>Optional&lt;/em>, float): The frequency to let the
+component drive all PWM outputs at. Must be in range from 24Hz to
+1525.88Hz. Defaults to &lt;code>1000Hz&lt;/code>.&lt;/p></description></item><item><title>Sigma-Delta Output</title><link>https://bharvey88.github.io/esphome-docs/components/output/sigma_delta_output/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/sigma_delta_output/</guid><description>&lt;p>This component uses &lt;a href="https://en.wikipedia.org/wiki/Delta-sigma_modulation">sigma-delta modulation&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>
+to output a floating-point value on a binary output. Unlike with &lt;a href="https://bharvey88.github.io/esphome-docs/components/output/slow_pwm/">Slow PWM Output&lt;/a>,
+it is possible to update the output value with each update cycle, not just at the end of a longer period.&lt;/p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/components/output/images/sigma-delta-example.png" width="65.0%" alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>Comparison between a &lt;em>Slow PWM&lt;/em> with a period of 100s and a &lt;em>sigma-delta output&lt;/em> with an update interval of 1s&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 1024px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/components/output/images/sigma-delta-example.png"
+ fetchpriority="high"
+ style="width:65.0%px;"
+ srcset="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAACHBAMAAABNDW4CAAAAHlBMVEX///8/Pz8AAAAfHx&amp;#43;fn59fX19/f3/f39&amp;#43;/v7/Jf&amp;#43;kXy3kRAAAJD0lEQVR4nNxaS5KkMA71TpG31U7oBOTs2Kl92wn9jDGYTHqqIjqG6k6yKBAP&amp;#43;elJsin/xAYAv2WaYvsF0/B&amp;#43;r7SsK/68aaL3sizv3zANQKgOeeJxKKhb7OzrbCv&amp;#43;1xLn7//atzweTwpgaHw33dg&amp;#43;xc4kIsMQu24fX9JrWGutiAVZv1SJ/bBJrcKVayU9URCUjgTFfjj3drw0noKaotjXWoGuTOs5YiBKeXG1i0HCgmBacqMJGxTTVkphvkFdDbWfqajNl4QH00XyHuEPYseSqGlmuqFm&amp;#43;&amp;#43;xRU6J20xSWobpDSvp65hBDrWfSiLqmaxN1/Jn&amp;#43;HFHDDDWn6RNqDg/UGIO4wULN1x9Qb9wccu3rhtqPo/u6Y8h0GBO1nggHk&amp;#43;HrIuHrniF2KFBPh3E7&amp;#43;Vomvk59HFFPec07&amp;#43;cLX6ZDB10E&amp;#43;wBND7lH3vj6FzAE1EdUj6qlDel876u3okOZrSob852D6E0MOvj6SL1FD4/XRITe8fu2&amp;#43;dobwSUOOwzjI0xNeN4cE6nrUkAL1L3gdvk5wYSqVL3wNI0Puea0Oab4&amp;#43;OeSgIUDPeN0r34vyuTMqYwzgmnyfeG0OcXQog14fNQRODJkOo&amp;#43;n1gSFjyNSDhsCJIVNf3&amp;#43;g1HFFjxxDFkr4u91mGel/jgSEtN4ZgN1H9yJDMjcCj8mUCq3GPSGA4asjnjD76murA68cMab5mHnw9akg8BA0O&amp;#43;cTrq9x4XYfsGf05r2kQ1aYhTZ7&amp;#43;PNSQQoG6BXpmGY57HHJjz&amp;#43;uPes3VKZHko11DqBvGAu5r&amp;#43;MzryI3oyqe1skT1W6OKlGpmofG61j&amp;#43;VkIC1EmUmZqn6rw73iJABpMpgRa&amp;#43;gFs9AHAU4C1EhxJQtolVk0&amp;#43;JZt5pfRPRE3daVFq2wmZmErdYWAgIvt732RvsROw7UUHvBHT1W8a4Cu1KeuSvhtfC3Qr/o3kAbanWI/dkOBOzYIzCFXCXjV&amp;#43;8fYEVtSwpw8PWdV2Y0rsVL92iiaE2PpE4RHu6179f8HdOF44mYke37JYmdJITjvrFzb03y3mW4soEbTvz/3aKd9C8/a9poZ7T88QkAeq/r8n6vuv9p1O91XZdlofd7eWgas9PLn64F11/DFx65Gj3tSrBour4dlNAYDX3M//vmKjBMDRSPcNgPqhG71P7Fs7pYMKjKqP6YBtlOJQpSkZqQOHozgY4qsLlV6GY2kKraEpb6Uhk1MdUP1VVv&amp;#43;UVET2C9F8GGqNkQTZOKTQQUU1hVcCQhaSxSLRQ1Ihf5xXIQvypVfpEQv0ibo0hZvYv1EGpK4900UN1ELIfwKcGI1zUsUjdND8SkiLOLyQfPxgY2BEUdib1QJSbNfBeo/ZBIBX009Rspsky4B9T&amp;#43;AQ21jkoVzSCvK9SexMwhOhqGesO97O1MCzjqZhpWMjeq&amp;#43;TvU&amp;#43;mhbJUt116bZc7uZzg5MncEsXMc8a1m2pq/t0TRXqa8vHCLhEOWtHwFw1Py69LVEmQDKOzHUMkHdHLJlvgJ9Vkc9I5&amp;#43;wbIkaicoUNekwQsdrDQnjtUxQm6&amp;#43;9WBAn38TXRj7m6MCQnHzKELhHTdXjHVspdkCNgbqRj9BR0zVq46P6uhpkkW06jLiTz1EvWogpt&amp;#43;Uy0HeGaMiS6dU9&amp;#43;WRHrQ6pQb5zoHsNadHozt5cQyaoXUOaDFAV2ibkS9TV5VFRKxWmwygAKsKlkY&amp;#43;nIZOoVb9INYxJHXKlITGMpnzZT2s0zkKmoQbjNQgj3AR6ki8wk6k8K74rUa3GENcmjchpNKo8DRriWeY2FQjXV7XbU4TMN6KqzR3L3NcZjWj3V8meOcR8rcPYeK0MYWXIBw0xr1kOlnIVjdSRrzEE6ibMmmVueB25uUXjaTnCQ6bXkALFfFgnyucMqbKFPDGojZlD9ENH2p8DLctwNesz1Ek&amp;#43;knkC4xDVlna1MjFeU71B7THlw0iTQM&amp;#43;MzpllTEPsSprrNXPTa8Y7vc5UEJOU4KjV168ZQ3QYNxtGD/Spr/toLE4&amp;#43;K3GmudHJZ/r3iddjbty8xLkKdL/bYRi/jcZiGd0e9crXNbJMRLmY8mnZSL70ZZW2tjdaQ3hNuRdmHuieZRK1VPGoj6pHchhZn5ZBy1Evr7XotcUvvZsf5z1kyOtp4iyp/QuzpraYCrB6W81uDBzluPdNVm/n17YE1xzipbyfps287QCYbVYASPQUK/ARkLRPtj7PGK5u0WbeAmQxzu/rtIQ5B2MHMP/gfRx2LfhiLQ&amp;#43;CtuBgzXtEXbb9&amp;#43;gfLNUOPnhbKMnb1a&amp;#43;nuZUVAnlCGE5qPj1PkZWz/4dO8wDhxkP0R0r/S/v8ijn3t&amp;#43;Kc3bAz&amp;#43;cdOwLLTQe33//JsFQKsaX5fnpiGav&amp;#43;LzjNn522bdvfXq&amp;#43;&amp;#43;sQX7mccmHfd9nZI&amp;#43;W4eXefLwl0Xb9NDvRvB0TH3iZ67BoKGTM5iflJdk1BavMFcR3lZ5uGoHYXt9TinIpNSvhEiGquSqrNqsby/u4hLP5qAnjf71OLdi34xAnEdMCV20hzWa1/XLbPZPuKfKMS2G3GFUHZ/maGLDWluxbI3ns45t2/sN06sB0&amp;#43;XbXS/Dy4MdfAWk9zmgwP3I9eZelRZxggX8xZ&amp;#43;PYwBGNCv4kZTA3Xyg9tH6eKgS6KkN0pz2w3XkNw4247l&amp;#43;q3qLMIttrn3vJD2215zRcnP5gW&amp;#43;d42NIZgmS4x9tsDCmYhg/SV5ScUpFZe8CdvhE&amp;#43;2b0N&amp;#43;f&amp;#43;/pO9APbLcZs28tf0&amp;#43;TVjR&amp;#43;bbnW71YKYpaZHpmu5x7mwjJT/87C16Y/uxup&amp;#43;toYlI&amp;#43;B&amp;#43;Mw2arsV3x8M4xe2UfkWK3r4DLUq7A1PYsE/FrsfDWPNt8amlrkNNj0bxsA9sQyvWNX2356j1sxw6e/2ZokPY7y&amp;#43;9tT21VhSU4wU4KfD6LhOcQmdFhH&amp;#43;D6ZP5Qn2uTXfBvgbh3h50hW7dJDPXKkmrx3H&amp;#43;kZytWr/nj/xZoDYC7FkZTO75vt7A&amp;#43;3FT6Jo76Xr39tBX3PLOQFffONcgiOvsPWUTTZ/QYD3SWYAyvXAwzu64AfR7uXFOsUEBbVqPlb//d0FLx&amp;#43;xb/8pyxwvvYnWvnrV3wcu/BnYke0/xn&amp;#43;SbNpHio5LrKf6fSTeeAK2A8OFp44WaDxhvGL8/Xfb//8GAAD//8iHF8Fy3TOmAAAAAElFTkSuQmCC"
+ data-src="https://bharvey88.github.io/esphome-docs/components/output/images/sigma-delta-example.png"
+ data-srcset="https://bharvey88.github.io/esphome-docs/components/output/images/sigma-delta-example.png 1024w, https://bharvey88.github.io/esphome-docs/components/output/images/sigma-delta-example_hu_f5086d39683b4d23.png 204w, https://bharvey88.github.io/esphome-docs/components/output/images/sigma-delta-example_hu_26c1344aeaeaee44.png 341w, https://bharvey88.github.io/esphome-docs/components/output/images/sigma-delta-example_hu_ead0bd5ffd4555d8.png 512w, https://bharvey88.github.io/esphome-docs/components/output/images/sigma-delta-example_hu_b3f536abe722c770.png 682w, https://bharvey88.github.io/esphome-docs/components/output/images/sigma-delta-example_hu_a13f39a711df1e02.png 1024w"
+ width="65.0%" 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>Comparison between a &lt;em>Slow PWM&lt;/em> with a period of 100s and a &lt;em>sigma-delta output&lt;/em> with an update interval of 1s&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+
+
+&lt;p>For example, if you choose to toggle the output at most once every 1 second and decide on a
+PWM period of 10 seconds, for reasonably frequent updates, with &lt;a href="https://bharvey88.github.io/esphome-docs/components/output/slow_pwm/">Slow PWM Output&lt;/a>
+there are only 10 possible levels, and for higher precision a longer update interval is needed,
+restricting the update rate.&lt;/p></description></item><item><title>Slow PWM Output</title><link>https://bharvey88.github.io/esphome-docs/components/output/slow_pwm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/slow_pwm/</guid><description>&lt;p>Similar to PWM, the Slow PWM Output platform allows you to control GPIO pins by
+pulsing them on/off over a longer time period. It could be used to control a
+heating element through a relay where a fast PWM update cycle would not be appropriate.&lt;/p>
+
+
+&lt;blockquote class="alert alert-note">
+ &lt;p class="alert-heading">
+ ℹ️
+ 
+ Note
+ 
+ &lt;/p>
+ &lt;p>This is for &lt;strong>slow&lt;/strong> PWM output. For fast-switching PWM outputs (for example,
+lights), see these outputs:&lt;/p>
+&lt;ul>
+&lt;li>ESP32: &lt;a href="https://bharvey88.github.io/esphome-docs/components/output/ledc/">ESP32 LEDC Output&lt;/a>&lt;/li>
+&lt;li>ESP8266: &lt;a href="https://bharvey88.github.io/esphome-docs/components/output/esp8266_pwm/">ESP8266 Software PWM Output&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">slow_pwm&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my_slow_pwm&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">period&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">15s&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>id&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The id to use for this output component.&lt;/p></description></item><item><title>SM16716 LED driver</title><link>https://bharvey88.github.io/esphome-docs/components/output/sm16716/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/sm16716/</guid><description>&lt;a class="anchor" id="sm16716-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The SM16716 component represents a SM16716 LED driver chain
+(&lt;a href="https://github.com/sowbug/sm16716/blob/master/SM16716%20Datasheet%20%5BChinese%5D.pdf">SM16716 description&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>,
+&lt;a href="https://github.com/sowbug/sm16716/blob/master/SM16716%20Datasheet%20%5BChinese%5D.pdf">SM16716 description&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>) in
+ESPHome. Communication is done with two GPIO pins (MOSI and SCLK) and multiple
+driver chips can be chained. It is used in some smart light bulbs:&lt;/p>
+&lt;ul>
+&lt;li>Feit Electric A19 Smart WiFi Bulb&lt;/li>
+&lt;li>Merkury Innovations A21 Smart Wi-Fi Bulb&lt;/li>
+&lt;/ul>
+&lt;p>To use the channels of this components, you first need to setup the
+global &lt;code>sm16716&lt;/code> hub and give it an id, and then define the
+&lt;a href="#sm16716-output">individual output channels&lt;/a>.&lt;/p></description></item><item><title>SM2135 LED driver</title><link>https://bharvey88.github.io/esphome-docs/components/output/sm2135/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/sm2135/</guid><description>&lt;a class="anchor" id="sm2135-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The SM2135 component represents a SM2135 LED driver chain
+(&lt;a href="https://github.com/arendst/Sonoff-Tasmota/files/3656603/SM2135E_zh-CN_en-US_translated.pdf">SM2135 description&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>,
+&lt;a href="https://github.com/arendst/Sonoff-Tasmota/files/3656603/SM2135E_zh-CN_en-US_translated.pdf">SM2135 description&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>) in
+ESPHome. Communication is done with two GPIO pins (MOSI and SCLK).
+It is used in some smart light bulbs:&lt;/p>
+&lt;ul>
+&lt;li>Calex Smart RGB Reflector LED lamp (GU10)&lt;/li>
+&lt;li>LSC Smart GU10&lt;/li>
+&lt;/ul>
+&lt;p>To use the channels of this components, you first need to setup the
+global &lt;code>sm2135&lt;/code> hub and give it an id, and then define the
+&lt;a href="#sm2135-output">individual output channels&lt;/a>.&lt;/p></description></item><item><title>SM2235 LED driver</title><link>https://bharvey88.github.io/esphome-docs/components/output/sm2235/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/sm2235/</guid><description>&lt;a class="anchor" id="sm2235-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The SM2235 component represents a SM2235 LED driver chain in
+ESPHome. Communication is done with two GPIO pins (DATA and CLK).&lt;/p>
+&lt;p>To use the channels of this components, you first need to setup the
+global &lt;code>sm2235&lt;/code> hub and give it an id, and then define the
+&lt;a href="#sm2235-output">individual output channels&lt;/a>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">sm2235&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">data_pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">clock_pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max_power_color_channels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max_power_white_channels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h3 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>data_pin&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#pin-schema">Pin Schema&lt;/a>): The pin used for DATA.&lt;/p></description></item><item><title>SM2335 LED driver</title><link>https://bharvey88.github.io/esphome-docs/components/output/sm2335/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/sm2335/</guid><description>&lt;a class="anchor" id="sm2335-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The SM2335 component represents a SM2335 LED driver chain in
+ESPHome. Communication is done with two GPIO pins (DATA and CLK).
+It is used in some smart light bulbs:&lt;/p>
+&lt;ul>
+&lt;li>SwitchBot Color Bulb W1401400&lt;/li>
+&lt;/ul>
+&lt;p>To use the channels of this components, you first need to setup the
+global &lt;code>sm2335&lt;/code> hub and give it an id, and then define the
+&lt;a href="#sm2335-output">individual output channels&lt;/a>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">sm2335&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">data_pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">clock_pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max_power_color_channels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max_power_white_channels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h3 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>data_pin&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#pin-schema">Pin Schema&lt;/a>): The pin used for DATA.&lt;/p></description></item><item><title>Template Output</title><link>https://bharvey88.github.io/esphome-docs/components/output/template/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/template/</guid><description>&lt;p>The &lt;code>template&lt;/code> output component can be used to create templated binary and float outputs in ESPHome.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">outputsplit&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">float&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">write_action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">output.set_level&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">output1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">level&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>!&lt;span class="l">lambda return state;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">output.set_level&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">output2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">level&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>!&lt;span class="l">lambda return state;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">...&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">output1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">...&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">output2&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>id&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The id to use for this output component.&lt;/p></description></item><item><title>TLC59208F</title><link>https://bharvey88.github.io/esphome-docs/components/output/tlc59208f/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/tlc59208f/</guid><description>&lt;a class="anchor" id="tlc59208f-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The TLC59208F component represents a Texas Instruments TLC59208F 8-bit PWM driver
+(&lt;a href="http://www.ti.com/lit/gpn/tlc59208f">datasheet&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>,
+&lt;a href="https://faboplatform.github.io/ArduinoDocs/03.I2C%20Brick/211_brick_i2c_7seg/">hw example&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>) in ESPHome. It
+uses &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C Bus&lt;/a> for communication.&lt;/p>
+&lt;p>To use the channels of this components, you first need to setup the
+global &lt;code>tlc59208f&lt;/code> chip and specify its address and id, and then define the
+&lt;a href="#tlc59208f-output">individual output channels&lt;/a>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Minimalistic configuration entry, single chip, single output&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">tlc59208f&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">address&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0x10&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tlc59208f_1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Individual outputs&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tlc59208f&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">tlc59208f_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;tlc59208f_1&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">channel&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h3 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>address&lt;/strong> (&lt;em>Optional&lt;/em>, int): The I²C address of the driver.
+Defaults to &lt;code>0x20&lt;/code>.&lt;/p></description></item><item><title>TLC5947 LED driver</title><link>https://bharvey88.github.io/esphome-docs/components/output/tlc5947/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/tlc5947/</guid><description>&lt;a class="anchor" id="tlc5947-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/images/tlc5947.jpg" width="75.0%" alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>Adafruit&amp;rsquo;s TLC5947 board&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 300px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/images/tlc5947.jpg"
+ fetchpriority="high"
+ style="width:75.0%px;"
+ srcset="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAIcAtAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&amp;#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&amp;#43;Tl5ufo6ery8/T19vf4&amp;#43;fr/2gAMAwEAAhEDEQA/APRqKlqKszQj70lS49qMe1BmRUYqXHtRj2oAi8qjyqlorQCLyqPKqWigCr5VHlVaxUeDWYEPlUeVUtFAFXyqPKq1j2o8utAKvlUeVUuKMVmBV8qjyqtY9qMUAVfKq3ayvayiRKixzUnagDpIdegMQ8xcN3qT&amp;#43;3bX0rl6K0Av0UUVmAUUUYoAMe1FSY4qPFABRRRitADHtR5dS0UARY9qMe1S0YoAq&amp;#43;XRj2qWjFAEWPao&amp;#43;c1YNR4oAix7UY9qlxRigCKoqlxR5dAEVFS&amp;#43;XRigCKipaKzAtYqXFFQtMF&amp;#43;8QPrQBNxRiqj3gQZUAgelEd8HjL7eh9aALdGPaqB1JOcUHUsL6ccfWgC/ijgVi/2m4f52pTfTu23Iye/pWgGzijIHesUXs78GT5R3HtWbe6jPFNnzDjgqKAOr3D1FGRjNc4LuSWMSmUDv1/Sg6g6RnM2VPSswN4zRDOXWo/tMZ/jrj59QKShd5YZ/OntqsESkGThuoz0rQDqbi9gt8b269KZ/aEJcJkKx6e9cdd6xbzxsoc5X7uTUdrqTSzRmR14&amp;#43;6x7UfvAO8BzRXPWGrNHceTcSBg/3WFdACCAQcg0ALRRRQBF3ooooAKKj70lZgaZOATWHctBfFoJi42HIZK15j&amp;#43;6NcxDN/p8ibwvXr39qQExdbWHyYQxDHO5j1otZ3YtDtOT6dapX9wEZcsRx90dqrwXXlTeZEzFq1p/ww/5eGpcTGF9siHbncMVUOouzFQucHK5HSqtzez3GX6H09BUMLXFyw8lGKk4Z8UezAfK8plIZ/erK3M7Q7BtY&amp;#43;uabJZybWWL55AefYetU3We2YF12gj73Y0AST3U6OI3faBz1qKe7gf8A1kwY9qyNTu5ry3lPTYcDArJEpeLdnpQB1I1C1jGPMqG51S2AwHZvSuXM4HU1C95Fn5pBQB10Gpxy2DhrfLqeGFce2pyPqUsUxK7myKu2Ooxl1gE&amp;#43;Nxqp4h0si3a&amp;#43;jlVijche1AFrzgOprX0&amp;#43;9tDF5cjKJV&amp;#43;6a8&amp;#43;vBPFFBMZnZZFzgVb8OOks8jXO87PmBPagD0mG&amp;#43;SePyncBh90gV0Oi6yu77Hck&amp;#43;Yv3SeM1wsF/FcxI8beWwPIxV4TpLsZbnM6nPSgD0fk80lY2h60L6ERSHbMvUHvWzQAUGioqzAKKKKALMx&amp;#43;U1x8Uif2629d/zdB2rsJuhrh4zIviNlRgp385rRgX9YDfu/LiGz&amp;#43;/61mKsowcr6Voa2P3Ub&amp;#43;cUQMQUxiuekmgjXckzM31p0v4YVC9FOrvIjfLxjNXbPXorG0&amp;#43;yyQklDlWQ9afPZ2smiI4mAcpuyCM59K5lY5kLAOp2jPNH7uoB1SX0CQPexyjzZFOV/pWNNqkt2F80BY4&amp;#43;igYFU45N0Xzsq/QVWJgw&amp;#43;6dvYVp7My9oa0sqy2RwqKrcdOtca1heSzSpC&amp;#43;0A9K6GB0kGyPc4QZIotknubljbx8oMketIZhDw5cuuZJyO/FEHhyF8u0jNjriujgS8ubWbHyurYwePwrCkNxbSsjFlbPzLQaE8Gk2kRwi/N2YmmTwo5Nu2ST97HetNraKfT45VfDqMsQf0qM/ZEIuYyWKkArjk&amp;#43;tZgYu6JIhA0a7U&amp;#43;7kVKLXMHnRRBUb5W21oalbQzpHPbROcn5jjgVJA5tZY7WIq8TYOXHANAFSCxeJkGCUYce1Mdp7CbOBg/dY1qSq8Cus9yqRycKQMGsy4NptMT3JZ1PUnPHtR7QPZmvBJPbyQXPnKrY7dxXd2F&amp;#43;Lm2Dk/PivJINZ8pPJlTzUB4PpXaeF7/wC2Oz42oowq0fvAOyznvRmogeKKADNFFFZgXpuhrzy4dD4l2yvsXfy3pXok3SuOOkwz393fXI/dR9q0YEWutam23OwZgflw2ciuSuJYJD&amp;#43;7UrXUx6lpl5cLaiyJVvlBHWuZ160Wx1Jooug5xWeGqBUpmgmnXEmmo67gScqCetTWWlTXdi00km0k7QQMmrWmfbZ9HhaRkCZ2ocZIpmn2t3a3F1A10cLztHU0Vahp7PQrafYxeVcpNIHkDbNucfjWVd2gXUhaW&amp;#43;JGJwOa02tbO11kpJMW8xNwLHofequqvZW11bvBlpP4yh4opVf3hn7L92T6OZLS7mtJLctMePl5xWlFPdRagVitFEc/y5J9K56DV3ttSF1EuMHncfvVJf8AiOS42pAvlBW3Ar60VaZpTNSVbqDUSzSpHFKeg6ZFY&amp;#43;rQJDIJ5rnLSckdxVO6vL7UtgkDnZ92o202&amp;#43;uCN6MfrWlL92Bf0nVrGDzYpASrDhyOhpsus20Fy4hi3RsQaii8O3DjlWFX7fwqx&amp;#43;8poAyxr9wokRFXac7Rjpms15rpxhmkJzniu5t/Cad1q/F4YjH/LOgzPO3ivrwAOzsB0zzUkehXMpGQ2a9Oi0GKL/lmKtRaXEO1AHndr4VlyN&amp;#43;a63R9LNiBwa6KO0jHapPKA9KAI4s4qWjGKDQBH3pKKKzA1Julcld6l/Z93NBOm63lrrZRmuX1vSDe5I60AZH9taVYK0lnb7puxbtXG395PfXclxK43Ma3pfDNz5h64qSDwqT94UqX7s1/iGdp/iK7sLMW8RV1BzyKqTX99cXb3PziR&amp;#43;4rr7bwnGOorTt/DkSdY61Eeepa39w25lYse5q7D4evJfv7ua9Ii0aKP&amp;#43;EVcisI4&amp;#43;1Bmef23hBjjzAa17bwnEMZjFdl5KjsKXGKAOfi8OQx/8sxVuPSoh/CK1aKAKA0&amp;#43;IdqkFrEOgq0ajoAQQqOgFGAO1LQaAIjRRRQAVEetS1FQAVGc1JSHFZgR0UUUAbJFRGIHrUtFAFU2kZPSgWkY7Vao4oAhEIHQUuMVKairQAooooAKKKKACjNR80nNABRRRQAVGc1JRQBFRUtRUAFIcUtRUABqI1L2qLvWYBRRRQBsyVFUslRUGgUUUUGYUUUVoAUUUUAFFFFABRRRQAUUUdqAIqKO9FAB2qLvUvaou9AB2qLvUvaou9AB2qLvUvaou9ZgFFFFAH//2Q=="
+ data-src="https://bharvey88.github.io/esphome-docs/images/tlc5947.jpg"
+ data-srcset="https://bharvey88.github.io/esphome-docs/images/tlc5947.jpg 300w, https://bharvey88.github.io/esphome-docs/images/tlc5947_hu_46dd85014a86bce3.jpg 60w, https://bharvey88.github.io/esphome-docs/images/tlc5947_hu_427c62aa7772bf13.jpg 100w, https://bharvey88.github.io/esphome-docs/images/tlc5947_hu_902785f94cde09c7.jpg 150w, https://bharvey88.github.io/esphome-docs/images/tlc5947_hu_69dcb3dfc9ca8640.jpg 200w, https://bharvey88.github.io/esphome-docs/images/tlc5947_hu_924d5997aad8e915.jpg 300w"
+ width="75.0%" 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>Adafruit&amp;rsquo;s TLC5947 board&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+
+
+&lt;p>This component represents a chain of &lt;a href="https://www.ti.com/lit/ds/symlink/tlc5947.pdf">TLC5947 24-Channel, 12-Bit PWM LED Drivers&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>,
+which is used e.g. on this &lt;a href="https://www.adafruit.com/product/1429">board from Adafruit&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>.&lt;/p>
+&lt;p>To use the channels of this components, you first need to setup the
+global &lt;code>tlc5947&lt;/code> hub and give it an id, and then define the
+&lt;a href="#tlc5947-output">individual output channels&lt;/a>.&lt;/p></description></item><item><title>TLC5971 LED driver</title><link>https://bharvey88.github.io/esphome-docs/components/output/tlc5971/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/tlc5971/</guid><description>&lt;a class="anchor" id="tlc5971-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/images/tlc5971.jpg" width="75.0%" alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>Adafruit&amp;rsquo;s TLC59711 board&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 300px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/images/tlc5971.jpg"
+ fetchpriority="high"
+ style="width:75.0%px;"
+ srcset="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAIcAtAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&amp;#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&amp;#43;Tl5ufo6ery8/T19vf4&amp;#43;fr/2gAMAwEAAhEDEQA/AN6iiigAooooAKO1FBoAi70UUUAFFFFABRRRQAUdqKO1AEXeijvUtAEVFS1FQAUUUUAFFFFAB5dHl0UUAWqKKKACiiigAqM5qSigCKipaQ4oAjooooAKKMUUAFFFFAEfepKKKACo8c1JRQAnFHFM5o5oATFGDUtG/wBqAIqKlooAlooooAKKKKACiiigAqKSpc1ESAeTQAc4qNJE&amp;#43;0LGWwxqC4u/vQtmM/wtVVrgFlS4ykn8Mi134bCuornDicUqZtF7WSU2yzfvarJcJvderLxiqA&amp;#43;1CRiXjCgcyAc1WS5ljDqiboc8y0fUf&amp;#43;fgfWv&amp;#43;fZuUVTtboSMBFmRcctVwFD0rlq0vZnTSq&amp;#43;0CiiisjUKKPv0YoAKKKKACiiigAooooAtUUUUAFGKKKAIsUVLUb4BFAEE0yRMEz8zfdrNnnIyt0do/hZRV&amp;#43;4n8y5ET2g8of8tKxZo5Lq5e3WX9xnqe1engaVOe5wY6rUp7EbSyXsrW4Ak/usOK1H0xbOxC3TZdcMAT19qzJZk02Ii3Xc4ODIBkVbl1WO4skdWMk4HIIr0qs6ip/u/gPOpU6b/iGlqelW8eipPNd&amp;#43;XK43LGKwYLpJyLactEMcAD71Uhdy3Uu24dmb&amp;#43;EE/dq55gheMzAfIflfvXDSxVP&amp;#43;HUO2phan8SmL9ojtdQEJ3wwngk8Zq/HdJLdeXbuBGo6n&amp;#43;KqGpakbu/jluY45IlHyhRjNXvsEl7bfaGjMFsvTHWumrSXs9TKlf2hoRzpI20nle9WeDXPRyzRlYSCLTd/rMc1rxSSBwEidov72K82thkvgO&amp;#43;lif5y10oozv8AaiuE6Q/jooooAKMUUUAGPajHtUuP9qjH&amp;#43;1QAYqXFFFABiosVLRQBFVDUo5JLc&amp;#43;W&amp;#43;161MVFLFmgDjEvZbe4CXhbZ654NWiDKvm2xCxH7w/vVqX2mR3Me10rAktbrTJfkUvDnp6V3UcTb4zhrYb&amp;#43;Qux3EcqeSkWxP4wwqF7yxt5hHGhCHqxFJ/aCzyxyMgKqfmUd6m1CyhkkS42eXAwz9K9OlVptfvDhqrn&amp;#43;AhntoH/eQNk9QapTLI&amp;#43;Gl&amp;#43;YfdXnvV2SKSdcRYjtwuN471f0RoPKazngVkX5hKfX61zvC4e/tEdHtaiXsyvZacqXUUdxIvzLlcjpWkuoPBBeW7SGRF&amp;#43;6qVmPdSy6gTGY8rwPpUayIN4gYrcFstnvXQsPU/5iDnq1P8An2XGn/tGCJo3AZPvxnjNXYri4mu4FgnCxj70ZHNVLPTRdEyuTG6jJbOAKsteA/ubBATja85HP4Vw454ef7tHThlUp7mm8IW7clgwbnA7U7FUrGJ4FxuLMeparteYenSCjFFFAEeOakxRRigAwvZqML/eo8p6PKegCWipaKAIqMVLRQBE9FS0UAReXVS5tRKMY4rQPSoiPkoA5PUNFKv5lv8AK3pVNNQdZFgvd20cYPQ12ZijI5rLvtIguUwyc&amp;#43;ta0qvszKpR9psZfkM0XnRyAW&amp;#43;f9WKkns764hQQLsj/ALp4zWXNBdabOMZeEHp6V0cd5Z6pHE32lo3X7yjiu769/wAvKZzfVvsVDMEH&amp;#43;kJEYjFcKO3etNLO3tonmvgEccqB1epbye0juA8IM11twvoPrUcVlJNKLi6be56Z6CjE451EGGwpEzz6gVO0xW/RY17/AFq9bWghGAMVaihEfapq8w7rESR0uOakoxQAmOKjqWjy6AIqlFHl0UAFFGDS4NAElFS0Y9qAIqKlxUeOaAEoqTilxQBFRijy6MUAReX3oI9qlox7UAZ81pFMDkA1kvoMRuN6gj/dNdN5VReVzQBQtLCOBchMn1NX/K4qUR4FFAEWKKlxR5dABRijFFAEWKOalox7UARc0VLj2ox7UAG/2o3&amp;#43;1GPajHtQBLipMcUuPaigCLFGPapce1GPagCLy6MVLRj2oAiox7VLj2ox7UAReXRj2qWjHtQBFRUuPajy6AIsUeXUuKKAIse1FS0Y9qAIse1GPapaKAIvLoxUtHl0ARY9qMe1S4ooAix7UY9qlooAlooooAKKKKACiiigAooooAKKKKACiiigANRVL2qLvQAVJ2qPvUvagCKijvRQAUUUUAFFFFABRRRQB//Z"
+ data-src="https://bharvey88.github.io/esphome-docs/images/tlc5971.jpg"
+ data-srcset="https://bharvey88.github.io/esphome-docs/images/tlc5971.jpg 300w, https://bharvey88.github.io/esphome-docs/images/tlc5971_hu_91e04a2a814edf04.jpg 60w, https://bharvey88.github.io/esphome-docs/images/tlc5971_hu_de3b33166da49f83.jpg 100w, https://bharvey88.github.io/esphome-docs/images/tlc5971_hu_4bbc0037dbd386ac.jpg 150w, https://bharvey88.github.io/esphome-docs/images/tlc5971_hu_358eb068c0bccf82.jpg 200w, https://bharvey88.github.io/esphome-docs/images/tlc5971_hu_748c301107f12c4f.jpg 300w"
+ width="75.0%" 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>Adafruit&amp;rsquo;s TLC59711 board&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+
+
+&lt;p>This component represents a chain of &lt;a href="https://www.ti.com/lit/ds/symlink/tlc5971.pdf">TLC5971 12-Channel, 16-Bit PWM LED Drivers&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>,
+which is used e.g. on this &lt;a href="https://www.adafruit.com/product/1455">board from Adafruit&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>.&lt;/p>
+&lt;p>To use the channels of this components, you first need to setup the
+global &lt;code>tlc5971&lt;/code> hub and give it an id, and then define the
+&lt;a href="#tlc5971-output">individual output channels&lt;/a>.&lt;/p></description></item><item><title>X9C Potentiometer Output</title><link>https://bharvey88.github.io/esphome-docs/components/output/x9c/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/output/x9c/</guid><description>&lt;p>The &lt;code>x9c&lt;/code> output platform allows you to add an output that controls a &lt;a href="https://www.renesas.com/us/en/document/dst/x9c102-x9c103-x9c104-x9c503-datasheet">X9C digital potentiometer&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>.&lt;/p>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/images/x9c.jpg" width="70.0%" alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>X9C digital potentiometer&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 300px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/images/x9c.jpg"
+ fetchpriority="high"
+ style="width:70.0%px;"
+ srcset="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIALQAtAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&amp;#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&amp;#43;Tl5ufo6ery8/T19vf4&amp;#43;fr/2gAMAwEAAhEDEQA/APfaKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKDQAZpkkiRoXdgFA5JqvdXcVpA8szhEUZyTXmmp&amp;#43;K/7f1b&amp;#43;z7e48q1Bwxzy1Oxn7U6S98Ws94Y7NN0UZ&amp;#43;dv8K3NL1eK9hU7ue&amp;#43;a811K/wDsU0VpZxlFH3nI61dtbmWC1/tCN9rL95T0akaHqQIPQ0tcnZeJ7eKGBryQQtL0VjzXURTpOgZGDA9xQFySiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKoalqdtpls09zIqqo4GetUte8RWmh2jSTyAt/CgPJrxLxJ4rutau97ORCDwlaU6XtDKpV9mdXr&amp;#43;pah4jVmjkNvZdFzxurz&amp;#43;&amp;#43;sLrTZvO3HaD8rqa7US/wBr6NaLZSJtjHzxk4OaoatZvFp7WhAa5mI2IvOKanUWhn7OnU/eBo3i2GaAW19b&amp;#43;bKowhAyWrTutT&amp;#43;zW3m3EYL4/d2y9vc1l6VpkOlFYhsm1Jx1PSOrKEbn2OGmLYkmbnPsK1qezF&amp;#43;8OVvdTur64aWdmz/CB2rrPCPjq40qYW94zSQHjJ/hqJ/DtnLfxNLOqIwzIAf5Vk3&amp;#43;kiTVJYLEoUUfLk/ero9pSqKxxezq0/3h77Yajb6hbJPBIrKw6irdeA&amp;#43;HvFN74duxDIxMIOGQ9q9o0TXbPWbVZbeQE45XPSuKrS9md1Kr7Q16KM5orI6QooooAKKKKACiiigAooooAKKKRiACScUAJkVyfivxlbaJbvHGwa5I4UVU8U&amp;#43;MPsitY6cDLdNwdv8ADXkmrQ6jLI9xdLIzNzk9q1pU/wDn4c1Wo7e4dQiHUrM6nqTtM0jfImeBWbqWkWkls7xJsdV3VQ0rxRHZ2H2G7iLxZyrA8itGG/GsK8FhA4Rhh5X/AIBWlSlUVQKfs3T1Oa0m2vbi&amp;#43;ENqzhh94qeBXR3mo22iwtDBMLi9ZcPKTnZ7CqlxfwaSDp2m/PK335x1Y&amp;#43;lYMUaw6vGNQVhGzZYHiun1Ob0Fhvro3yzQyEMW5Y9zVy/1AeWHilKS7/3iDp9RXW3mh6Xf6S7aQVMiDcQveuBurOW0w1wmwse5rN1KVQ09nVpnQaZqsJuUS6ctGed1dVeaZmIapa24wFHlHPH41wtlFZXaRqrCKdfX7r13H/CRx2fh0Wk8fkonRSclj7e1cyp&amp;#43;zeh0up7RanB3nn/bJDOCJCctn1q5o2vXejXSSQuVGeVzwar318&amp;#43;qXhkCgbuAFqtcWs9swWZGQnoWFelZNWZ5Oq1R754Y8WWmuW6jeFnA&amp;#43;ZSa6bI618zaddXNjMLi3Z1KfxL0r1rwl47i1BUtb4iOYcbieDXDVw3s9jtw2J9p/EPQaKRWVlBBBB6Utcx3BRRRQAUUUUAFFFRXFxFbQtLKwVB3NADndY0LMQAO5rzTxp4&amp;#43;EG&amp;#43;x098t0Zx2p2teJp9dvJLDTpNlun&amp;#43;skFcVeaJbyPJ5dwxf&amp;#43;83Q1orU/wCIc1X2lT&amp;#43;GXfDM7XVjeSAhrsn7x&amp;#43;9irAimmjeORGCgHeX9K4hZrzSb7dDIySK3Qd669L67vdNF1q04htQMgAYLn0rapS/5eIVOrb92zm7PQDfXUkjkxWsbHdIemParmp6zDb240/S1McA4Zh1eq2ra7JeoIbdRFbpwEXofrVWfRtTgs471ocxNyGU9K6f&amp;#43;vhz/AMT&amp;#43;GQMtzY3MN1LA6YO4Fh96upnm0bxWiKCLe7ReS3Aqta&amp;#43;KLTUbZLDWIgFjGA4HJrndZh09LrzNNmby/rXDVqnbSpFm9W78Pf8AHvfqRLkMI27VjvJNdP5k0pcY43GoWUt87MTj1NNy7/L/AAVkdI4XQhcKhI96tG8lnx5rM4HTms&amp;#43;TywvPTtRbySb/AJOla06vszmq0vaHbadbxWMEU0uzzpBuQt0Uev1rdhisNXsnaa4Eh7c85rhIL&amp;#43;TyDb3OXhYfiv0qnZXMtldv9lmfbu&amp;#43;UHvRVdT&amp;#43;IZ0/Z/wAM72/Z9OtFhtrVfJA&amp;#43;duufrWNLZNbWaX8cxO5uB0wa6/w5djVrIW4gDTMPmDCsDxLZXa3DkL&amp;#43;4j42gYC1rhqt9zLE0rbHUeD/HzRmOz1J9y9Ff0&amp;#43;teqwTx3ESyRsGU9CK&amp;#43;dNG0aa/mEnMduvMkp6CvUfC3iCwtl&amp;#43;xRzOyodod&amp;#43;h&amp;#43;lLE06fQMLUqf8ALw9AopkM0cybkINPrmO4KKKKACuO8VpNfRPbeYyLj&amp;#43;Guxqne2KXKHgbqAPELB28PX86XikwyjbvFX0bTppExeqYychQOa6TXdCDLJHMm5OvT&amp;#43;VcWtnZeHA15KTNOf9THj7vua1/d1Dm/hlibR7WC9fULsliT&amp;#43;5t&amp;#43;7VjeJYtTljSe5i8uD&amp;#43;BF6D2rRnuHEcF4z&amp;#43;bJO3zP/wA8h6Vri6s5tMMErCdTkbT1&amp;#43;tae19mL2ftdjz6G2kmjPlIWA5OO1aumeKJtMT7Ncp9otv7jdq1Lnz7JDNY20flBcMMc1z2qWGbIXoDJ5pwUI/lWvtfaHP7KpSGaxrOk3TSLb2axu5&amp;#43;8D0rCOHH39pWkXSv3MlwCevCDqfeq3Q4fg/7VcLPSpEobzN3O3H60PIkY6t9Ki2beQc0RxSSPntQAvlmX6VY4to6cFMcRYAkDqa3/AAzb6X4g02&amp;#43;tJUJvkUmIigB&amp;#43;m6Na6t4dnvbe5zdRdYvasuwkjtbgPLEsmOCpHWr3gq7Xw1qssV5ESsp2MG7Vr&amp;#43;LPDcdmw1CzdTbS84B6GumkctWmafh7UPsSSXFnKnltyyufmj&amp;#43;lS/aH16aQyMYLJPmeVv8Aloa53QdEdoWvb1zFZocnJwX9hUmuaje30awWlu8Vkn3Aox&amp;#43;dA/3nszooIpNaY21kDb6bF94j&amp;#43;Oplu7ZQ1pBAFWL5d/fNcbofiK70aUKzMYS2HjNdsl1pE8DXkRO9ufLHXNZ1aZpSqU9ja0zXLnSzEtwxaJ&amp;#43;jf413tjfLeRA/db0rzzTNNku3S6vRhB/q4P6mu60u0dD5rHA7CsjU1qKKKACiiigCpe2Md4m1&amp;#43;vrXEeI/C8dxGVK/L/er0KmTQxzRlHAINAHidjokenRym4laRQeY&amp;#43;wFcpeyXGn6k8cELCMncvfivadX8OqA7Im4NXB6rptyl48zOF2jKDbx9KPae0/iGfs/Z/wAMdpFzNqGn/Zoo1DycBj0JqTULYWME8V9LA106ARqR8q1S024QLJdrN9jRPvqBkE&amp;#43;orB8ReIf7UmREiOxON3dvc1rSwwquJMbWpbiNovLlj3IP&amp;#43;WQ4zXOGzu77UFQEmSQ812dn4dmvrWSaV1gyMxh&amp;#43;rVj3NtPYXCkgxyL0I710&amp;#43;zpnOqtQzHR7SV4mBJThs1o2dtPeW7m1haTYu5ttR6zJdtbRebbhGbnzMcvWn4F1I2Orxh2CpL8jq3864vZVDt9rTH&amp;#43;B72G81SbSbu3VlnUqC3Zqba2Fz4P8VGQjaqv&amp;#43;BWtDxH4el8Pa9/aVkWMDtvWRex9K17nVtM8R6Ukc6ut&amp;#43;OFKjOTWljO43xPFpOp2i6pZSqLgnDRDufXFVbGxa3sRd6zMwtV5jhY8t&amp;#43;FOtdPtdBVLi9/fXT/6u39Pc1Lf6Vd6oq3Oo3AhLcRw&amp;#43;grT&amp;#43;GZfxCtb6vFrOuWsU/wC7tFbCRjgV0&amp;#43;o7kutvl4hHCKo61wF9pVxpkoYnKg/K61raTq2tXjpbQEyHoGIziirT9p/DM6VX2f8AEH61pu&amp;#43;6iWKL99L/AAgV1fhvwuLJUmuV3zt91ey/WtPSdGeEq82J7o8tIR932Fdlp&amp;#43;leXtkfrWXtf&amp;#43;XZfsvaVPaDNO00sQ8wxj9a3VAUYAwKAABgClrM6gooooAKKKKACiiigBGAYYIzXOa5occ9u7omc9VrpKQgEYIoA8cutCc3SQyYjtR/COMmsWDwwsF7JPIyyRjOwD1969i1XSEuI2eNcv6Vw&amp;#43;p2MsSeVt2KM845560UqtT&amp;#43;GZVadM5uPWrSJltbyMiYHlscAelWLi2sdcvYGjtgwQevWsTUtLklhVIlPUlXc4ZvYVNoGoXNhdQRNFsMnAL961qUwp1Og&amp;#43;exebUJbbUIR5CKdpPAUe1ci9tHFcMYjja3ymvZNQ0ew1LThPLMyvJwQPWvNptAlbVmsbU&amp;#43;d833h2rpw1Q4sTT9mzY0zxHPe6UdJnsftMh&amp;#43;4SKjljtPCsDSMEl1GTlUHIjqSW8tfDUf2S0ZZb9uHk/uewq3LYWVlYJezRm4urhc5fkA1nV/dnRS/eHDnUriXUlu7jLyB93Nd7LPZ65HDdQ3CpKgA2uelc/qOkxzQtPEgVlXcwFVdC0G61a4AQtHEp&amp;#43;d&amp;#43;wpXp1DP95h6h0F3pr6mqWVu4llLZdl6LXWaH4fh0&amp;#43;FYLdP3v/LST1q1omjRWcSwWqEqPvP3auzstPjgUNt&amp;#43;Y1z&amp;#43;1On2dyDTtNS3XL8mtUDAoopGoUUUUAFFFFABRRRQAUUUUAFFFFABis7UtMiu4idg3Vo0HpQB5drmheYmxgyFDlSOo&amp;#43;lchc6jBbhbK7tnIQ8Oeo9xXudzYRXKHeozXBeJfCkdyGDRjd2YUUqvJ/EMqlP/AJ9nKQXdxdw/ZNPneVT9&amp;#43;Z/4BS3Estlp8ltosLSzniW6x/Kpddt5dH0eO10yLbGwxK4&amp;#43;8TUmiXH/ABSbw2rA3ByGXvXT/wAu9DKn/E/enn11aXcbmaeN9xOS9b&amp;#43;m&amp;#43;KRHYJa3tv56L93nkVsRWRntZFukKIqcsfWqOgeEze3JuZlK2ityT/F9KKdT2i/eEVKfs3&amp;#43;6NfTojr6GOCA21seXkbv7V2emaTHFClvbxbYxwcD73uam0rTYiFhgTbCvRcV1lvaR26/KOa5zo9n3IrGwjtoxwN1XKKKRqFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABUM0EcybHFTUUAcZrGihCxK7lPQV5zrWhXGnSm609nXJyyL2r3aWFJkw4BrntR0gBy6JuU9qPa&amp;#43;zMqtL2h53oWk6jqaLNqMjLbjon9&amp;#43;u6sNMMhRBHsiX7qgcCrdlpblkLrhRXQRRJEmFFHtfaBSpezI7a1jtk2qBmp6KKDUKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKCAeooooAQADoKWiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/2Q=="
+ data-src="https://bharvey88.github.io/esphome-docs/images/x9c.jpg"
+ data-srcset="https://bharvey88.github.io/esphome-docs/images/x9c.jpg 300w, https://bharvey88.github.io/esphome-docs/images/x9c_hu_e4aab975e63f08fc.jpg 60w, https://bharvey88.github.io/esphome-docs/images/x9c_hu_e09c89e98dea091b.jpg 100w, https://bharvey88.github.io/esphome-docs/images/x9c_hu_5df6f733aa0c2160.jpg 150w, https://bharvey88.github.io/esphome-docs/images/x9c_hu_e72b6a7494c069fa.jpg 200w, https://bharvey88.github.io/esphome-docs/images/x9c_hu_e2835b8ece2c7d47.jpg 300w"
+ width="70.0%" 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>X9C digital potentiometer&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+
+
+&lt;p>The X9C family of digital potentiometers are available in different resistance values.&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;code>X9C102&lt;/code>&lt;/th>
+ &lt;th>&lt;code>1kΩ&lt;/code>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>X9C103&lt;/code>&lt;/td>
+ &lt;td>&lt;code>10kΩ&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>X9C503&lt;/code>&lt;/td>
+ &lt;td>&lt;code>50kΩ&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>X9C104&lt;/code>&lt;/td>
+ &lt;td>&lt;code>100kΩ&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>All chips are controlled by a three wire interface and feature 100 possible wiper positions.&lt;/p></description></item></channel></rss>

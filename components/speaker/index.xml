@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Speaker Components on ESPHome - Smart Home Made Simple</title><link>https://bharvey88.github.io/esphome-docs/components/speaker/</link><description>Recent content in Speaker Components on ESPHome - Smart Home Made Simple</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bharvey88.github.io/esphome-docs/components/speaker/index.xml" rel="self" type="application/rss+xml"/><item><title>I²S Audio Speaker</title><link>https://bharvey88.github.io/esphome-docs/components/speaker/i2s_audio/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/speaker/i2s_audio/</guid><description>&lt;p>The &lt;code>i2s_audio&lt;/code> speaker platform allows you to receive audio via the the &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2s_audio/">I²S Audio Component&lt;/a>.&lt;/p>
+&lt;p>This platform only works on ESP32 based chips.&lt;/p>
+
+
+&lt;blockquote class="alert alert-warning">
+ &lt;p class="alert-heading">
+ ⚠️
+ 
+ Warning
+ 
+ &lt;/p>
+ &lt;p>Audio and voice components consume a significant amount of resources (RAM, CPU) on the device.&lt;/p>
+&lt;p>&lt;strong>Crashes are likely to occur&lt;/strong> if you include too many additional components in your device&amp;rsquo;s
+configuration. In particular, Bluetooth/BLE components are known to cause issues when used in
+combination with Voice Assistant and/or other audio components.&lt;/p></description></item><item><title>Mixer Speaker</title><link>https://bharvey88.github.io/esphome-docs/components/speaker/mixer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/speaker/mixer/</guid><description>&lt;p>The &lt;code>mixer&lt;/code> speaker platform allows you to mix audio sent to different source speakers into one output which is sent to another &lt;a href="https://bharvey88.github.io/esphome-docs/components/speaker/">speaker component&lt;/a>. Individual source speakers may be ducked (made quieter) with the &lt;a href="#mixer_speaker-apply_ducking">apply ducking action&lt;/a>.&lt;/p>
+&lt;p>When mixing multiple audio streams into one, they must have the same sample rate. If they are different, enable queue mode so that only one source speaker&amp;rsquo;s audio is played at a time. Otherwise, use a &lt;a href="https://bharvey88.github.io/esphome-docs/components/speaker/resampler/">resampler speaker&lt;/a> to send audio to the source speakers.&lt;/p></description></item><item><title>Resampler Speaker</title><link>https://bharvey88.github.io/esphome-docs/components/speaker/resampler/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/speaker/resampler/</guid><description>&lt;p>The &lt;code>resampler&lt;/code> speaker platform allows you to convert the sample rate of an audio stream and output it to another &lt;a href="https://bharvey88.github.io/esphome-docs/components/speaker/">speaker component&lt;/a>.&lt;/p>
+&lt;p>If the audio stream doesn&amp;rsquo;t require resampling, it is automatically sent directly to the output speaker.&lt;/p>
+&lt;p>This platform only works on ESP32 based chips.&lt;/p>
+
+
+&lt;blockquote class="alert alert-warning">
+ &lt;p class="alert-heading">
+ ⚠️
+ 
+ Warning
+ 
+ &lt;/p>
+ &lt;p>Audio and voice components consume a significant amount of resources (RAM and CPU) on the device.&lt;/p>
+&lt;p>&lt;strong>Crashes are likely to occur&lt;/strong> if you include too many additional components in your device&amp;rsquo;s
+configuration. In particular, Bluetooth/BLE components are known to cause issues when used in
+combination with Voice Assistant and/or other audio components.&lt;/p></description></item></channel></rss>

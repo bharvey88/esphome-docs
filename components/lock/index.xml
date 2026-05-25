@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lock Component on ESPHome - Smart Home Made Simple</title><link>https://bharvey88.github.io/esphome-docs/components/lock/</link><description>Recent content in Lock Component on ESPHome - Smart Home Made Simple</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bharvey88.github.io/esphome-docs/components/lock/index.xml" rel="self" type="application/rss+xml"/><item><title>Generic Output Lock</title><link>https://bharvey88.github.io/esphome-docs/components/lock/output/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/lock/output/</guid><description>&lt;p>The &lt;code>output&lt;/code> lock platform allows you to use any output component as a lock.&lt;/p>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/images/output-ui.png" width="80.0%" alt="Image"/>
+ 
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 330px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/images/output-ui.png"
+ fetchpriority="high"
+ style="width:80.0%px;"
+ srcset="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAAfCAMAAAB5yBctAAADAFBMVEX6&amp;#43;vr5&amp;#43;fn19fXr6&amp;#43;v////Q3OeKqMJbhapzlrbo7fO5ytpEc56iuc/qw5RoRC8hISEoOVN&amp;#43;q9v4///qq2EhYanq///NhyEhh83qrmEoK2Gi0urx7vHq0ql3RCFFjs3/56lhIWGp5///&amp;#43;MZ&amp;#43;Kyh&amp;#43;v/j/3KJTIVOi4P//1vYDqfWm6P////3ez/ZcrPQDqfQkrvWd2fv/7PiNsvQbqfRcvPfe/P///PqmsfQbsvf/zowoIX6/&amp;#43;P///&amp;#43;KpWiFhq&amp;#43;r//82FISGFy///y4WFIW&amp;#43;pxql&amp;#43;Ui8hISg2ZJvU9P8hIYXN////8c2bZ0UvISEhMlP/6saUZDYoISF&amp;#43;teL/&amp;#43;&amp;#43;KpZCgoZKni&amp;#43;//vzvV8zPnn7/rHwvUkqfSF2fz//PmNrfQbsvbH5Pve2PZtrfQzvPj3//////zHvPQDrPXH8//GgyH/&amp;#43;/jx1aJaIVqi1fHx9P8oZKLU5/Hx582UUiEogMb/9PHUoFohWqLU7vH4&amp;#43;///&amp;#43;9uiUiFFgL/i7vHx4L9&amp;#43;RChhrur/&amp;#43;9SURCFFh8bq7vHq0pthIUWU1f/boFMhK2&amp;#43;47v////mdrvQzv/m2uPQDtffv///30PWu7f/nyvUDqfbP//&amp;#43;F1vz/0pQ&amp;#43;IW&amp;#43;48f/xsmghPZTU//////jGikx3ter4y4VFIUWFy/iFqfR81f7nyPUDrPYDsffe//98x/ZcqfRUx/r/8bhvIT5MIWGx6v82gMaF1v/H///n//&amp;#43;d5P7/&amp;#43;8YhUm9&amp;#43;ZD4hPYXG9P98y/d8rfQhg8aFxv//xoXbtYyiy/H/9M2FRCE&amp;#43;g8b/3PY7qfQ7wPnq3LF&amp;#43;RCHxuHcoPX644PHx7uK/g0yFv&amp;#43;rx&amp;#43;P/x59SiZCgobrjx//////G4dSg&amp;#43;fLiFSyjxtW&amp;#43;/5/Hq0qJhK0X/1ZRFISid3vvv7/v3/P/n3Pc7vfj///7eyPX/&amp;#43;&amp;#43;q/h1MhMlqUxrGFKyHNklNMndt3nanN8f//6r&amp;#43;FUi8vXZTGsoUoIYWUUi8hIUyb3P9vpNQoOWGUxurip2EhK36/9P&amp;#43;NtPRcv/jv/P&amp;#43;&amp;#43;uPS&amp;#43;8P5cbpYpAAADdklEQVR4nNSYP27jRhTG549GpJ6nUsvpUzBFUoQnYMETKJluFohcqCC4gIspyErAAkkV7ClyCjYGXIgAB9gD2MYo3bLwBbIbDLVa0hYTGKCzFh9sqpgh9eM337z3RghjjGZTCYsQxshdcPTaLM&amp;#43;OFhqjaSk965SeDvRXpQmaDvSss0doX5vluWERIpOzx7942iKNzld4G&amp;#43;IBaKuDPF/o8DXJ/iMsGoC2eMEA2OKpYWyEkB1aABv2NoT93zeH1fiYPbrv0rcMOIeMPJmLCKUBPtBbe8C3IbIhIuToJhtigpcvhL1sadzn8jEIPikuFufQxgLr/tQoMOyGUYzWJNgG7X0RwsGW4MrQrUaoXTKypZSMNtZd/etM1/VK67qWf7u/etmDPtmIFucMOHDO4ZFBQmLgBuBtFgQVA2aYoZRSxsBsqwIoCajJKaU5gyIbS63rpL6rpUqklE0jG/U5kR&amp;#43;64dOUp7cw9/257/scbtfdzDUxwAqIwZg4jnkMIKAAHsdQGQGUMhDg3uom5ozicQbBifoplUop1bjL7t27XaK/LvuA0mgBvuddeBeez/tSRwGDt0zwuADBSy6g5DHE83m5p0YAMwKg5AAMHj6K&amp;#43;5FJP81VUzvondopmez&amp;#43;/OWHpGfV0y5PZ9wxu3&amp;#43;e606x9V/FQWkBD5xzLiAueTnn/H1lBDdO&amp;#43;BhiVsDDR6AjW0atfstWSQutVCK/c9C97DagdM79C2/ue57Hc9w9yHlagIDycOXlJRef&amp;#43;Ly8LKgbYMJhO6VLLu5H5g&amp;#43;dKZXkR3s0ytkj7YZPGybklPb8uXfh86xfcVBgoNgzxsDZt/wk9gWUl5fF924jAmM3sC9Y8d4ww7bj7GG1/Kwa2WSNXMkmSzKlGlnbjuSkYToo7cLn&amp;#43;aPajgNK6VVVVdU13cPe3F//8TO9pgHGlLapJAgoDdpkvh6pdC1XMk1T&amp;#43;UHXaZqmq7Sf8gZ6D7Rw2cP3Pd9/nPNmUejmbvCPEb6qqoBg3N4XhhEit&amp;#43;QK4020wZtoHf2&amp;#43;Hp2ol3q5nN3NZtbeLZcz/aS4nHZ5bT10AW/I8BPD0NoNilz5/rI&amp;#43;x&amp;#43;r&amp;#43;bc5sA8UFkfxNlt3n&amp;#43;fbF6vHLxkD2aN9k46q0PtdzwRG63zC51Q7PFbjf5U3p5GKjKUIPHQLOPgb66bOPaXq6s8cEf8sj&amp;#43;GwP3yfxpYz/EwAA///njl6IF&amp;#43;cV/wAAAABJRU5ErkJggg=="
+ data-src="https://bharvey88.github.io/esphome-docs/images/output-ui.png"
+ data-srcset="https://bharvey88.github.io/esphome-docs/images/output-ui.png 330w, https://bharvey88.github.io/esphome-docs/images/output-ui_hu_d46bf1eee979c525.png 66w, https://bharvey88.github.io/esphome-docs/images/output-ui_hu_dc0004a03db478c9.png 110w, https://bharvey88.github.io/esphome-docs/images/output-ui_hu_a5a77b1d8c13ad34.png 165w, https://bharvey88.github.io/esphome-docs/images/output-ui_hu_c4a32d4a0dcc19c4.png 220w, https://bharvey88.github.io/esphome-docs/images/output-ui_hu_1f3c4ef082bb11ba.png 330w"
+ width="80.0%" 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;/figure>
+
+
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gpio&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;generic_out&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">lock&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">output&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Generic Output&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">output&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;generic_out&amp;#39;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>output&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The ID of the output component to use.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/lock#config-lock">Lock&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="see-also">
+ See Also
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="see-also" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://bharvey88.github.io/esphome-docs/components/output/">Output Component&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://api-docs.esphome.io/output__lock_8h">API Reference&lt;/a>
+&lt;/li>
+&lt;/ul></description></item><item><title>Template Lock</title><link>https://bharvey88.github.io/esphome-docs/components/lock/template/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/lock/template/</guid><description>&lt;p>The &lt;code>template&lt;/code> lock platform allows you to create simple locks out of just actions and
+an optional value lambda. Once defined, it will automatically appear in Home Assistant
+as a lock and can be controlled through the frontend.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">lock&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Template Lock&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">lambda&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|-&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> if (id(some_binary_sensor).state) {
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> return LOCK_STATE_LOCKED;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> } else {
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> return LOCK_STATE_UNLOCKED;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> }&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">lock_action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">switch.turn_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">switch1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">unlock_action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">switch.turn_off&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">switch1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">open_action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">button.press&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">button1&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;p>Possible return values for the optional lambda:&lt;/p></description></item></channel></rss>

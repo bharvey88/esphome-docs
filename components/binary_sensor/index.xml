@@ -1,0 +1,1536 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Binary Sensor Component on ESPHome - Smart Home Made Simple</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/</link><description>Recent content in Binary Sensor Component on ESPHome - Smart Home Made Simple</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bharvey88.github.io/esphome-docs/components/binary_sensor/index.xml" rel="self" type="application/rss+xml"/><item><title>Analog Threshold Binary Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/analog_threshold/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/analog_threshold/</guid><description>&lt;p>The &lt;code>analog_threshold&lt;/code> binary sensor platform allows you to convert analog values
+(i.e. &lt;a href="https://bharvey88.github.io/esphome-docs/components/sensor/">sensor&lt;/a> readings)
+into boolean values, using a threshold as a reference.
+When the signal is above or equal to the threshold the binary sensor is &lt;code>true&lt;/code>
+(this behavior can be changed by adding an &lt;code>invert&lt;/code> filter).&lt;/p>
+&lt;p>It provides an &lt;em>hysteresis&lt;/em> option to reduce instability when the source signal is noisy
+using different limits depending on the current state.
+Additionally a &lt;a href="https://bharvey88.github.io/esphome-docs/components/binary_sensor#binary_sensor-filters">delay filter&lt;/a> could be used to only change
+after a new state has been kept a minimum time.&lt;/p></description></item><item><title>CAP1188 Capacitive Touch Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/cap1188/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/cap1188/</guid><description>&lt;a class="anchor" id="cap1188-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The &lt;code>cap1188&lt;/code> sensor platform allows you to use your CAP1188
+(&lt;a href="https://cdn-shop.adafruit.com/datasheets/CAP1188.pdf">datasheet&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>,
+&lt;a href="https://learn.adafruit.com/adafruit-cap1188-breakout/overview">Adafruit&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>) Capacitive Touch Sensor with ESPHome. The &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C&lt;/a> bus is
+required to be set up in your configuration for this sensor to work.&lt;/p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/cap1188-full.jpg" width="75%" alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>CAP1188 Capacitive Touch Sensor. Image by &lt;a href="https://www.adafruit.com">Adafruit&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>.&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 739px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/cap1188-full.jpg"
+ fetchpriority="high"
+ style="width:75%px;"
+ srcset="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAIcAtAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&amp;#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&amp;#43;Tl5ufo6ery8/T19vf4&amp;#43;fr/2gAMAwEAAhEDEQA/APJaUdaSpRQZgKlqKPfJPs6Ve&amp;#43;xNj/Wp&amp;#43;dBoVs4qUc4qjeW/ln/j7X/dFP05PNuljNxtT&amp;#43;81AGgOlGa1E0yyijeR9RRzt&amp;#43;6BWFfSeVC7RnigCyJYycbsn0qzHbzOqssZ2t04q34O0m1k0641W&amp;#43;BdIudnc1vW0mnaxYTXlnE8DWxyyZ4xWhkc/wD2fdbN3lnb9KjS3mBwYz&amp;#43;Va9vqX&amp;#43;iyP5e9V6Hvmq8dy8ojdkO7fkVt7Iz&amp;#43;slYWs56Qt&amp;#43;VJ9nmBwYzn6VojXPsihZICBuPNbF3dWmjaTHqclsJ3ueQpPQVlVpezCnV9oct6juKjrf1e2tbjSrXV7WPyBPw0dc3PHKSPKOD3pGpIZhF1IojniP8Ay0FRahBpccCGe7k8zHOBWTaJZOrnznxu&amp;#43;XmszQ6AEEZB4pcipbKPTjaJvllz7Va8jTP781AFDtUVXr0WmF&amp;#43;y7/8AazVLvWhmJRUtFAHL1KKKBWYEttF5s&amp;#43;15RGn94itD&amp;#43;zrX/oIL&amp;#43;VZ1vGJbj9&amp;#43;5WL2FakdtpH8dxP8AlQaGRe6dYxln&amp;#43;2hn/u1Fp0Vq9&amp;#43;kcspRP7wqfUI9DBcRyzmb&amp;#43;HI4qPTRZvfJ52dnfFAHWJZaLFE&amp;#43;LqVpNvy8VzWqgC3YDpmujJ0OONwDM0m35a5zVcG2bHSgDqvCKXkWllHhR7SYYKlsE/Sr01zFaWj2enWywwyf63J5NZOgT3i6LAESIgZ8veeffFPM942Q9spz7100qftKhzVf3YlrHD5UquH79OlKieVa&amp;#43;e0EnlfdVgamguHkttoEcbBjkmtmeFptCt4nuIyrP8wWtvaWqGXs70znY3jnVY1jeQjJwa1o7yVYIrO/sFkgP&amp;#43;r3dqr6fp1r/AGnsa7MYI7Gor2O9OoRrHKXjB&amp;#43;U57Zofs6hkvaUy9r1vdTQqVeJLe3IHkoelc3PG8mPLcqM81v6jLe/ZZAZImG4CUKMEVhzxs5BVtq965TuRDqkeiRQJ9oM7NjsayLQ6e8T7FYJu4zWtqtxpUcCCS0d2x13VlWc1iEOIiBn0zWRqdLZJpn2RMiT8DVsLpvYSfnVayn04Wif6Nu/4Fir0c&amp;#43;m/8&amp;#43;n/AI/QBVuXtTt8hGX&amp;#43;9k1Vx7VfvXt5NnkQ&amp;#43;X685qrigCKiiitDM5ypQKiqUdqzAlt1g879&amp;#43;W2e1X0bSR/yzkb/AIFVC2W3ju984Lp/dzitUXejD/lwb/vqg0MbULnRcskdpJ5v97dUWmy2IvkM0RZP4lHFWtQ1LSsskem4f&amp;#43;9npVXTru1W/SSS2DJ/d9aAOvF7oRhcR6e2/b8rF81yurEfZ3IHGeldQdW0427xw6Wiuy/ez0rl9VObZjj8KANnRIbl9IjMcyqSD5akZOe9EdjqckgBc4zyM1Z8P27tpMe2YoXB2ADofr2qX&amp;#43;xr1o2ZLpd2M/erupHDVHaxbp9njmtYGijRAJTu6n1qghgeFVF4/JHFdHDZyL4QmhuWTzSeCetc5Dp8bXcdt5vz8c44rL2lQ19nTsVGtZC5cSMpU8HNbS2F4oRzcAKqjHNVrxD5kkJ4fIFXYtOIg8t7oEgDnNdXQ4eol7DOYD&amp;#43;&amp;#43;yEYbxjGT9e9Zk6BwFLbRmtS9s3jhJN07&amp;#43;WwGG6N9Ky51jZwZGK89K4Wekivqt7p0ECD7CHOOpNY1vd2zAkQFefuitrVNUhhjCpYQycYyRWRa30bAk2wX6CsjU6fTrq0WzTMCH/eq2L&amp;#43;0zxax1WsNQiFom6zjb6ir41SDj/QYc/7tAEF5cxyhNkSx49Kq1aurjz35hRPoKq0AFFFFaGZy9SioqlFZgTWMsNveebNEJT/cPStv&amp;#43;27X/oDwfkaybCUQXyyJEJXX&amp;#43;ArmuhOv6gnTTIv&amp;#43;/NBoYGpa6kivEujwKG/jCnIqlpd9HDqETG1WQj&amp;#43;Bl4rT1LXtVljeNtPjWNv4hDis3Sr25g1OKRLcM4&amp;#43;6NuaAOwfX2khdBpECBlxkR9K4/Vjm3c4xzXZTa9q81u6vZhUZcMfKxXG6tk27nHOaAN/QIZH0ZALh1Emc7ei4rX0nQ4ryGRpLiQEHHXFY2gwwtpEO93y2c7W4X610GiW0EiyhJ2jOcYLV3Uqmhw1aZ0E3ge2t7ETPfMwUbtu&amp;#43;sGwuLS3ulhaGORvNLBz/ACrrLjQ7NLJnOp72C/c39a4WC3kt9QYeWGVm4Oa5/wCIzSn&amp;#43;7G63NFfazcSxRhQo6D2qq1oojRjchSwzjNaFpoN7cJe3Sxt8rYC9zmq97pkdusf2hmjlPBU9q7ehz9SO7sYkgWQzSEocDc3De4qhKsJCtL2NXbqGzSEBHJdWwPmzuH0qlcGJdpk6A8Vws7aRFqmsyRxhYbKJgB18usW3vpHDv9nAJ7Yrb1TU9TEYEEBK44xHWJbXd1ht0HzMfm4rI1Op0/UXWyQNbKD67auDUZnfi3X/AL4qDTry8W0RVhYr6BavR3uog/JCw/4BQBVupJX&amp;#43;eRAv/AcVUrRv5byUL9rXb/dyKzqACiiitDM5ygdaKBWYF7S7iaC93WaF5/QDNdAdX8R/8&amp;#43;8v/fuud003Yv1jsM&amp;#43;c3detdP8AZvFn/TX86DQwdU1LxPLEwlhkWA9SU4rN0ubUYtQiaJA0o&amp;#43;6FHNamr2nitI3Nw0vkfxAtxWXpaai2oRC3U&amp;#43;b2KnmgDspL/wARzW7h4JBHt&amp;#43;bK1yGrZ&amp;#43;zNuHPeuve38TG3dpTKI9vzZauQ1bIt33de9AG3oEVo2kJ5hGcEvlsYHatvR7awuRIZCI9pwMN2rB0I2o0uLzNm7B37uuO2K2dIFozSPIUAyOB6V3Utjhq7naXGi&amp;#43;H7Wy81LwvKVyBvzzXmUwmk1MGGQ4Vs9fevSrtvDaWJ8gK0u3j615VczG3uZXj3DcTt96KYVD07TPE9lDpsT3kgWXO0qg9PWuY1e50&amp;#43;/vjNJOzgsTn0FczZ3DxSB5W3Buq&amp;#43;laN3dQ2ghf7OrQy8EminUCpSLF3Dp6xfIVyW/dlTkke9Zty8SbfMGeeK0Li4sJINqBMlh5ewYIHvWfcusW3I3HPFczOmkR6pfay0AEEcgXHHy9qxLSW&amp;#43;2uXT5/4uK2NWXW5o18oOi44&amp;#43;ase2&amp;#43;3orK3Lfxc1kanU6ddal9kTZHJ&amp;#43;Aq&amp;#43;LnVXP&amp;#43;qnH4VV006mtomxT09atj&amp;#43;1zxtbn/AGqAI7w3RZPtO/8A2d1Uj1q7dx3Kuq3DHdjjJzVbHrQZkVFFFaAc5Sx9eaSpe1ZgWtOjnuL9YbP5Zj0bOK6P&amp;#43;xPEv/Pyv/f6uY02CW51FIo5FhJ/5aMcCun/AOEcuj11u2/7&amp;#43;Gg0MbVdF8QCN5J7tfKX7w87NZelW19JqEccMqhz0O7Famq&amp;#43;HJoo3lOt2zheqLJzWZpljJNqMUS3SIT0djgUAdjLpevLbO8t4nlqvI83rXHasD9mcE89665vD9xHC7yavbuFGdgkrkdW4t39jQBuaBPaR6REZVUsud4K53elbOl3lhmQ3UQUMfl2r2rE0K7iTSYlMbZGc4XIat3R72LMgktzIcg42dK7qWxxVdzqbrUfDH9nEW8J83b/AHa81njjuGd0&amp;#43;7k4z2r1C71nS/7OIg0thJtwTsrya7uCt1LGsbDe&amp;#43;cCinTFUqEttZkuWlcCNe/r9KvSLZzhDKzbU5VB3rLkEinGGC461qW1zDFaRs8AZgcZx1op0vZhUq&amp;#43;0HXFzZtDsSLDs2U&amp;#43;XG0VRncxgAJvJPFaF5fLOgQwsC7ZG5cBR7VnzNIrgIoOT1rmZ00iPVbHWJIkIkVFI/v1i2lvfBHUyAkHrmtnV9Iu5YwzahABjON9Y9raToCi3KnB6g1kanT2EGoi0TDA/VquC21L&amp;#43;8v/fdQWNpc/ZE/fxfi1WvsF3/AM/MOP8AeoAiuopYNnmuGJ54Oah6iprq3MGzdIr59DUNaGZF89Hz1LRQBy8VS1FFUtZgTWMRuLxY5ZRBF/fIzW5/Y9l/0Go/&amp;#43;&amp;#43;TWFp8Uct8sd1OY7f8AiYDJrov7K8Pf9BWT/vmg0MLUNG05NzrrKNL/AHQp5qppthHJfoHvAi/3j2rR1PS/DqRtJHqcjTDopXGaoafZ2Ul9EJLkqncjmgDpjpdlHG7jVUdsfdwea5nVxi2cA11jabokdu8keou8m35V21yeqj/Rmx0zQBt&amp;#43;H5ZF0iELA58vPK9GzXRaJctZrM09u7sxB5Fc/oU8y6TF5cJYpnYc4z&amp;#43;HetPTtYuLMNus3lLEHLc13UqZxVah3V1r8ctkUTSWTK/e215JNIzas75CnJ4r0ifxzPc2v2eLTFBcbc159cWVxa6sxnh&amp;#43;dhu2fWnTJqGlEpk0yd3ZGBHpWfBeTCzjWO3LKG5OKt280ziS1t7N/McZ21Ioew0xJhKhn3FGhxyKVP8AdjqfvBb2aQQoht3AlYMWbovsKz7oOpUQruz3rQvZrkQhWhwrkMxznB/pWXP55AERwM8muZnSinrOnkxoXvIk46VmWlkwiOy4DfjWvqunWpgBn1H5sdNtZdna2wiIWct/tVkanS2Nk5t0/wBITp3q0LN8jN3Hiq1lZRmBP9N28elWRZQbxm//APHaAC4iSPG2USH2qLNSXEUcT/uZfM/DFVq0MyXzKTzKjooA5ypQaiozQBe05LR77/TXf7P32da3tnhMfxXf5iud037LFfLPdRtLF3jziuk/tDw3/wBAdv8Av5WZoYuq/wDCJmJhD9r&amp;#43;0fw7jxWfp0en/bovPd/J/i2HmtbVbrQ5YG8jRir/AN7fnFZenGyF/E81qzQj7y9M/jQB1Zj8NpA/kPdGTb8u41zGrY&amp;#43;yvjpXUS32hGB44dMKPt&amp;#43;Vt&amp;#43;a5y9j&amp;#43;0W7oBQBqeFIru9s1jQKEi581v4a09QttRsbM3Npcx3EI&amp;#43;8VGcVW8K3kA0K50qSTyJpPuuauRInhzQLyCW5Wea56Ac4rVVf3hzP8AhmLaXGrMomRV2/eHOKZd3&amp;#43;qXWpCeVR5wXAqGAXJtV23IjRvvDPNS&amp;#43;Rul3faD8gBU5713aHMPh1HWbbN3HtyvBNdHY2ct9pq3l75VsXOQ7fxGudukZICy3A2gcp61vXJj8TaDZ28FysDwDDq3Fc1X/p2aUinrMV7ZskbqnkSnd5ifxVmzRNIq&amp;#43;W&amp;#43;wd63NVuYU0y00yOTzmg&amp;#43;9JWHNE07AK&amp;#43;1e9YnUUtYt9LSMeZdSs2PSsuxhsmibbOR&amp;#43;NbWoabp8iDCzO2OeazLeyt0Vx5biszQ3bO2tPsyZuJPwqb7PZhv9dLUVtbWggT5ZOnrUwt7Ic7ZP&amp;#43;&amp;#43;qAH3HkAL5JP41WqzcGDCeQpX&amp;#43;9nmq1aGYUUb6PMoA5yiijvWYEo7VKKiFS9q0AKkAGBUdSigCUdKKO1FAEmMcjr61KLp3RUbB2&amp;#43;oqLtTY/vGgRN5xzjauPpUoK/wB1fyqr3qx2pgOMq90X8qcsvXbhfoKgNOjoAlTkmiiOjvSGSY4qJAMnipe1Rx9aAJelFFHagCKiiigAooooA//Z"
+ data-src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/cap1188-full.jpg"
+ data-srcset="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/cap1188-full.jpg 739w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/cap1188-full_hu_9ce3dd0475358ea0.jpg 147w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/cap1188-full_hu_684a5c838ca53119.jpg 246w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/cap1188-full_hu_7fb906e97769a33b.jpg 369w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/cap1188-full_hu_93f2825a8a9d6b8a.jpg 492w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/cap1188-full_hu_1c6be24f2aff7136.jpg 739w"
+ width="75%" 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>CAP1188 Capacitive Touch Sensor. Image by &lt;a href="https://www.adafruit.com">Adafruit&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>.&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+
+
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">cap1188&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cap1188_component&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">address&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0x29&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">reset_pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">touch_threshold&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0x40&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">allow_multiple_touches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cap1188&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">touch_key0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">channel&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Touch Key 0&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The configuration is made up of two parts: The central component, and individual Binary sensors per channel.&lt;/p></description></item><item><title>ESP32 Bluetooth Low Energy Device</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/ble_presence/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/ble_presence/</guid><description>&lt;p>The &lt;code>ble_presence&lt;/code> binary sensor platform lets you track the presence of a Bluetooth Low Energy device.&lt;/p>
+
+
+&lt;blockquote class="alert alert-warning">
+ &lt;p class="alert-heading">
+ ⚠️
+ 
+ Warning
+ 
+ &lt;/p>
+ &lt;p>The BLE software stack on the ESP32 consumes a significant amount of RAM on the device.&lt;/p>
+&lt;p>&lt;strong>Crashes are likely to occur&lt;/strong> if you include too many additional components in your device&amp;rsquo;s
+configuration. Memory-intensive components such as &lt;a href="https://bharvey88.github.io/esphome-docs/components/voice_assistant/">Voice Assistant&lt;/a> and other
+audio components are most likely to cause issues.&lt;/p>
+&lt;/blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/esp32_ble-ui.png" width="80.0%" alt="Image"/>
+ 
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 1008px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/esp32_ble-ui.png"
+ fetchpriority="high"
+ style="width:80.0%px;"
+ srcset="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAAcCAMAAAD/XGWDAAAA21BMVEX////l5eUhISFEcp7k5OTU1NTe3t7h4eHMzMza2trj4&amp;#43;M0NDQkJCRmZmaenp4wMDC4uLhNTU0rKys/Pz/8/PzHx8f6&amp;#43;vp1dXXt7e1ERET29vZSUlLS0tKysrJYWFg6OjooKCikpKRJSUnw8PBtbW0tLS1IdaB9fX2rq6vN2eVoaGg3Nzfo6OiVlZWBgYFgYGC&amp;#43;vr7W1tbCwsKPj4&amp;#43;KiopbW1vz8/OFhYVVVVW1tbVxcXFjY2PK1&amp;#43;S7u7vOzs6np6dHdKCZmZl5eXnY2NjLy8uvr6/g4ODE0&amp;#43;FJdqGeSy86AAACyUlEQVR4nOyXMa/jKBDHgxTGxpULBo0QqWheJAoyBVKkM41Z/P2/0Qk7ycteVqfLFbvP0psoBPAAPyaTP&amp;#43;RwDMkcdmTakviG/i22QXut/zTIG7bLSH9D/y7Te8zpw44j/QytD1896i/Q2qRknqi10U92WIvD1ri7Pbyfckzfiuf9t9H/7PuvmP8KrQ2dO7IPJ&amp;#43;vJe9&amp;#43;K1F7Wep&amp;#43;saWUiSsZobay12yZs8rda6zPaGGvs6rJ1ttHJNHsTe5vlFrZf/BBtOLvlHO7TGq9mNSslpVIKFASaLyBIKAhinrtA5OlYBRGRTwGgdXjyNIBolRBEIKL29p4qwAVCCJTegza&amp;#43;Gyi10JHfsuDnSBs6S&amp;#43;fcmW7UZijFIWPkUrCUXIEjZ1BFBiGzky5LWbh3fZEwqJydk7N0F4dc8qUq1/d5ln2fs5OgMMYrupznYN&amp;#43;CthXRzdJJ5ySQfkkPK5ZlWcrS2bs/c&amp;#43;FpGrlHZu5hnk4jy8wuhDkXjGOM8TpO1xPP4JA5Ro4xxtNpnPCSMU4ReYpxurLL8fTxMWKMZbDvhFp7OY1xaiuNYwnmFfq4xGla&amp;#43;HyPtCglI3KZQZaCTlSMjM6hDL6bZeaJmSPjFHMNqnkycozjj5HRgZIZsRTEnrkoVeI0YS7ojm9Cq75gW4XHsSfzktOmw&amp;#43;n0cV3u0Nof61DrELwPXYVhTUzoKohkPQUBCgBq10EN3pKoHUAFJREdtDEURO26ToTa8l50AEMYuuDfymltKQgBtatKuppe08OEJS4/lgf0oenAXQpssnZtp7T1mNvT1TbNWB&amp;#43;TOHprV51YdcQ&amp;#43;1GRrvXmS6fs0iWjb78/Q2p/Py7L89STVq7bqm8quVa1vivwL1d1E3H5KuP48rbbP/63SbVXzLHkP6BavNY5f81S84b&amp;#43;ciOvX/kWZb/Zyy/s8d76u7fk&amp;#43;vS/oPd&amp;#43;n9/XPZZfpsVvovwMAAP//oc6CIvsYak4AAAAASUVORK5CYII="
+ data-src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/esp32_ble-ui.png"
+ data-srcset="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/esp32_ble-ui.png 1008w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/esp32_ble-ui_hu_d9e81679c5a53df8.png 201w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/esp32_ble-ui_hu_fae9dad0390d85f1.png 336w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/esp32_ble-ui_hu_aac4bf723a57e755.png 504w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/esp32_ble-ui_hu_2c8d4bb18971aa4.png 672w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/esp32_ble-ui_hu_4df578b4a791cbbe.png 1008w"
+ width="80.0%" 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;/figure>
+
+
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">esp32_ble_tracker&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># Presence based on MAC address&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ble_presence&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">mac_address&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">XX:XX:XX:XX:XX:XX&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;ESP32 BLE Tracker Google Home Mini&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">min_rssi&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>-&lt;span class="l">80dB&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># Presence based on Identity Resolving Key (IRK)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ble_presence&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">irk&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">1234567890abcdef1234567890abcdef&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;ESP32 BLE Tracker iPhone&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># Presence based on BLE Service UUID&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ble_presence&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">service_uuid&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;11aa&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;ESP32 BLE Tracker Test Service 16 bit&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">timeout&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">45s&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># Presence based on iBeacon UUID&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ble_presence&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ibeacon_uuid&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;68586f1e-89c2-11eb-8dcd-0242ac130003&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;ESP32 BLE Tracker Test Service iBeacon&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+
+
+&lt;blockquote class="alert alert-note">
+ &lt;p class="alert-heading">
+ ℹ️
+ 
+ Note
+ 
+ &lt;/p></description></item><item><title>ESP32 Touch Pad</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/esp32_touch/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/esp32_touch/</guid><description>&lt;p>Capacitive touch detection is possible on ESP32, ESP32-S2 or ESP32-S3 processors.
+In ESPHome, it is configured in two parts:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="#esp32-touch-component">Component/Hub&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#esp32-touch-binary-sensor">Binary Sensor&lt;/a>&lt;/li>
+&lt;/ul>
+
+&lt;a class="anchor" id="esp32-touch-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The &lt;code>esp32_touch&lt;/code> component creates a global hub enabling (capacitive) touch detection on GPIO pins
+&lt;a href="#esp32-touch-pad-pins">supported by ESP32, ESP32-S2 or ESP32-S3 processors&lt;/a>. With this enabled,
+&lt;a href="#esp32-touch-binary-sensor">binary sensors&lt;/a> may then be configured to permit touch detection.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">esp32_touch&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">setup_mode&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h3 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>setup_mode&lt;/strong> (&lt;em>Optional&lt;/em>, boolean): Whether debug messages with the touch pad value should
+be displayed in the logs. Useful for finding out suitable thresholds for the binary sensors, but
+will spam the logs. See &lt;a href="#esp32-touch-binary-sensor">setting up touch pads&lt;/a>
+for more information. Defaults to &lt;code>false&lt;/code>.&lt;/p></description></item><item><title>GPIO Binary Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/gpio/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/gpio/</guid><description>&lt;a class="anchor" id="gpio-binary-sensor" role="none">&lt;/a>
+
+&lt;p>The GPIO Binary Sensor platform allows you to use any input pin on your
+device as a binary sensor. By default, it uses hardware interrupts for
+efficient state change detection with minimal CPU usage.&lt;/p>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/images/gpio-ui.png" width="80.0%" alt="Image"/>
+ 
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 824px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/images/gpio-ui.png"
+ fetchpriority="high"
+ style="width:80.0%px;"
+ srcset="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAAXCAMAAACVm5VAAAAA8FBMVEX////l5eUhISHk5OREcp7h4eHj4&amp;#43;Pa2trMzMze3t7U1NRSUlIwMDAsLCx7e3s/Pz9NTU309PRmZmb8/PxFRUUjIyMmJibW1talpaVYWFg1NTX5&amp;#43;fmcnJyOjo5dXV2qqqqhuc9&amp;#43;fn52dnaVlZWCgoKysrLz9vn6&amp;#43;vqurq5sbGw5OTkqKirGxsZhYWG7u7tJSUlPeqTu7u6JiYnq6urx8fFnjLBQe6SXl5e4ytu3t7dpaWnc5ex&amp;#43;nryfn5/T09Nubm729vbo7fO/v7&amp;#43;GhoZahKrQ0NDJycmLqMJzlbZxcXHc3NzR3OitwtW0tLTF0&amp;#43;G5y9uTWfdyAAACqUlEQVR4nNRWTauzPBA1SGLsTrLoYhZdxXQxBErciFCSgWYRqc///zcv0cfeftwL7wPCbacFcczHyeHMmRSCdar4oICOsQza/DaQfwnoXDkz/UFUK9M58XHyMFke5SPTykD71szDC9MKQhiHEB5Rv5zh9VTqbtTmR86L5ygWeSyF&amp;#43;IWhDeP05880hrvaNLBMUOswBY2HB2QGwAOAyUnjzbaoFTSN913X&amp;#43;WWvtRBvm4dxmsZpmsb2hlp17uQbD&amp;#43;CbBowBgMalxBpvlJlfAUzHhCiZ67wHODGXxxmzEXbVsLoWdbWv3YxplsedplU7TNPQhGGcBlgnATtzJ5hzIlVcsLJ0bockK84cY4LXnLtOSKQYd1Xigu/jpRZlyUq3jZUaJxGRrJUMZnmcHjWtQkarinacxnad5Gvc1xcppaSeKCKeU&amp;#43;z11SJKiWSJ8CJquh71lfIA6rUlRCKS3G/Bta8JsT8eNJYzCc&amp;#43;azqBDOxM&amp;#43;tOuGviJ5RiKL&amp;#43;tD3ve7jXvZa66slsvrQW5JcoD4etb0ee308HrS1&amp;#43;WlTswHmAmpE7HVvpVN/ffpB06odp6E16p5pBRzjRV4wXshGJK1j2svMJEZES/Kyq9ipyomIFMnangjzlyhgC6aBSYwxynO94DTfajqEYZrCTdPmlKokGGOM14zv0O6cc46nlKsj1cw55&amp;#43;HEOReMcyZStU8plYzzcpumpRqWUq6p0wIJnjS9uEeO4c6pTdc1s6F5771LlfPGgPeN975ZPiilZsvzPltMjvwCG11pZoddDfU7nzaZ5WkcHrrL4tLrAh2oYvnNub/54pZRav5vA3gFUHyt&amp;#43;OLTRWHaEIbQ/rznr7f4Z58uirt&amp;#43;&amp;#43;abxJY&amp;#43;n/G8B&amp;#43;l9xuzC9N8zH&amp;#43;IHpt46luZQfxjR8INOfqekM&amp;#43;r8AAAD//7WGgNuJRxHgAAAAAElFTkSuQmCC"
+ data-src="https://bharvey88.github.io/esphome-docs/images/gpio-ui.png"
+ data-srcset="https://bharvey88.github.io/esphome-docs/images/gpio-ui.png 824w, https://bharvey88.github.io/esphome-docs/images/gpio-ui_hu_d38e9d772e7cceca.png 164w, https://bharvey88.github.io/esphome-docs/images/gpio-ui_hu_6150e928e2e5e8e8.png 274w, https://bharvey88.github.io/esphome-docs/images/gpio-ui_hu_a8c184956a2f88d6.png 412w, https://bharvey88.github.io/esphome-docs/images/gpio-ui_hu_a2fbb89a84f57ab0.png 549w, https://bharvey88.github.io/esphome-docs/images/gpio-ui_hu_9772980cff04ddad.png 824w"
+ width="80.0%" 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;/figure>
+
+
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gpio&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">D2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Living Room Window&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">device_class&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">window&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Example with interrupt configuration&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gpio&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIO13&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Motion Sensor&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># use_interrupt: true # Default - uses interrupts&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">interrupt_type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">RISING &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Only detect low-to-high transitions&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Example with polling mode (legacy behavior)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gpio&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIO14&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Legacy Sensor&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">use_interrupt&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Use polling instead of interrupts&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># Example with shared pin (automatic polling mode)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gpio&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">number&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIO15&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">allow_other_uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Pin is shared with other components&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Pump Status&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># Interrupts will be automatically disabled for compatibility&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>pin&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#pin-schema">Pin Schema&lt;/a>): The pin to monitor.&lt;/p></description></item><item><title>Haier Climate Binary Sensors</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/haier/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/haier/</guid><description>&lt;p>Additional sensors for Haier Climate device. &lt;strong>These sensors are supported only by the hOn protocol&lt;/strong>.&lt;/p>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/images/haier-climate.jpg" width="50.0%" alt="Image"/>
+ 
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 307px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/images/haier-climate.jpg"
+ fetchpriority="high"
+ style="width:50.0%px;"
+ srcset="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAJUAtAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&amp;#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&amp;#43;Tl5ufo6ery8/T19vf4&amp;#43;fr/2gAMAwEAAhEDEQA/APfaMikY4Un2rg5PEerm8uFUQpEkhRS3egDvc0VzfhjV7vVPPS7VA0bY&amp;#43;Wuk7UAFFUbnUYbY4kIHBNMj1mzkXIkHSgDRoqjHq1rLtCSj5jge9Nk1WCO4aEtyoyaANCis8aijQs5Rhj1HWj&amp;#43;1rdNolby2bsaANCis5dbsGlMYnG4dqX&amp;#43;2bI8CYZPSgDQorOTW7NnVBKCxpx1mzyV8zmgC/RWb/atu0DSI&amp;#43;4A449arjXoDL5bblOM5NAG1RWZDq1vPKVR&amp;#43;lTw6lbTT&amp;#43;SkgZsZoAuUUUHpQAUVnXGoJBL5bZyBk47CpbXUoLlikbZYUAXKKKKAEYZUj2rg30fVFubj/AEdZY2lLpk13tJxQBzfhbTb2xNy94ihpGyAK6WiigDKvtJhvXzJngEfnVBfDaRscSEjGMV0nFHFAGJaaKluyHg7DxgU&amp;#43;TRoppWl3EO3WtijAoAzE0xhbPE8xJPQ&amp;#43;lVZtB&amp;#43;0MDJMW4x07Vu0UAc1J4XjaRpFkIOAB&amp;#43;FPt/D4AJmfLbdvHpXRcUcUAc6ugqkiMHA2&amp;#43;gp/9g/OzGX7wx07VvYFHFAGPDo0cFi1sjdWJzVd/Du5TiX5tuK6DApaAOeXQTEoEcm1sYJqa10T7LdLN5h&amp;#43;UYx61t0UAA6UUUUAZl7pf2m5EokKgjDj1FFppcdtMsinpmtOjigAooooAjmk8qJnAyQOlcyfEDyXsalGRFP7wEdPSumlTzIivTIrnX0LF2hGWVvvknr6VpCxBo6XrMepSTpGP9U2DWrWHo2gjSbi4kEhcTNnHpW5WZZnX2qW9k2JCRkE1Xj16zlG0SHOM1avNMhu&amp;#43;XHYj86y08LwJOZAz9MUAXI9WtpWXZISWbaOKkbV4I7mSA53IuSar2ehQ2hGGY4bIzT5NHt5Gdzncx5bvQBMupAwySmNgE6A96g/4SC0U7ZCUc8bTTk0rFhJCZnO/oT1FUx4biMsUrs7OhySe9ADo/E1ozOrMyspzgjtUs3iKxij3bmY4zgCmS&amp;#43;Hrd5ZJCSC4H4VH/wAI3bErh3&amp;#43;UEfWgC1Pr8MEcTtG5Ei5AxzUC&amp;#43;JrFoDK29BuK8jvUk&amp;#43;iLcQxxvKxEYx9arTeFoZ1RWlfarbgKALkOuWstr9oLMq/7Qq7Y30N/CZYs7c96x28PKVEbTSBB/DWppmnpp8BiRmYZ70AaFFFFABRRQelAGRd6zFbCQsjFE6ketVtM8SQ6rciGKN1O3dkjHFWJ9EjuLhnaRhGw&amp;#43;ZOxPrS6fpEGnzboid23bz6UAa46UUUUAFHFRXLFLaRgcEKTWBDr6WelwyXDF5ZCQAO9AHSZFFY2n3Us2oOJPlBQMF9K2e1ABRWVfavFZPiTjIJqtF4ht5DgZz15oA3sUmBWZDrlvcOqRhjuOKbNq6Q3MkLKcIM5oA1qKyTqLrayTPHtC8jnrTU1hAq&amp;#43;YPvDOVoA1&amp;#43;DRgVkxatBJIBHkknFPbWbdHKMcMKANPijgVjw&amp;#43;ILKeby13bs46UlzqnlXBiKHOcj6UAbWBRWGniKF5Nqjgfe9qsW&amp;#43;u2lzL5UZJY&amp;#43;1AGpRXPtrpjl2tHuG/bweRUj&amp;#43;IYPMVEUsS2G9qANzIorLXVbfeBzuJxWmDkZoAXik49qzrvURbzFNmQoyT6Uy01KO5l2IpGc9e9AGrRSDpS0ARzp5kDoP4lIrF03QY4QrXP7xkPyg9BW9SZHtQBRS0K6lJN0UqAKv44xRkGigCncWNvcnMsYJxj8KpJolij5WI/nWzxSYFAFCHTLaEqUTGOlLLpdtK5d4/mbvV&amp;#43;igCimnwxRGMgsrdQTmkbTbZ23FMcYxV&amp;#43;igDNttMtbZz5acmmy6LbTTmV0&amp;#43;YnPWtPAoyKAMhNBghljeLgK27Bq9Jp8EsoldfmC4q1xRkUAYyaLZo74iPzdc1Yh022gl3pHtOK0OKOKAMx9GtJJDIyHcfekTRrFGOEOfrWrScUAZo0a2GMKxw2eTWkBhQPSlooApzWEM8m91/XrSx2EETBkXDCrWRS8UAA6UUUUAIxCqSTgCuVm1AG4cC9QDzM/e7V08yeZA6A43AiuQh8HNHybjLEnt71cLdTOobuj3Uc8UgE4kYN2Nao6Vg6JoH9lXEsvm794HFb/aoNDC1fW00yRVZHYsCflGaZF4kgkGNvzYB61pXFlBcHMqbuCPwqmmg2CS7li&amp;#43;Y&amp;#43;9ABba3FcsojVjlsUTa0IrySHaMKPWprbSbezPyofvZHtUzabbzZLoNx5zQBCNRkS0knkQAL6HOaqLr6uDtjcHGQPWr8GmQRQvEASjdcnOajfRrSRdoQjHocUAV4ddVohujI9/ep4NTW4YoqMGUZPtTV0W2SXcqHG3GM8VZtNNhtQxTOT1zQBjp4kLFy0WERypJ9qmTxFDOpeKN2IFSLodrHNIxVjvOSCcipI9CtEAwhGDkYNAFYeI0&amp;#43;z&amp;#43;a8LDAyRUza0iWH2gxPt44HJqcaLbCMptyp9akh0u3hh8pQSuc80AZFv4qimaULE42HaM8E1I/iOMblSMsydeauvodk7s/lkMTkkVEvh&amp;#43;yUyFUb5zzzQAun62l8qMYyu44rZ3Ajg1kpo9vDGqKCoU5GDV62thArYLHPqc0AZd7qj2jSkR7kj9&amp;#43;c1Do2szalebXi2Ls3Voz6VBPcGVwxyMEZ4qS2023s3DRLhtu38KAL1FFFADQKRnVepAokfbGzYzgZrzrW9fmvXWIJNAUk5x/EK0pw9oZ1J2PRxjFLXP8AhzWl1SF4xHIjRcEuOtb/AGrM0F4pOPasbU9VewlwkRcFSaoDxMjyeXsYPtyTjigDqaTIrn9P137bIFWJwC2ASMU6bVzFdyxgAog/WgDf4orIGoSx2TzPtYjstVF8QGRSFiwxHGaAOi4orAh10&amp;#43;UrOnbnHrU9tqr3UrIsWCoyeaANfg&amp;#43;lLXMjWp7W1kuLiM7Q5CgDrVix177axCQsoxkE0AbuRRxXMS65cRy7TGGO7B9hRH4mWd8RRHajYbP9KAOoornYvEscl35IjON2NxroVOVB9aAFooooATI9aOKyb2&amp;#43;eG5dVAwq7jnvTrHVPtUyxmPbkZFAGrRRRQAVh6z4eTVJYHEnlCNtxCjrW5THljjGXdV&amp;#43;poAjt7SG2XEaAEjkgdanoBBGQciigCvJbRSn50Ddqi/su0V9ywJu9cVcyKXNAFeO0ggHyRqPoKQ2cDEkxLk8nirOaTg0AQLZwpGyiMbW6io/sFoy7fKX8quUnFAFNdOtl4ES9MdKljtYYM&amp;#43;WgXPXAqxRQBWks4JY9jxqV64xRHaW8C4SJR9BVmigCn/Z1rk4hU555FJHpdpGDiBBn0FXaMigClHpVmjblgUHOc4q6BgYFFFABRRRQBWls4Z3DvGGYdCadHaxRvvCAN7VPRkUAFFFFADZCVjYgZIHSvNtb1e6vZFimt5YQknGDjdXpdYesaDHqk8Du5QRNuwverpuxnUIvDestqMbwtbPE0PHzd66A8imQwxwqAiAcdQKkqDQ57V9UutPmCRWzzAqTle1Qp4kZgoaIh8ZrpJIUk6gGoPsNtu3eUufpQBk22szXMiBYflY4zSS6rNFdywhDtUfLx1NbMdtFH9xFXvUhgibqgOaAMtLy4S0kdnV27Y7Vnya/NbSFJI/MAGdwroVtYkQoqKFPWmmxtiuDEpA9qAOcn1&amp;#43;7NuNse1i2c&amp;#43;1TSeIJYygMOSw6g8Vumzt2GGiX8qPsdvgjylx9KAMh9bnk0ia6ihIdR8qmqi&amp;#43;ILqGG3FxAQ8vbuK6YW0SoVCDB7YqOSzhlZGeNWZelAGYuqXElpK3lYkUZUVRXW7pD86Arjn6&amp;#43;ldJ5Ef8AcWmmytyuDEu36UAYNvr80k&amp;#43;JIgsZHBq5a6w090kXlYVu9aLWNsy7fKXH0ojtIY3DpGoYcUAWaD0oooAxr6&amp;#43;nhuSqYwq5we9LYalLdTiOSHYCMg1pvbxSEM6AkdKcIY15CgGgB9FFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH/2Q=="
+ data-src="https://bharvey88.github.io/esphome-docs/images/haier-climate.jpg"
+ data-srcset="https://bharvey88.github.io/esphome-docs/images/haier-climate.jpg 307w, https://bharvey88.github.io/esphome-docs/images/haier-climate_hu_e89b17ba37e0b472.jpg 61w, https://bharvey88.github.io/esphome-docs/images/haier-climate_hu_f138a371cf1e1207.jpg 102w, https://bharvey88.github.io/esphome-docs/images/haier-climate_hu_80fcb08b2205d87f.jpg 153w, https://bharvey88.github.io/esphome-docs/images/haier-climate_hu_7048e4c2e9c63398.jpg 204w, https://bharvey88.github.io/esphome-docs/images/haier-climate_hu_b141f7dff0e98422.jpg 307w"
+ width="50.0%" 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;/figure>
+
+
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">haier&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">haier_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">haier_ac&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">compressor_status&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Haier Outdoor Compressor Status&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">defrost_status&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Haier Defrost Status&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">four_way_valve_status&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Haier Four Way Valve Status&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">indoor_electric_heating_status&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Haier Indoor Electric Heating Status&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">indoor_fan_status&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Haier Indoor Fan Status&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">outdoor_fan_status&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Haier Outdoor Fan Status&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>haier_id&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The id of haier climate component&lt;/p></description></item><item><title>Home Assistant Binary Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/homeassistant/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/homeassistant/</guid><description>&lt;p>The &lt;code>homeassistant&lt;/code> binary sensor platform allows you to create binary sensors that &lt;strong>import&lt;/strong>
+states from your Home Assistant instance using the &lt;a href="https://bharvey88.github.io/esphome-docs/components/api/">native API&lt;/a>.&lt;/p>
+
+
+&lt;blockquote class="alert alert-note">
+ &lt;p class="alert-heading">
+ ℹ️
+ 
+ Note
+ 
+ &lt;/p>
+ &lt;p>Although you might not plan to &lt;em>export&lt;/em> states from the node and you do not need an entity of the node
+in Home Assistant, this component still requires you to register the node under Home Assistant. See:
+&lt;a href="https://bharvey88.github.io/esphome-docs/guides/getting_started_hassio#connecting-your-device-to-home-assistant">Connecting your device to Home Assistant&lt;/a>.&lt;/p>
+&lt;/blockquote>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">homeassistant&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Input Boolean From Home Assistant&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">entity_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">input_boolean.state_home&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;p>With Home Assistant 2021.6 or newer, entity state attributes can also be imported.&lt;/p></description></item><item><title>Hydreon Rain Sensor Binary Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/hydreon_rgxx/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/hydreon_rgxx/</guid><description>&lt;p>The &lt;code>hydreon_rgxx&lt;/code> binary sensor platform gives access to information provided by a Hydreon Rain Sensor.
+For this sensor to work, a &lt;a href="https://bharvey88.github.io/esphome-docs/components/sensor/hydreon_rgxx/">Hydreon Rain Sensor&lt;/a> must be set up.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example RG-9 entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hydreon_rgxx&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">model&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;RG_9&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;hydreon_1&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">update_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">1s&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">moisture&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;rain&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expire_after&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">30s&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hydreon_rgxx&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">hydreon_rgxx_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;hydreon_1&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">too_cold&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;too cold&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>hydreon_rgxx_id&lt;/strong> (&lt;em>Optional&lt;/em>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The ID of the Hydreon Rain Sensor display.&lt;/p></description></item><item><title>LVGL Binary Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/lvgl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/lvgl/</guid><description>&lt;p>The &lt;code>lvgl&lt;/code> binary sensor platform creates a binary sensor from an LVGL widget
+and requires &lt;a href="https://bharvey88.github.io/esphome-docs/components/lvgl/">LVGL&lt;/a> to be configured.&lt;/p>
+&lt;p>Supported widget is &lt;a href="https://bharvey88.github.io/esphome-docs/components/lvgl/widgets#lvgl-widget-button">&lt;code>button&lt;/code>&lt;/a>. A single binary sensor supports only a single widget; in other words, it&amp;rsquo;s not possible to have multiple widgets associated with a single ESPHome binary sensor component.&lt;/p>
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>widget&lt;/strong> (&lt;strong>Required&lt;/strong>): The ID of a supported widget configured in LVGL, which will reflect the state of the binary sensor.&lt;/li>
+&lt;li>All other variables from &lt;a href="https://bharvey88.github.io/esphome-docs/components/binary_sensor#config-binary_sensor">Binary Sensor&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p></description></item><item><title>Modbus Controller Binary Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/modbus_controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/modbus_controller/</guid><description>&lt;p>The &lt;code>modbus_controller&lt;/code> binary sensor platform creates a binary sensor from a modbus_controller component
+and requires &lt;a href="https://bharvey88.github.io/esphome-docs/components/modbus_controller/">Modbus Controller&lt;/a> to be configured.&lt;/p>
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>register_type&lt;/strong> (&lt;strong>Required&lt;/strong>): type of the modbus register.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>coil&lt;/code> : Coils are 1-bit registers (ON/OFF values) that are used to control discrete outputs. Read and Write access. Modbus &lt;em>Function Code 1 (Read Coil Status)&lt;/em> will be used.&lt;/li>
+&lt;li>&lt;code>discrete_input&lt;/code> : discrete input register (read only coil) are similar to coils but can only be read. Modbus &lt;em>Function Code 2 (Read Input Status)&lt;/em> will be used.&lt;/li>
+&lt;li>&lt;code>holding&lt;/code> : Holding Registers - Holding registers are the most universal 16-bit register. Read and Write access. Modbus &lt;em>Function Code 3 (Read Holding Registers)&lt;/em> will be used.&lt;/li>
+&lt;li>&lt;code>read&lt;/code> : Read Input Registers - registers are 16-bit registers used for input, and may only be read. Modbus &lt;em>Function Code 4 (Read Input Registers)&lt;/em> will be used.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>address&lt;/strong> (&lt;strong>Required&lt;/strong>, int): start address of the first register in a range (can be decimal or hexadecimal).&lt;/p></description></item><item><title>MPR121 Capacitive Touch Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/mpr121/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/mpr121/</guid><description>&lt;a class="anchor" id="mpr121-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The &lt;code>mpr121&lt;/code> sensor platform allows you to use your MPR121
+(&lt;a href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-mpr121-12-key-capacitive-touch-sensor-breakout-tutorial.pdf">datasheet&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>,
+&lt;a href="https://learn.adafruit.com/adafruit-mpr121-12-key-capacitive-touch-sensor-breakout-tutorial/overview">Adafruit&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>) Capacitive Touch Sensor with ESPHome. The &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C&lt;/a> is
+required to be set up in your configuration for this sensor to work.&lt;/p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/mpr121-full.jpg" width="50.0%" alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>MPR121 Capacitive Touch Sensor. Image by &lt;a href="https://www.adafruit.com">Adafruit&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>.&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 970px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/mpr121-full.jpg"
+ fetchpriority="high"
+ style="width:50.0%px;"
+ srcset="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAIcAtAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&amp;#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&amp;#43;Tl5ufo6ery8/T19vf4&amp;#43;fr/2gAMAwEAAhEDEQA/APKqKKKACijFS4oAioqWigCKipaKAIu9S0YooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooxUuKAIqKlooAioxUtFACY4pmOakooAMUUUUAFGPajrV&amp;#43;z0&amp;#43;W8BK4VAMc8c0WAoYoqaeAwSbGH41DQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRigAoqXFFAEVFS0YoAioqXHtRjPQUWAi61LHbvKGKKWA64FW0sTHJHJOB5R64PQ9s1dIWyZJFXMD4&amp;#43;6ehrqpYUyq1StFaJAq3AzIyY&amp;#43;XHHNbtsYmEcxP3uGiUY/GqemxRG/f8AfbI2HIatxFhRf9GhCp0Mjd69elhVTPNq4rn/AIZja1aTziMrCoBOFA61zssMkUpjdNrCu1kdmjb5sOOFJGSfpXO3tlMpMkr5ZvfmssVgfafwwpYl0zLxRSlSvUGkrxGrHrJ3CijFFIYUUUUAFFFFABRRRQAUUUUAFFFA64oAKKsxW0kwYxgHb1yauWthHcYUA&amp;#43;eMkj0I7VrSpXMnUsU4LZ3l2SZQYzyOT9KtwQpbuLeXChzwzDrmpLibzLcpKmJlbjFXX&amp;#43;yx2cU14/mSKPkjIwRXpUsMc3tSmsNyjtbTKrQHjzGPT6VZhsYr6eLT7WTfL654rPv9RmvOJF2RfwhegqPS4rp7xGtA/nKflK0QxNqlh1Kd6Z1Nz4ejsLNmNwDeJyIxyTWNa3k5nEdxM0cY4xiuikvILW7tUnV47lx&amp;#43;9eWqXirw&amp;#43;kSQX1nc&amp;#43;bDM2WI6CnSx1Wn8ZjUw1P8A5dlyzggv94trlVcrhS3Umue8mSDUhDcAyMr4I9auWSppGHA82YHKqOcVFLqDXGsLezoAQwJUDFdGBliKqqOZniFTpmprGjJfugtoUgbb/qy3LVyNxaSWspilTY611P8AZEeoa9HqcepOE3B/L9PaqnjJ4X1FWjYbiPmA7V4j9on&amp;#43;8PSXs7fuzm6KKKyNQooooAKKKKAIsVLiiigAowKKKAJLe3e4nWGJdzt0Fax0F7XDzMDImC0eO1Y6SSROrxvsdTkMK7PTdRi1m3CykC6Qcj&amp;#43;8PUVpS/iGVTyMl7RTD9rjdEIH3Om6opfNu7mN7aExMeCV7mr95pxvdTFrp7GUleRjGK0Y2v7DS0sZbBI3Z9qStwc167ap0&amp;#43;emcK9pUqezqFXT9NsY3YX0hW8yCkZ/irL1m5N7qf2aSGOAx8Bv8aheG4n1drSSQNOp3CbPTHvWpY6UNQUR3aCKaJtxdjzJXH7Wp/EOr2X/AC7MrTobT&amp;#43;0YkvJj5Wccc1t6tps/hu8jv7KTNu/Kv6e1buv&amp;#43;A9&amp;#43;k295aiOJ1Xc65wTXK3F5fXXkWF1lokHCnpiuj93U/eGf8P92aevahb&amp;#43;I9Gg8qEm9QfO4FJYzzf2MlpfI3kxkEe9R/aY7aExKgjQgfd9PrUlhLDdQyPMuQvAGeCBRC3s/cMqn8TQqSXEK3gEK4LkHHce1TXdhZoDcyzBTnLA9vYVm3&amp;#43;p2VrO5s4hJN&amp;#43;i1h3E9zdtuuHJJ7DtXO8V7P&amp;#43;GaLDe0/iGtNroSN4dOTYneRuv4Vku7yNudizHuaaBjipa4atX2h2pWIsUVLRSGRYqTHFLRQBFiipaKAIqKlooAioqWigCLpU0M0lvKs8LbZV5BFJijoKAO&amp;#43;8Ma9CzLdpBGblf8AXLjnHqKq&amp;#43;KvEq64fIjhMflt8rVxltdTWU4uIDhx&amp;#43;oro1jh1S1N5ajEo/1kXpXpYGrT9p&amp;#43;8PNxtOpThemWPDU1nJDJYSxAXUh&amp;#43;SZjVjVJoLZXFw4e8tyPKKHiqt3/AGX4etbea/VnmmGVC9hTL&amp;#43;zgurOC/st&amp;#43;yX&amp;#43;E1s/q9TEfuwVTEU8P7Qe2t6xqsIdrg8jAj7YFVpmnlZQImE3uuMD0qzpSHTN1xcuqR9g1ZuqeJZbiRks12j/nqRz&amp;#43;FZVfZ06hpS9pVpmre6lZWVqEmC7ivMYHJrmLrU7i9G2P9zB2Re/1qsFbzPMkJkdv4mp&amp;#43;OelcNWr2OmlS9mRRxbDn1qXFS0VkakWPaipaKAIqKlooAioqWjHtQBFRUtFAEVFS0UARUVLRQBFRipaKAIsVasb2bT7pZ4OcfeB6MPSose1HagDsjqGjazao93HE3l9Ec4K&amp;#43;30qrqPiaxhiWCxhWQqMKij5Vrk3iR/vLj6U&amp;#43;OERj5BWvtDP2Y6ee4vpTLdOT/dQdBUOMcYqXmjHtWRoHajFGKlxQBFiipaKAIqKlooAioqWigCLFSY4paKAIsUVLRQBFRRRigAoqXFFAEVGKlooAMUUUUAGKKKKACiiigAooooAKKKKACiijFABRUuKKAIqKlooAioqWigCKiiigAooooAKKKKACiiigAooo70ASUtHaigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q=="
+ data-src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/mpr121-full.jpg"
+ data-srcset="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/mpr121-full.jpg 970w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/mpr121-full_hu_467966dfc336ef2b.jpg 194w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/mpr121-full_hu_57c74c3c3775393b.jpg 323w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/mpr121-full_hu_81fb3d33b6af9cff.jpg 485w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/mpr121-full_hu_48da65864de7106c.jpg 646w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/mpr121-full_hu_eb3188dc3856e505.jpg 970w"
+ width="50.0%" 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>MPR121 Capacitive Touch Sensor. Image by &lt;a href="https://www.adafruit.com">Adafruit&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>.&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+
+
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">mpr121&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">mpr121_component&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">address&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">0x5A&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">touch_debounce&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">release_debounce&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">touch_threshold&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">10&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">release_threshold&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">7&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">mpr121&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">touch_key0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">channel&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Touch Key 0&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">touch_threshold&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">12&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">release_threshold&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">6&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The configuration is made up of two parts: The central component, and individual Binary sensors per channel.&lt;/p></description></item><item><title>Nextion Binary Sensor Component</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/nextion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/nextion/</guid><description>&lt;a class="anchor" id="nextion_binary_sensor" role="none">&lt;/a>
+
+&lt;p>The &lt;code>nextion&lt;/code> binary sensor platform supports the many switched components in the Nextion as well as integer variables (&amp;gt;0 == true). It can be a component or variable in the Nextion display.
+It is best to set the components vscope to global in the Nextion Editor. This way the component will be available if the page is shown or not.&lt;/p>
+&lt;p>See &lt;a href="https://bharvey88.github.io/esphome-docs/components/display/nextion/">Nextion TFT LCD Display&lt;/a> for setting up the display&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">display&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nextion&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nextion1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># ...&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nextion&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">page_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">component_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">8&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">component_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">page0.mode&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Only needed to support changing colors&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">mode&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nextion&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">r0_binary_sensor&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Radio 0 Binary Sensor&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">component_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">page0.r0&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># r0 is a global component in the Nextion Editor on page 0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">update_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">4s&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nextion&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">darkmode&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Is Darkmode Set&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">variable_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">darkmode&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>nextion_id&lt;/strong> (&lt;em>Optional&lt;/em>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The ID of the Nextion display.&lt;/li>
+&lt;li>&lt;strong>component_name&lt;/strong> (&lt;em>Optional&lt;/em>, string): The name of the Nextion component.&lt;/li>
+&lt;li>&lt;strong>variable_name&lt;/strong> (&lt;em>Optional&lt;/em>, string): The name of the Nextion variable. Any value over &lt;code>0&lt;/code> is considered to be &lt;strong>on&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>page_id&lt;/strong> (&lt;em>Optional&lt;/em>, string): The ID of the page the component is on. Use &lt;code>0&lt;/code> for the default page.&lt;/li>
+&lt;li>&lt;strong>component_id&lt;/strong> (&lt;em>Optional&lt;/em>, string): The ID (the number, not name!) of the component to track.&lt;/li>
+&lt;li>&lt;strong>update_interval&lt;/strong> (&lt;em>Optional&lt;/em>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#time">Time&lt;/a>): The duration to update the sensor. If using a &lt;a href="#nextion_custom_binary_sensor_protocol">Nextion Custom Binary Sensor Protocol&lt;/a> this should not be used&lt;/li>
+&lt;li>&lt;strong>background_color&lt;/strong> (&lt;em>Optional&lt;/em>, &lt;a href="https://bharvey88.github.io/esphome-docs/components/display#config-color">Color&lt;/a>): The background color&lt;/li>
+&lt;li>&lt;strong>foreground_color&lt;/strong> (&lt;em>Optional&lt;/em>, &lt;a href="https://bharvey88.github.io/esphome-docs/components/display#config-color">Color&lt;/a>): The foreground color&lt;/li>
+&lt;li>&lt;strong>visible&lt;/strong> (&lt;em>Optional&lt;/em>, boolean): Visible or not&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/binary_sensor#config-binary_sensor">Binary Sensor&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Touch Sensor:&lt;/strong>
+The Nextion will send a &lt;strong>page_id&lt;/strong> and &lt;strong>component_id&lt;/strong> when the &lt;em>Send Component ID&lt;/em> check box is selected for the component. To enable
+this native event &lt;strong>page_id&lt;/strong> and &lt;strong>component_id&lt;/strong> are required. No &lt;a href="#nextion_custom_binary_sensor_protocol">Nextion Custom Binary Sensor Protocol&lt;/a> is required. If &lt;strong>page_id&lt;/strong> and &lt;strong>component_id&lt;/strong> are set then the component will only react to touch events from the Nextion. Setting &lt;strong>component_name&lt;/strong> will allow setting options like foreground color.&lt;/p></description></item><item><title>NFC Binary Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/nfc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/nfc/</guid><description>&lt;a class="anchor" id="nfc-platform" role="none">&lt;/a>
+
+&lt;p>The &lt;code>nfc&lt;/code> binary sensor platform provides an easy way for you to determine if an NFC tag is presented to the reader.
+The tag may be identified in one of three ways:&lt;/p>
+&lt;ul>
+&lt;li>By given unique ID (&lt;code>uid&lt;/code> ) &amp;ndash; for example &lt;code>74-10-37-94&lt;/code>&lt;/li>
+&lt;li>By a given NDEF tag &amp;ldquo;name&amp;rdquo;, or&amp;hellip;&lt;/li>
+&lt;li>By a given string contained in the tag&amp;rsquo;s NDEF message/data&lt;/li>
+&lt;/ul>
+&lt;p>Note that this platform is currently supported by the &lt;a href="https://bharvey88.github.io/esphome-docs/components/pn7150/">PN7150&lt;/a> and &lt;a href="https://bharvey88.github.io/esphome-docs/components/pn7160/">PN716x&lt;/a> only;
+one of these components must be present in your device&amp;rsquo;s configuration in order to use it.&lt;/p></description></item><item><title>Packet Transport Binary Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/packet_transport/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/packet_transport/</guid><description>&lt;p>The &lt;code>packet_transport&lt;/code> binary sensor platform allows you to receive binary sensor data directly from another ESPHome node.
+It requires a &lt;code>packet_transport&lt;/code> component to be configured.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">packet_transport&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">switch_status&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">provider&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">light-switch&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">remote_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">light_switch&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">packet_transport&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">provider_status&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">status&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Provider Status&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">provider&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">light-switch&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">packet_transport&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">...&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>id&lt;/strong> (&lt;em>Optional&lt;/em>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): Manually specify the ID used for code generation.&lt;/li>
+&lt;li>&lt;strong>provider&lt;/strong> (&lt;strong>Required&lt;/strong>, string): The name of the provider node.&lt;/li>
+&lt;li>&lt;strong>remote_id&lt;/strong> (&lt;em>Optional&lt;/em>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The ID of the original binary sensor in the provider device. If not specified defaults to the ID configured with &lt;code>id:&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>type&lt;/strong> (&lt;em>Optional&lt;/em>, string): With &lt;code>type: status&lt;/code>, the sensor will report the connection status to the referenced provider node (online/offline). Defaults to &lt;code>data&lt;/code> where a remote entity value is used.&lt;/li>
+&lt;li>&lt;strong>name&lt;/strong> (&lt;em>Optional&lt;/em>, string): The name of the binary sensor.&lt;/li>
+&lt;li>&lt;strong>internal&lt;/strong> (&lt;em>Optional&lt;/em>, boolean): Whether the sensor should be exposed via API (e.g. to Home Assistant.) Defaults to &lt;code>true&lt;/code> if name is not set, required if name is provided.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/binary_sensor#config-binary_sensor">Binary Sensor&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>At least one of &lt;code>id&lt;/code> and &lt;code>remote_id&lt;/code> must be configured.&lt;/p></description></item><item><title>PN532 NFC/RFID</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/pn532/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/pn532/</guid><description>&lt;a class="anchor" id="pn532-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The &lt;code>pn532&lt;/code> component allows you to use PN532 NFC/RFID controllers
+(&lt;a href="https://cdn-shop.adafruit.com/datasheets/pn532ds.pdf">datasheet&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>, &lt;a href="https://www.adafruit.com/product/364">Adafruit&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>)
+with ESPHome. This component is a global hub that establishes the connection to the PN532 via &lt;a href="https://bharvey88.github.io/esphome-docs/components/spi">SPI&lt;/a> or &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C&lt;/a> and
+outputs its data. Using the &lt;a href="#pn532-tag">PN532 binary sensors&lt;/a> you can then
+create individual binary sensors that track if an NFC/RFID tag is currently detected by the PN532.&lt;/p></description></item><item><title>Qwiic PIR Motion Binary Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/qwiic_pir/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/qwiic_pir/</guid><description>&lt;p>The Qwiic PIR Motion binary sensor allows you to use your Qwiic PIR (&lt;a href="https://www.sparkfun.com/products/17374">EKMC4607112K based&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>, &lt;a href="https://www.sparkfun.com/products/17375">EKMB1107112 based&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>, &lt;a href="https://github.com/sparkfun/Qwiic_PIR">firmware documentation&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>)
+sensors from SparkFun with ESPHome.&lt;/p>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/images/qwiic_pir.jpg" width="30.0%" alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>SparkFun Qwiic PIR sensor. (Credit: &lt;a href="https://www.sparkfun.com/products/17374">Sparkfun&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>, image cropped and compressed)&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 300px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/images/qwiic_pir.jpg"
+ fetchpriority="high"
+ style="width:30.0%px;"
+ srcset="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIALQAtAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&amp;#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&amp;#43;Tl5ufo6ery8/T19vf4&amp;#43;fr/2gAMAwEAAhEDEQA/APb7/ULfTIPMnbatYEnjnRoz/rTUfj9saP8AjXk9pZy6nepBDncx5PpXLUqVFUsj1sLgaVWl7Woet/8ACeaL/wA9T&amp;#43;VM/wCE&amp;#43;0bP&amp;#43;u/Suah8CwRwg3ExL&amp;#43;1YWt&amp;#43;E/ssbz2su7Z/DTvVIVHBXsehf8J7o3/PU/lR/wsDQ/wDnq35V4tBOWYrIPnHarG8elZfWah6SybDNHsX/AAsDRv8Anqfyo/4T/RP&amp;#43;e5/KvHd49KN6&amp;#43;gpfWag/7CpnsX/CwNF7St&amp;#43;VH/CwNH/57H8q8jtoHuX2xRliOpHStF4NN0&amp;#43;PzL26Xf8A8815p&amp;#43;1qmVXLMNS/iVD0oeP9HPSU/lS/8J5pH/PU/lXlZ8WaRb/u7fTRL/tNTf8AhLoP&amp;#43;gVFtrq/eHmNYI9W/wCFgaMOPNb8qP8AhYGjf89W/KvJ113Rr6TZNbtbN/eHIqxPp6MglspVuIz3TqPqKyq1KlM6aWGwVX7Z6f8A8J/o3/PRvyo/4T/Rv&amp;#43;ejflXj7MVJDLgikMgx0rL6zUO7&amp;#43;w6Vr3PYv&amp;#43;FgaN/z2P5UHx/o3/Pc/lXl1roV3dQ7g8YDruGaz2RoWMUmN6HFHtahFPK8NU0p1D1//hYGjjrKfypw8f6N/wA9/wBK8atYZ9VvPs0IwO5rtbHwTa&amp;#43;SPMmJetfa1DkxOFw1I7MePtH/AOe1WLXxjpV1cJFHLudzgV5vrPg2TT4ftFqxlTqw9KyvDgKa3CvzZMoPPaj2tQX1XDTV6Z9AqQygjoaWmW/&amp;#43;oT6VLXSeSzifiD/yBD9a534f2sJWe4IBccV0PxC/5AR&amp;#43;tcD4P8QJpd81vc/Kkn8Vcz/inr0aftMFoeg6jKVHFctd3Llyp6Guh1C5S4h3QsChHY1xOq6hHZhmZhmtTjpLU5S&amp;#43;Ij1p9lHm81SEpub2SdvXinn/AFm6uCqfXYX&amp;#43;GWvNqazt3u5sLlUH3m9Koqxdwo6k4rW1GQaZZRWVtnzp/vn39K1pUvaGWPxX1emRajrv2KP7FpoIJ4Z&amp;#43;5rAaCe5PmTFs&amp;#43;9ddp3h2NbcSTjdN1OaqXsKq7hcbRXd7I&amp;#43;Qq1qlU54WqCl&amp;#43;yrj7x/OrJwDRlK0MiqbXKbVPNOtpr3SpVltnYeo7VYikG7it3TbAXYbeM0ANhuodcg/dr5d6gyy9mrKuZGjVgeGHatDUdGk05xeWm7cnJAqtqxW805NQiTAI2yD0NcVWkfQ5Zj9PZ1CLS9dvfL2rJt28DIzmlkmkYyyOfnJNGlz2kIjim8vLclj2qNnWSeYqcqxIFY1B5av8AaKh0fhHEdm8vHmM3WuzsboueteaaDqa6fK9rP9xz8rV32lyI2CGBH1rWkcOLpfvTsI0E1owIyCK8ygjEHjONE6ebXcX&amp;#43;u22kaa0kko3Ywq5615xo92934oguG6PLxTqF4KlZVGfQFv8A6hPpUtRW/wDqE&amp;#43;lS10nkvc4X4hnGhsP9qvG7iMuAc4Ir2bx2gm0pVk&amp;#43;UFxk1w95pNrJZy7Y/KWPGJM/erhq0/wB4fQZZVp06Wpx63uqQJ5cV04T3NVZFmuZN88zPXXXHhtIIEuftMbKxGBmiTQoJp4o1dE3Eng&amp;#43;lH7w71Uw1zlETLBF6ngVqaloVzp9pDM5BLjOB1rU0LQIdQ1K5hLHdF901201pFa6KY79kkdEO1jRTpmWIx3s6tqZ5fokSNqAeX7sY3H8KuaZbPrfiaSRv9VCcil0tIn&amp;#43;3yDsMCr/gEAXF87/3q6cMeZm9W9Q6aS0Aj2K3zNXEa2i2l68anNdjq175QzHxXAanc&amp;#43;bK8jt89dR45lyk5qLzD0pDJR1pASxHY/Wu38KfvUbNcRHHl15rrfCl0kU7o9AHV3Fn5kbLjORiuGW0eC7vtJPRhvUe9ei28okf2rjtYYQ&amp;#43;OISn8aYNZs2o/wAU41bVEYiT5nBxVqMGMZUHFPuk26lKPRya22vbJLC3hWBS&amp;#43;QZG/pXC6Z9SsR7KfIkYb2xuU3KjZHcDpSwPqlsu6GeRY/XNdWdStLd7poPK8ooMJjqasLd6bJo6BygDYynfOeTQFWp7T&amp;#43;JTOLle7upAbqd39BW3oA8vWrQf7YrZksNGt5oZRcKy53MM549Kh3WEviSzksj8hcEr6GmTKrT9k6dNHuFsf9HT6VLVW2P&amp;#43;jp9KlrtPk3ucZ8QzjRCf9qvPdD2XkskdzKTGqZ2s2BXoPxE/5ADfWvHVmZRgEj6Vw1f4p9JllL2mGOvj06wuXOyYmMPjBbisHxGItPuozbzMMjPDZH4VlfaJY8iOQgHtmrmhTWj63D/ahBgXP3ulM6alGpS/eEuieIV0YXEshPnSr8pNZ994nutQJEtwSh7Vc&amp;#43;JEmkGKz/srZu537K5vzbZLS1CKrOR81X7M8/8AtGHtfaezOi0GRJkuY0P31/lV7wfN9nvLyAnq1Yfhm5S21XbJjaxKn6Gp7yd9D8QSuv3JORWtI5Mz/e/vDptbuvNcon8Ncdd8k5rTkv8A7SPOQ53VSliMiF61PMMaTrSZq1JFUX2agBbaQ&amp;#43;ZzXV6JbjzPMBrmIoua6PRZvs8mJD8taAdlbS&amp;#43;VXJXc/wBr8bRtniNTWjeazb2yNh&amp;#43;cVy2nyuWvNRkPzH5U/Gs2bUKftKqgNvJA1/M&amp;#43;erGmwRGd1RHGScVUYlmJPU0sDmBw46g5rhPraixCqfu/gNmbRL6GVlEZc&amp;#43;1CaNetYPdlD5adqsweLbqCR2MSMGAHNIfE108LwjaIWGCuKP3Y/aYky9xx1rV0D/kN2n/XQVjFtzZrZ8P/APIbtP8AfFZrcvFW9ifQVt/x7p9KlqK2/wCPdPpUtekfEvc434gqH0Pb6sBXjGoJaWs7x&amp;#43;Y&amp;#43;8HHFex/EHI0Ikdd3FeG3bO9y7SffznmsvZfvDtVarSpfuxs/liEPC77t3eka4gfHmShD7iopPMI&amp;#43;SopLX7Q676PZBTzTE09wuLm0aTG8PtqMm2f&amp;#43;HB7VTOmXJu3MULMB3FLdRXaBJpYtiD5az9menhcaqv8AEJleSGXcD82flauqkK&amp;#43;I9FG3H2y2X5v9oVyPmbowK09GupbW5aaHqDyOxoX7s6cThlVXIiK2vJbQlHBGOMGtJL7zY8LWle6VbeIIvtFsRDej7ydj9K5O6t73TJ/LmjZT6103Pm6tGrS/iGl5mZKseYMfcrHjvscmpP7QbHQVoYmhHKkclSSX4jG4H5qwpL4k8damtbG8v2yilU/iY1mNJvYnaWXUbny1JJJ59q0LuVLaFLWJsqo59zQkEenx&amp;#43;XbndI33nrNupCinua5qlU&amp;#43;lwGB9n&amp;#43;9qDZbsR9aj/tOOsy5aTPzLT00q9k2skLNuGePSl7M1xWP9nsaMepQSJzL&amp;#43;lStcpIqbJfl71lRWL2&amp;#43;/zoiv&amp;#43;yRUscYrX2R47zTEGystimMyS11HhoWj6nbPbyOzBx1riI4vMrqfBsbx6rb/APXUUVKRnDFVXufREBPkr9KlzUcP&amp;#43;qX6U&amp;#43;tThZy/jcA6dGP&amp;#43;mgrw3XYwNYnx03V7l41/5B6f74rw3Ws/2vcZ/v0GlT&amp;#43;GUvM7UsZ/eVEetGf3i1oZIT7PfTTy&amp;#43;TOqJ7tiqt9DdJZqJpwU3fdzVuO1tp7lzLeCNv7tQ3tlai3TZdF5N2Nue1c1U7sL/EKVrAzgZPGa7&amp;#43;xs9NfQFWOArM77fMz3rPHg63NnbSR6jEpddzAmqk8l1pkZsop1kRH3hlrI9inVp1P4Zo6xptx4faHDF2b5srUUWttInl3lkLhf9pefzrHl1u&amp;#43;uSPPlL46bqT&amp;#43;0ZvUVnc6eVVaf701ItG03Vr0RpFJblufapT4JgjjmlkncJGMjjrWQup3CnKvgjuKvrd3tzbFjcHGORmtfanDVyyl7T92VILWytnJFq8pHTfUr6hMVKCEon91RgVVN5OSQDk1Eb2fOCay9rUO&amp;#43;lhcNT&amp;#43;AlNxJg/umqjcyeZFj&amp;#43;PNXvtD/Zd59aqyRwTjfv2PQa1TKnjk3Dea1YrfUfk8q6X7gP3scelUbiIZAL7hV&amp;#43;Kws2VM35Q7a1R4WPpezIAtyHdbhw7Z9c1H5f7yplgSAusUwl/wBoURg/NmulHkD4&amp;#43;BXV&amp;#43;CsnUo9//PRa5lAm0bq6vwWB9sT/AK6LRULpfxD6At/9Qn0qWorf/UJ9KlqwZx3j6byNEEvowNeHanP9pvZJf75zXufj8BtFwem8V4fq9nOl&amp;#43;5SP5Pauf/l4bJXpmfJxUUZ3z9elSSW86JvdSFpn2aQw70wre5xWtzL2NUsx/wBleY73CytNt7Hiq11/Z0lsnkI/nbufpSCxuIX859pRh60kcbu5Kbflrlq1T1MBhf8An4XtFleHUIHkDtGGwQ3TFbOu3FtqWqxw2Som07RtHBrHtJQyZYgVct43a8gnRVRPMAMjVmerUpUqX7xEWp6Dc2d5FHIBmb7uKNR0C500xCUAGTpitPxXq0ja5Zx&amp;#43;dHIsZB3r2qXxfqmLmwVZ45gACSvatfZHmvHmPe6Bc6fFE0uMSYxirz&amp;#43;H7q0tBLL9yQYGDVvxbqmLTTsTxyqcMVU/dqz4l1vGgWJimicOASqnkUeyHDH/AAGYfDtxp9p9ulKGEgYx15qpe6DdCy/tEBfKbnHetrWNVc&amp;#43;CrUedE5Y8qDyKLzU8&amp;#43;BIG86H&amp;#43;6Y/4qPZB9fMY6FcyaAbtQPL6&amp;#43;9c4m0Sr5n3a7yz1Jz4FcCSLOdoT&amp;#43;KuVuoLeKwUOjre5yc9MUeyNaWK9oZtx5e7cn3KvW39jFk81Zcbeee9ZoBLY962i8E9itrHbKsicmT1pGlal7VFcmxSR/se/y/8AapFxsJ4qG10q78tySMbvWrj25hZE27t3vmupHgOhVvsRHHk10vgyXF/An96QViC0d/kEddH4Vt2t9Rg82ML&amp;#43;9GKKhNNP2h71AP3K/SpcGkt/9Qn0qWgzZxvj/wD5AbV5A8Zl&amp;#43;&amp;#43;7fnXr/AI//AOQG1eUAcDiuHE/xD6XJ6Sq0tSlJp6SY&amp;#43;dvzpslnHjGK6PRNJ/tS6eMvs2jPFaC&amp;#43;E5JZXjjlQupwfp61n&amp;#43;9PSdXC0v3bOEaEwfu5Pmib9KoTWr20vmRtmM16Yvg5Xuvss8w3bCSBzXH6xpkmkX8lkW3RdmoMnVpVNKZMuj6elgkzpIWdN3H9KrFYzoce0kguRUV5ZX0VoTMz5Vf3ZBOMVFbk/wBhQZP8ZrtR826tX94ZEiKZCWBJB6mmlFcjcSfrUr/eaiILt&amp;#43;cVqcAfZFkB3MTt6ZNBsVZRliQOgzUoCY&amp;#43;8etSYTH3qAK5tQV2ljgds1EYQV2Fjt9M1ZkHyfJ/OoXzgUAWdPiQ3AQ5wO2eK19WS2uNagjkJYGIDanXNZNkCZMDqVOKr2aXMXiOBX3CTfxnrWVQ7sL/DqGxrOlWlrp0c6I8UpbBVq1tA8PJLbm/vH2W5wFA5LGq/i2K5Nlb&amp;#43;dn73c1reG9ZszYDTr9zGIyHRx61mejh6tX2RrRaBoU2B5kqgnByO9Ry&amp;#43;H/DbRFhNIWU44qe31PRpEure4vgMtlXxU0MnhmN3YXucpjp&amp;#43;tZi9/wDvmdFoXh&amp;#43;XGyefcTgUiaG&amp;#43;k&amp;#43;JLSNpmaN2DLmrkD6FbyrImoZKkMBTLvWU1TxNYtEcxo20GgHS/59nrlvxAn0qWq8GfIX6VJzXaeE9zlPH&amp;#43;P7Db615MOBXq3j//AJAbfWvKF6CuDE/xD6XJv4Zf0eS&amp;#43;e98iw/1sinrWrFpfiK3mZlGWfh8HmsC21KbR7xLyEZcA1u23jq6FwN8Cux&amp;#43;ZiTiopF4uOI9r&amp;#43;7RZSw8Ree8vSbbjr2rntcSd5Cbr5psZNbE/jm9eYvEkcfbGc5rIv73&amp;#43;0MTMoDkYbFFUMDGv7T94U5dZik00RMj4jXa2D1qmsKnw/FIikqshOKreX/o1wO26tHTZpbV4IoyCkjAFW5BrSlVJr4H92/ZnLPIqyEEkHPQ1P50aoAxwfet/xRpSf2zbSfulLkDag4qPxXo7JNZOojUMAPlFdPtTw/qphmeNWGRjNKZkxkng9K3fEulslpZMFiXICkqKseINJMXh&amp;#43;zdViQDA3Acmj2ovqpzRuIxGFPAPeopJEETAtx6102raKP8AhE7eXbEGXow6mi40Rn8IQNsiB6l8c0e1D6tUMXTXXz0w3sK1NejSLWIZeS2wcr1BrS07SAvhnzNsQK8rJjnNZbphzNM&amp;#43;9x1JrKrVPTyvA&amp;#43;09oGp3RurCKBt7MpzuatbwqNKS7lbU9u0J8u6ufnlLkuTx/CtWtI0y71ZnSG3Lsoyeaz9qd1XDU6VL2Zs6sNAluSsRRRjqtbWnHw6NHdJREZjGdp71xV1YzWc3lyWZ3&amp;#43;3NaNv4dv57ZrmK2&amp;#43;RF3bs1r7Q4lh6f/Pwz8QBm8vOc8Vs6J/yFrT/fFY6TIpKtHgjg1s6Jzq9p/viuZbns1klQPebb/j3T6VLUVt/x7p9Klr0j4l7nGfED/kCN9a8qH&amp;#43;rFeq&amp;#43;PP&amp;#43;QG1eVL0FcOJ/iH1WTfwy9o1jaahq8cV622EKe9V/FOnWdncqtrOoRsndn07U1ITNMiglMnGRVnXdTsNFlS1fT1uNg5Z&amp;#43;SaKRy5n7WnV51Mk8NaNpuowNLeuBjgENgGs&amp;#43;SCKCaeGNsxq52nNXtK1LT/ABBazwLZfZmRCylDjpWPL8pMEJJb&amp;#43;JqMSa5Y6jftCr/y7XHf5qebpGhjKttePBHFRy3SWg2Iu/8AvVD/AGiD/wAsVrKx6baJZp5Lh1eSXLRnK8VPcT3NxHGZnDovT2qCO/U8GFcGpI3jS52KQUenqZU6VIr3t9cTBI5OUU5FF1rF3dWy28hHlr0qzNbhMn5SvvVEzRg48taXtAeGpUyWfV7u4sxbPjyxjHHpVqPWLiWw&amp;#43;ykjYuPlx2FUPtMf/PIUkjAFXjxn0pmbpUi6&amp;#43;qXIiECSgRYxsqCa5MgAcj6Cotsc/wA24I9IbcZ/1y5oNKdNUv4ZKYwGGOS1beja1eaDNK1ugfeuOaxrfMPJdDXQ&amp;#43;HNLtdXvJPttyERV7HFKmZ4r2fsv3hn3euahcXTTeQnPXPNall4u1C3sWtEgTayYZiaz9c0y1sr8x292FjA/iP3q6Kw8N6ZcaE128&amp;#43;2cx7gu6un94eSvqdzkik7sWdF5Oa2NE&amp;#43;TVrT/fFY&amp;#43;WZinm8Ie1amgSb9YtP&amp;#43;ulc63PdrfwD322/wCPdPpUtQ23/Hun0qavSPiXuch48H/EkavHbq4kgQOg9q9r8ZW0lzpDJGm5/SvKJdFvzx9mY/hXDVX7w&amp;#43;gyuslh9SDTpTJNET/eFR&amp;#43;MiY9Xb90X3KMce1Tpp&amp;#43;owMCtq2QfStaaa7uwjXOlCRkXG7pRSN8far/DMTwche4usxlB5RqrLw7Qw8sSdzV0PnXkUEiWumCIyDaze1ZCadqKElbN&amp;#43;e&amp;#43;KKo8A/Z/xDFNnuZkzyPvUkliYrfzP4c4rXOi30shcwOmeuBSSaJqWPLEUjJ7itfafuzjqxqfWdzNjsRJabg3zUxrBUTzFZgVxmtWPQdRHHkyD6USaBqWCPKkb8KXtDKo6n1kySz3EezPOcUo0z5GZT8wGea0I9B1FD/wAez/lU0mg6gEyFlYf3cUU0a4iVSpVWphLASxXj05qVtL2gnJyBnNaQ0DUc/NbP83tUsmgaj5f3Zf8Adp00LGOpUqaGLBb&amp;#43;Y53HB20g0wlsMWZv7wrWGgakn/Ls9Sf8I/qip8qSrntisqdQeJl/D1M&amp;#43;yhCHy3&amp;#43;erYtysn7t2TP92poNE1KDkWzk/SpfsWpf8&amp;#43;r/AJVnqetSrUnT9nUKc1ikxzK7OV7k04QuF2ieQL0xmrX9nap/z5t&amp;#43;VSDTdUx/x5t&amp;#43;VL96H&amp;#43;ylAWSA5zWnocYGsWip/wA9KZ/ZOqH/AJdX/KtTQ9H1BNYtpJLdlRWrNJ3CtWpeyaR7JBnyV&amp;#43;lS5NEEf7lfpUnl166PjXuOkhjkGHUGoPsdv/zxT8qtGmUBdlY2Nqf&amp;#43;WKflTDYWv/PFfyq3TaAuyp9gtf8Aniv5UfYbb/niv5VYooNLsqfYLXP&amp;#43;pX8qf9htv&amp;#43;eK/lU3enUWC7K/2G2H/LJfypfsFt/zyWp6d2osF2U/sFtn/Ur&amp;#43;VL9htsf6lfyqfvTu1AXZU&amp;#43;yW&amp;#43;f8AVL&amp;#43;VP&amp;#43;w23/PFfyqTvUnagLsr/Ybb/niv5Un2ODGPLH5VZptFjO7K/wBit/8Anmv5Uz7DbZ/1K/lVumd6LBdkQsbb/nkv5VNHY22P9Uv5U6po&amp;#43;lAXZD9lt8/6lPyqQWcAwRGv5U7vUvalZBdiAYGKKKKYj//Z"
+ data-src="https://bharvey88.github.io/esphome-docs/images/qwiic_pir.jpg"
+ data-srcset="https://bharvey88.github.io/esphome-docs/images/qwiic_pir.jpg 300w, https://bharvey88.github.io/esphome-docs/images/qwiic_pir_hu_3784f388802b393f.jpg 60w, https://bharvey88.github.io/esphome-docs/images/qwiic_pir_hu_a191092eafe22606.jpg 100w, https://bharvey88.github.io/esphome-docs/images/qwiic_pir_hu_71843be66133cd9f.jpg 150w, https://bharvey88.github.io/esphome-docs/images/qwiic_pir_hu_d745cbbc6e304366.jpg 200w, https://bharvey88.github.io/esphome-docs/images/qwiic_pir_hu_3cd4ac590a9092d3.jpg 300w"
+ width="30.0%" 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>SparkFun Qwiic PIR sensor. (Credit: &lt;a href="https://www.sparkfun.com/products/17374">Sparkfun&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>, image cropped and compressed)&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+
+
+&lt;p>The SparkFun Qwiic PIR Motion binary sensor uses PIR sensors to detect motion. It communicates over I²C. There are two models currently available. One uses the &lt;a href="https://cdn.sparkfun.com/assets/7/2/a/4/3/EKMC460711xK_Spec.pdf">Panasonic EKMC4607112K sensor&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>, and the other uses the &lt;a href="https://cdn.sparkfun.com/assets/c/e/8/7/5/EKMB110711x_Spec.pdf">Panasonic EKMB1107112 sensor&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>.&lt;/p></description></item><item><title>RC522 NFC/RFID</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/rc522/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/rc522/</guid><description>&lt;a class="anchor" id="rc522-component" role="none">&lt;/a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/rc522-full.jpg" width="60.0%" alt="Image"/>
+ 
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 640px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/rc522-full.jpg"
+ fetchpriority="high"
+ style="width:60.0%px;"
+ srcset="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAIcAtAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&amp;#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&amp;#43;Tl5ufo6ery8/T19vf4&amp;#43;fr/2gAMAwEAAhEDEQA/APfaKKKACiiigAoooyKACiijIoAKKMijIoAKKKM0AFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAh&amp;#43;7mvKvG/jLVdM8SQ2No3lQHG5yK9UP3a8P&amp;#43;KWvXdl4jS1hSPBUHLKDWlMzqfAXG8Z6qsgT&amp;#43;0V59qZH4v1h7yVG1RVRUyp29/Sq2j28lzaxy3LR7mGeIxWj9ghB&amp;#43;8P8Av2KftKYlTqFI&amp;#43;Nda&amp;#43;YLfqWUjt1qM&amp;#43;M/EEk0Sx36jdnPy9hVnV7MW&amp;#43;mvcWzx&amp;#43;YBnlBWLolr4h1y2kntYYQkefmKCtKfszOp7Q138W&amp;#43;INoK6rD&amp;#43;VVr7xx4gskhdL5Z2ZsFVFcdd&amp;#43;IdQs7qSGSOLfGdrfIKiHiq9BBCwZHI&amp;#43;QV0ex8jm&amp;#43;sn0xotzLe6TbXEw2yyIGYVo181J8TfEcahVuwFAwAFpf8AhaHiX/n8/SsPqtQ6frsD6Uor5s/4Wh4l/wCfz9Kf/wALQ8SY/wCPz9KX1WoH12mfRsk8cI&amp;#43;d1X61SfW7BXZDcJuXqM188zfEXX5/9ZchvqKrf8Jvq25nLpuP&amp;#43;yKPqtQj65A&amp;#43;jxrmn8D7QvPvVj7db/L&amp;#43;9HzdOa&amp;#43;aP&amp;#43;E51YkEvHkf7IqZviFrm4M06nHTij6tUL&amp;#43;uUz6QN/bBiplXI96VL63cgLKpJ96&amp;#43;a3&amp;#43;IGts&amp;#43;WmX5v9mtLRfHGrS6vaxtMu1nAPy0fVqgfXIH0ZRUcDF7eNj1Kg1JXMdIUVQ1DVYbCPcxBPpmodP1mK9ZsFV9iadmK6NWise71y2t7lY/MVs9eelXf7QtzD5vnJtx60WYXRa7V89fGGN38YRFFLYQfzr2y316Ce4aIlVUdy1eQfE9ZpfF6mCEygxDGK0pozqP3DPsdelsooovJZuOOM1ck8SyRn54Tn0xXIv/AGiJoysEkfOMZq/JFfyXSRvA&amp;#43;5l4bNH1YaxJuS6xJqVhKPIfao&amp;#43;lZOi&amp;#43;PNQ8N6fPYJEMPkrntRZwajbxXEbKzMvQetZF1pN5PFJeSRbQg5XFdGHpLqc2Jq/yGPeXEl5PJcyffkbc1V6U0mK7zgCiirVnaG6fYCAOrMe1AESqW4AyatQ6XcyjdsKj1bgVcEsNufKs4/Mk7uR/KnyW11Km64uli9iefyoAq/2VP/fi/wC&amp;#43;qil066jXc0Zx6jkVN9jg/wCf4ZqRLe9hHmQT&amp;#43;YvoD/SgDIYEHB61Lb2893J5cMTO/sK1TLbXh2TxiKcfxgcfjWv4P1m08Na0738SyRnoQM1lVHTWpyl1Zz2cmy4jeN/7rCrugf8AIds/&amp;#43;uq1reOPENr4i1j7RZxiNFGOnWsnQP8AkO2f/XVaf/Lo0/5eH1na/wDHrF/uCpaitf8Aj1i/3BUteOz10cR4m8L32q3Je3n2IR61n6Z4K1O0cb7onvkHmvQmlQDlgPqaBNGejqT9a6FXqJWOb6vTb5zzK8&amp;#43;H&amp;#43;rXF00iXeAT6mkvdCudD0YrdXpLZ4Ga9OM0ef9Yv51yXj2X/AIlI8uATHPbtWtLEVJ1NTKpQpwpnmlrKRfBjeE7j93mk8XsV1O3aO6Afy1wzVFbsyXEZ&amp;#43;wksT6dKg&amp;#43;IHkvqFr9pVoE8tfu1tiUZYZla8mkisIpBJ5rZ7VNd6nf7LVo7cbcj5qzbyZLPQop41LjOFz6VmxeJ7loxCsKlRyKy9ma&amp;#43;0OnTUtS/tAP8AZgGwePWlub66ksL5ZINrEcr6VzjeI7zaJDCmV/izTLjxTNcK4aIAuuGNNUxOoYbdTWnothDfO/mkhQQKzCc810Hhc4lmO0sOMgCu2psclPc0LTwzp83nBpiSoO3Brnbq3ezYqrHBOK7nT204i52JKrsDnjoa4nU0CSDE2/r&amp;#43;Fc2HqF4inYmtp1WFYbNP37fec9R9Kf8AZ4FP&amp;#43;kyvNN/dWsiKV42yj7a2bW5EiBIdsRA&amp;#43;eVutdJkD28SpuNjJt9c01YY2YfZJXjlHVH/pUiSKZcLfOG9WHy1Be3TL8kqr5g&amp;#43;7IvegZHdziRGWdNlwnRh3&amp;#43;tGm2SX7SecX&amp;#43;UZ4FZ8kjyPvdtzVt&amp;#43;H9m6YySFcDPFAjJvbZLa6aNGyq96t&amp;#43;H/8AkO2f/XVag1eTfqUmOman8P8A/Ids/wDrqtD/AIQ1ufWdr/x6xf7gqWorX/j1i/3RUteI9z2lscN4l0fWL24ZrOVguOMHGKzNO0HxHA4aW4YDHVmr0vAprxLIm1q2WIaVjneHPKbvQvEL3JMdzx/v1Neafq8WhOst0FcHpnNeiHS7UsWKn865Hx7dQ6LpMflwGTzH29aKmKna6HTw1PqcBBHe&amp;#43;cm27DHPPNVPiCkovrbeqzuI1/GnPqsVmI51tc4P3Q1QeOZReT2c0R8gSohO7&amp;#43;GopYmpV/iGlWlTp/wzH1UZ8NpkbfmHy1jWumW1xab3vUiP93vW5rFu6&amp;#43;HoYkfzCXxuHeuU&amp;#43;wzef5Ox2f8Auiuur/DOWl/ENJdJgVsLdhtp/A1m3MfkXJQPu&amp;#43;lSx6fcDeDHIGWhbCXyXn2NtH8RpYanUDE1KZATxXSeD5nSaYoMtXMj7pzXS&amp;#43;ExmWYGTy&amp;#43;Bg11Vf4ZzUjqtOvJi1yhtgBzub1rg9V8rzz5YI&amp;#43;Y7q9A0&amp;#43;LUMXBedNqg7ePvDFcFq7u8o3RBME8&amp;#43;tZYY1xJmU5JSkmfvCm9at2dt5smMgN2Vu9dJymi8kv9meeywbGOFUD5hWIzFjySa6A2Y8tlFkwf1LfKKxLm3MExXcG/3aBtEPet7w6YTO4lYAEdCawe9auixRvK8rk5HAAoEipqrB9SlZW4DYGKteHf8AkP2f/XVao6hGsOoSKjZB5Gas&amp;#43;HSf7ftP&amp;#43;uooexqtz64tiPs0XP8ACKlyPUV4nrvibV7PVZIILl1jUDAzWb/wmGuf8/j/AJ14j3PWWx7/AEUUUhlW8edY/wByoY&amp;#43;9czrzNLpp&amp;#43;3xw4zwG5FdPcQGXpIy/SsLXvDB1fTxAtwysDncayxFP2lPkRph/Z&amp;#43;0/eHA21vZNdL5i25XPHSsP4hvDHqkKywB4/LG1Urq4vhbMj7jqDEZzXIfEJU0rWoLbzSXjjADMM1z4HDVadTU2xyw/s/3czEW&amp;#43;ihs4o3Rtq8gEZrTl1Kwja2kW3/ekjcdvasF9TtjErSSMx5BUL&amp;#43;tWG8RWTwQwiJsoc7tte2eOblvd2V5qkoSL5NpLAjmiSbT20e&amp;#43;KwgIvC8d6xf7fsxP5yowbocCm3HiKzeO4UIQJFxtxTVOoDqUzlGwScV0XhLy/Ok85NyD3xXOsRk4qW0up7fd5T7Q3Wu2otDmPSNNEe&amp;#43;6ZbjcMHapboPSuK1vfvTLZ69qpw6ncQM7RyEE9afCH1FyGmw6j5Qe9Z0qfswqVOcr28AkkCSv5eehNajjyI1juYCQPuzJUMc0ZX7NfxkbeFcDkVOi3SLttLhJ4j0Vq0MxnmWe3/j8uGX&amp;#43;7ilEX2mMpFF5UPeSTrTsaoP8Al1j/AO&amp;#43;RTHjlZN9/cqir0RTz&amp;#43;VBoZs9uFdvJLOg6tWjoUL3AlVJNjjpxmo5J2ux9ltItsfc45P1pbP7ZZ3fk2mJJD2AzQZ2M/UVdb9xJ8zDrirXh7/kPWn/XUVX1GG6ivH&amp;#43;1RlJDzyKseHf&amp;#43;Q9af9dVof8I0W53fiRpDrc37vPArJzJ/zzre1/b/AGxNnPbvWZ8nv&amp;#43;deGz1lsfR1Fc9rXiMaXcrCYtzNyOayj48gUH92uR/tUDO2orC0HxAuto7KgG33rdoATFfP3xb2f8Jtb7x8uwZr6Cr58&amp;#43;LziLxpAz9AgNdGG/iHNiV&amp;#43;7IL630&amp;#43;y0m0uZLaPfIMjC9arzXuio0Eq2aqScMu3tiol1OJ7KG3lO5eiEjpmmT6halkt2jBkjOcgVv8AvDL93Ym&amp;#43;3aN50pFmCrL/AHPumuKu9pupDEp2ZrsTqNqzsY48YXD8V0fhDSPDF9oV3dX0iCX5uGOMUe0dMy9nznkdFXdQWFdRmjt/9UHO0&amp;#43;1Vse1dtznZHTlZkYMpII707HtRigRfXUIpkWO7Tf8A7Q609bW3bm2vNp/utxWbRQM1fsd1/wA/qY/36YYLNDunujIfRazufekx7UBc0JdREcLRWq&amp;#43;Wp6nufxrc8Ba9YaFrXn6hH5iEfePOK5PFG32oqU/aGlOryHV&amp;#43;PPEFn4i1z7RYRBIlGM4xmsfw8P8AifWn/XUVnKvHStLw9/yHLT/rqKPZ&amp;#43;zpD5/aVDufErSjW5gFGMCsnfN/dFb/iJgNZlyV6Csvcv&amp;#43;zXhs9Y9w1Hw7Z6tN5s&amp;#43;/djHBxxWIfhnopGMS9c/fNdtRQBh6J4bstADi0Djf1yc1uDpRRQAVyfiLwBpXiS&amp;#43;W7vA3mAY4NdZRQB55/wqPRMAbpeOnNH/Co9E3bt0ufXNehUVp7WoZeypnnv/Co9EGfml596VfhLoqqVV5QD1AavQaKPa1B&amp;#43;ypnnn/CoNCzn95&amp;#43;dH/CoNC/6afnXodFHtagvZUzzz/hUGhf9NPzo/wCFP6B6SfnXodFHtancPZUzzj/hT&amp;#43;gekn50f8Kf0D0k/OvR6KPa1O4eypnnf/CoNC/6afnS/wDCoNC/6afnXodFHtageypnnf8AwqDQv&amp;#43;mn50v/AAqDQv8App&amp;#43;deh0Ue2qdw9lTPPP&amp;#43;FQaF/wBNPzqW1&amp;#43;FGh2lxHNHv3o24c131FHtancPZUzlLvwHo97cGeaNi54PzVD/wrjQv&amp;#43;eT/APfVdlRWZqFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAf/2Q=="
+ data-src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/rc522-full.jpg"
+ data-srcset="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/rc522-full.jpg 640w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/rc522-full_hu_607a6abdf79b319.jpg 128w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/rc522-full_hu_22a29aa9115cacbd.jpg 213w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/rc522-full_hu_2d80619dddbb5e1a.jpg 320w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/rc522-full_hu_321085c6a5d2b0f4.jpg 426w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/rc522-full_hu_72f81a6b5e3b8ec3.jpg 640w"
+ width="60.0%" 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;/figure>
+
+
+&lt;p>The &lt;code>rc522&lt;/code> component allows you to use RC522 NFC/RFID controllers
+(&lt;a href="https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf">datasheet&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>, &lt;a href="https://www.aliexpress.com/item/1260729519.html">Ali Express&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>)
+with ESPHome. ESPHome can read the UID from the tag. Every NFC/RFID tag has a unique &amp;ldquo;UID&amp;rdquo; value assigned at the time
+of manufacture. Tags can be associated with binary sensors, making it easy to determine when a specific tag is present.
+You can also use the tag information directly within ESPHome automations/lambdas. See &lt;a href="#rc522-setting_up_tags">Setting Up Tags&lt;/a> for
+information on how to setup individual binary sensors using this component.&lt;/p></description></item><item><title>RDM6300 NFC/RFID</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/rdm6300/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/rdm6300/</guid><description>&lt;a class="anchor" id="rdm6300-component" role="none">&lt;/a>
+
+&lt;h2 id="componenthub">
+ Component/Hub
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="componenthub" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;p>The &lt;code>rdm6300&lt;/code> component allows you to use RDM6300 NFC/RFID controllers
+(&lt;a href="https://elty.pl/upload/download/RFID/RDM630-Spec.pdf">datasheet&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>, &lt;a href="https://www.itead.cc/rdm6300.html">iTead&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>)
+with ESPHome. This component is a global hub that establishes the connection to the RDM6300 via &lt;a href="https://bharvey88.github.io/esphome-docs/components/uart">UART&lt;/a> and
+translates the received data. Using the &lt;a href="#rdm6300-tag">RDM6300 binary sensors&lt;/a> you can then
+create individual binary sensors that track if an NFC/RFID tag is currently detected by the RDM6300.&lt;/p></description></item><item><title>SDL Binary Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/sdl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/sdl/</guid><description>&lt;p>The &lt;code>sdl&lt;/code> binary sensor platform creates a binary sensor from keyboard presses on the host platform.
+The sensor will be true when the key is pressed.&lt;/p>
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>key&lt;/strong> (&lt;strong>Required&lt;/strong>): The ID of an &lt;a href="https://www.libsdl.org/release/SDL-1.2.15/docs/html/sdlkey.html">SDL key&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>.&lt;/li>
+&lt;li>All other variables from &lt;a href="https://bharvey88.github.io/esphome-docs/components/binary_sensor#config-binary_sensor">Binary Sensor&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sdl&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">key_id&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">key&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">SDLK_a&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="see-also">
+ See Also
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="see-also" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://bharvey88.github.io/esphome-docs/components/host/">Host Platform&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://bharvey88.github.io/esphome-docs/components/display/sdl#sdl">SDL display&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Status Binary Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/status/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/status/</guid><description>&lt;p>The Status Binary Sensor exposes the node state (if it&amp;rsquo;s connected to via MQTT/native API)
+for Home Assistant.&lt;/p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/status-ui.png" width="80.0%" alt="Image"/>
+ 
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 824px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/status-ui.png"
+ fetchpriority="high"
+ style="width:80.0%px;"
+ srcset="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAAZCAMAAACvkfQwAAAA1VBMVEX///8hISHl5eX92DXj4&amp;#43;Ph4eHU1NTMzMze3t7a2tokJCT9/f34&amp;#43;PhlZWVGRka4uLg&amp;#43;Pj4rKyt6enrX19fu7u6qqqpCQkJ1dXVOTk4vLy/6&amp;#43;vrb29uPj4&amp;#43;CgoJsbGwoKChoaGgxMTH19fU4ODhdXV00NDRXV1fR0dG8vLyvr6&amp;#43;bm5uXl5dNTU3y8vKysrKQkJBSUlLGxsaKioq1tbVgYGBwcHDp6emdnZ2lpaWGhobAwMBaWlpKSkrKysqhoaGUlJR/f3/Ozs7&amp;#43;88T&amp;#43;4GD93VL920T&amp;#43;9s&amp;#43;QVTZSAAACuElEQVR4nNSXT4vsKBTFCzFGUXCRWxuzc3OthQEpuDwEF0lDvv9HGjT1p6eq3izC8F7nLLrbkL7&amp;#43;cnLqJHXiLLrTgWQi8aNBawfHgz6ZyNjRoKvTh4OumT4c9KdMa&amp;#43;2qtP6bYP&amp;#43;pN6e1WzcZ9/OoN6J3p/W6LsvX8rUs6xNaV9X/edjv3MtF6XZz9PdzdoKZ95vcdm9btOVre2i9Ll9Ny/qg0h6i8cY5432LjjPQcfLObUkyzmlPnEE0xvlYd62XsA8ZGAPj/iXjY9sdKDb413ho94BenraygVcmYFJyImJAImWUjICIMc4ZRZpTEapjXKoOAIiB2UOtQfU48jq2qv4m4qMYOSMmZm6a07fKewKuNRw1H&amp;#43;v9mDYyqU4gIuaQSl/6QZZpsrnMAvuSUyqC8WRDzn0KwRahsKQB9jSSYzMK0ZdSUko5pRxymud0DSGnFOxYndDuNR5Pp1d9pzZjQpVSyNlerLUhz0O5nC9tUp4u9UDH5hByPeE85VSCtYV2Qg9yDsHaEOxkp1&amp;#43;/ztdU8uVyPk/Xq1Xt9hn4fTzc0&amp;#43;lcsJQGk3IFUqJamnNKydrUo2AMt9U0hepPCDuhaUBRcgi5pBySvUzXnLAP18mGELI0jfFDpiv193icHGGPSo6yE2JUc7AzZ51UiGIUiEJ29TMoUahB9KVHxDIj7ouH9nwYlEBUUqphHHDGYVAKscdB9GKb&amp;#43;ep0zXSlXpZl/TaJGEH0PkaI0PVFRm98BIAIBDF6752pSwAi2n4QmB3Mp5PzQG3yJqA6NNaZAAR&amp;#43;q74Pmd5qevHPuryVcJPzRHFb1WrT7l7i7tZ0t57aW9dt6mO3&amp;#43;x5u&amp;#43;3s75S3T2tyeiP5DyT&amp;#43;m7uP5n/SW6dP9xcPtfTz8Ab1lWn/X32X7nR6Z1i8vGj8X&amp;#43;ZPTB9B7po&amp;#43;gYzp9zG/jxP8JAAD//xsxhP23fFO&amp;#43;AAAAAElFTkSuQmCC"
+ data-src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/status-ui.png"
+ data-srcset="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/status-ui.png 824w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/status-ui_hu_35086a34dc255e5b.png 164w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/status-ui_hu_7a4f4074a3ab9b86.png 274w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/status-ui_hu_44813b38019c1991.png 412w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/status-ui_hu_17ab43471fcc4653.png 549w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/status-ui_hu_4be484cfa57e73d7.png 824w"
+ width="80.0%" 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;/figure>
+
+
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">status&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Living Room Status&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>All options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/binary_sensor#config-binary_sensor">Binary Sensor&lt;/a>. (Inverted mode is not supported)&lt;/li>
+&lt;/ul>
+&lt;h2 id="see-also">
+ See Also
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="see-also" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://bharvey88.github.io/esphome-docs/components/binary_sensor/">Binary Sensor Component&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://bharvey88.github.io/esphome-docs/components/mqtt/">MQTT Client Component&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://api-docs.esphome.io/status__binary__sensor_8h">API Reference&lt;/a>
+&lt;/li>
+&lt;/ul></description></item><item><title>Switch Binary Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/switch/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/switch/</guid><description>&lt;a class="anchor" id="switch-binary-sensor" role="none">&lt;/a>
+
+&lt;p>The Switch Binary Sensor platform allows you to view the state of any switch component as a
+read-only binary sensor.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">switch&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Output state&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">relay1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">switch&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gpio&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">relay1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPIOXX&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>source_id&lt;/strong> (&lt;strong>Required&lt;/strong>, &lt;a href="https://bharvey88.github.io/esphome-docs/guides/configuration-types#id">ID&lt;/a>): The source switch to observe.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/binary_sensor#config-binary_sensor">Binary Sensor&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="see-also">
+ See Also
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="see-also" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://bharvey88.github.io/esphome-docs/components/binary_sensor/">Binary Sensor Component&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://api-docs.esphome.io/switch__binary__sensor_8h">API Reference&lt;/a>
+&lt;/li>
+&lt;/ul></description></item><item><title>Template Binary Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/template/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/template/</guid><description>&lt;p>The &lt;code>template&lt;/code> binary sensor platform allows you to define a boolean condition and use it to provide a binary sensor.
+The condition may be expressed as a C++ lambda, or as a &lt;a href="https://bharvey88.github.io/esphome-docs/automations/actions#all-conditions">YAML expression&lt;/a>.
+The condition expression will be evaluated continually, on each call to the component&amp;rsquo;s &lt;code>loop()&lt;/code> method, which is typically every 16ms.&lt;/p>
+&lt;p>The example below polls an analog sensor and yields a value dependent on whether the sensor value is above a threshold.&lt;/p></description></item><item><title>TTP229 Capacitive Touch Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/ttp229/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/ttp229/</guid><description>&lt;p>The &lt;code>ttp229&lt;/code> component allows you to use your TTP229 &lt;a href="https://www.tontek.com.tw/uploads/product/106/TTP229-LSF_V1.0_EN.pdf">datasheet&lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="external-link dark-invert" title="External link" src="https://bharvey88.github.io/esphome-docs/images/external-link.svg">&lt;/a>
+Capacitive Touch Sensor with ESPHome.&lt;/p>
+&lt;p>There are two types of this sensor:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>ttp229_lsf&lt;/strong>: The &lt;a href="https://bharvey88.github.io/esphome-docs/components/i2c">I²C&lt;/a> version of the sensor, uses SDA+SCL pins.&lt;/li>
+&lt;li>&lt;strong>ttp229_bsf&lt;/strong>: The pin-based version of the sensor, uses SDO+SCL pins.&lt;/li>
+&lt;/ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;noscript>
+ &lt;style>
+ figure.lazy {
+ display: none;
+ }
+ &lt;/style>
+ &lt;figure class="align-center">
+ 
+ &lt;img src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/ttp229-full.jpg" width="50.0%" alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>TTP229 Capacitive Touch Sensor. Image by RobotDyn.&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+ &lt;/noscript>
+ 
+ 
+ &lt;figure role="none" style="max-width: 1000px;" class="align-center lazy">
+ 
+ &lt;img class="lazyload w-100 h-100 align-center" data-sizes="auto" src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/ttp229-full.jpg"
+ fetchpriority="high"
+ style="width:50.0%px;"
+ srcset="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIALQAtAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&amp;#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&amp;#43;Tl5ufo6ery8/T19vf4&amp;#43;fr/2gAMAwEAAhEDEQA/APV/EfiCfR2hSK1adnznHtWMfiFhCradN5oXO3HFd28MUhBdFYj1FRmytSc&amp;#43;RHn/AHRVKpAZw0fxHg8hWksJw3cBaJPH0rRPJHYuMMAAwPIPeu3&amp;#43;wWv/AD7xf98ilNlbkYMEeP8AdFVz0v5DM4mH4jWyIPtVtIjn7qgda19E8VR61c&amp;#43;QltLH8u7LDqK1bjQtNuZEeW0jZk&amp;#43;78tXYrWCHBjiRSBjgUm4dEWTDpRRRUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFNeRI1LOwCjqTWZB4i0m5uzaxXsTTL/CGoA1aKQEEcGloAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKqXt9Bp9s89xIqIoySazte8S2Ph6yee7kAOPlTPJryDWfF934mmKltlsThY1Pb1NAGlr/jq48S6idI0pmSEnG8Hlqy73wJq2lWx1ASFCvz7w3IrGgszpMstxbjzB/CynlTS6xrGv3GnbWvpJYGX5lHagDq/CnxVe0dLLWDuQHAlHX8a9e07U7XVLZZ7WZZI2HBBr5DOcnPX3roPDvjDU/D9wrW0zGIfeiY8GgD6oyKK4fwp8QdN19FSRxDc90Y/yrtt67d2RigB1FVfMeWTC8IO9WBIu7ZnmgB1FFFABRRRQAUUUUAFFFFABRRRQAUUU15EjQuzAKOSSaAHdK4zxh4&amp;#43;sPDlu0aOJLs8KgPQ1z3jn4nxWKvYaS4e46NIOgryG0tbzxJqLzSy72LZYs3egA8QeIr/AF69M93KSCeF7CqmlS3Yu1W3&amp;#43;Yt1FdGdNsp4XtWjEcsfAf1q/ZaZa2Vr5YT9&amp;#43;y5V6AICkm4YbynP3gx4NMa7VInJIRl7MOH&amp;#43;lWLxBbwLFelSp58wGscapbThrOUAxA/LJ3oAqS6a99N5gCxh&amp;#43;cVQvLGaykw2MetdGg8iBl/11t/z0B5WsfVkjwrx3BkDdvSgCnYzGC7jfzjFhslweleteHviSs&amp;#43;oW&amp;#43;mKGnhA2s&amp;#43;efrXh&amp;#43;qCW3CkAsjDtTdL1ebTCz2h&amp;#43;d1wfagD7CtdSt9R3JaSoQvDYNWTIsQ2Rjc9fNXhTxjJoUEt48zNcvwsRbj6mvYvCfja31HTEmvAtvM5wNx&amp;#43;8faszQ7mNvKjzK3zGpwcjNVoEWVBKxDZ5GDVmtDMKKKKACiiigAooooAKQkAcmlrk/FGty6faS&amp;#43;WrhR1cD&amp;#43;VAFTxx46t/DVgwiO&amp;#43;4bhR715FP408Varotw9xN9ntmOQ5OCR6Cr2u6hbXNql3rACIrZhiJ&amp;#43;Z/c1yzw6j4kuN85W20uEcEcKBWZoYRcysXZixPU&amp;#43;tWrS7lsX3wuVHcVYvPIvbmPTtDtC6r1k/ve9U720exuDbyuu8fe2nNaGZ1&amp;#43;m63bX9s1rIqpK38VWL2/GlFFeUTR7cbu/wBK4JSVYFSQfUVJJNJKMO7Nt9aALep6xPqEpBJ8sdFrPBwaUIznEY5qJ45IZD5wPsR0NAG7p9rd3FnKIJ&amp;#43;v/LMHrVIwtBceXchhj1qG0vJbVxJFJtaughv7PWAkV6Ak3TzBQBh3iS3rrFaoPJH3iaxrzT1iuNts/wC9XqorqL/T7rSy4jJaBv416GqscdlDaPKPnun4HtQByvmN5uJsq4rYbXL6d4Iy5CRjC7T0pJbB2geW9Cp/dPeq1r5dt8iYlkf&amp;#43;LsKAPU/B3xVu9IaO01Fmnt&amp;#43;mT1Fe46P4g0/W7ZZrOdHyPu55FfJEce3k8k1r6Rrt9ol0ktnO6eq54oA&amp;#43;tqK818H/ABQtNUVLbUWENx03Hoa9HjlSVA8bBlPQg0APooooAKKKKACs7WLBb/T5IQq7yPlz61o0UAfOOveEbgaxLLrTOIE5HoR6CsG4mvdbuBptjD5GmJw3YY9Sa&amp;#43;ndT0iz1a2aG6iVgR1ryXxf4Iv7CweHS1/0d2yxQc/jWYHndxew6XF/ZfhtPOuW&amp;#43;WWbqc&amp;#43;gprWdjoFubnVWFzqUq5WHdnb9atzR2vhe38uyTzdUkX5pCOF&amp;#43;nvVeDTLe0RdY8QvunfmOAnlz6n2oNDKXTb2WxfUJYhBAxyu44z9Kp5z361uCLUfE1yZbx/smlwn6KF9BVW/kt769isNEsy6x/L5nUt70GYaXeQ2M4aVA6Nw1b0&amp;#43;jWupW/n2LhieTHXL3lq9lcG3kK7x97BqS01C4sn3wOVPpWgEV7pctpKSoIx1Q/wBKqJKpOFypFdpaarYaxEIL1Ak/Z/Wue8Q6QY7tIbPDyueq0AO07xO9mTaTgXETDhW7VVkmBnMsabcnO0dqRvDV1p6iaYb2Pp2pMEHBGDQAlw73i7ZWyKn0jTIZZwh9ah6UsU0kMm9DtagDsL/wlC1ms1k5ZgOVx0rlLm0ltpNkyFWFdbpOs3q26O8bBR/H61o3Eem6nH/pBVZn/iB4JoA88VmQhlJBHQiu88JfEjUNCdILlmnt&amp;#43;4Y9PpXN6xoE2nTgL88Z5BFdT4T8B/2/Z&amp;#43;eLmJPYnmgD2rQfFOneILZZLWZdxHKE8itwV83a7ZX3gnUo2tbnD542HrXuHg7VZ9Y8O211cLiVl&amp;#43;agDoaKKKACiiigAprorqVZQQeoNOooA4TxF4AtLuY31lCi3K/NtI4JryLU/DUzavNP4gdlhh5C/wB72FfTB6Vi634bsddtGhuowSRw2ORQB80z3l54ku10qyt/J06PgKOAB6k1NNdweHoTpmgILi8f5ZZxzg&amp;#43;grs/FXhLUvD9g1rpkQ8mVvmmUfMfY1xjJa&amp;#43;D4POUi51SUd&amp;#43;kf/wBeszQiGmWmiWj3mtSGW/lGUgznHuazIbK7ubSS&amp;#43;&amp;#43;zmKDsTwDWlZ6N9vzr3iCVo0zkIx5kPtTZJ9S8VXgtIENtp0PA7Kq&amp;#43;9AGKCQQwPPY10mg3kEiSJNCxlHPmDtWXqosYJ4dO0tXuJBw7jnJ9qtWF9NoF15c9uCD99XFaEHVzarpcFksW8PuODurD8TppaiM2jBpSoLFeKz9XvNPndTaQbSfmPOcVl/M5w2STWdOn7M0qVPaCDk8cmtrTNHLukt5GywN3q9oHhtJWSa4f5m&amp;#43;6lbs9vNYSM9yd8S9EArQyJdP0pjchUZfseOcnoKwddgt7a5YWEnmoD8wHatKaOcac1zaS7DJ/yzY1yt1fSrEbfaI2/5aHuTQBr2/iHfZiCWJZkQY5&amp;#43;8KrSalPZQCeynlt5GP3VbGa56IsJPkzk13Hg/wAF3mv3aSTK32cHktQAnhjw7qfi3UEmu3kdAeWevoLR9Mj0nTo7WL7qCmaPo1ro9mkFtGFAHJxWjQAUUUUAFFFFABRRRQAUUUUART20dzEY5VDA&amp;#43;orzjxN8NLae7Go2cYd0O4xHoa9MoPSgD5d1bRNV1fWGTUHNtawHkdAoHoKrX&amp;#43;sNd7fD&amp;#43;iQN5B&amp;#43;VpEHzMfU19EeIfCtlr1s8bpskI4da8g1rw7e&amp;#43;DLOdbK03Tytj7QBnA9qzNDmf9C8FWnyBbvVXGM9RH/8AXqGy0kzwya54huWjjY5SM9Xqaw0u30SJta1t/Mnk&amp;#43;aO3Y53H1NVktL7xtdm7nkNvYxH5s8Iq&amp;#43;1AGZFGb&amp;#43;Sd7SB/JQ5Bx2q3pV3b2t3m4i3j&amp;#43;VXNS1hWSPQPD8LCPO15AvLmq&amp;#43;q6Xb6Fp0aXN15l&amp;#43;3JjXsPegzOotSsbfbrNzKTwqA/drYttUt2gUX&amp;#43;Bck4w3avOLK/vtN2Txb0R&amp;#43;zDg1a1HWRqG1/LCyqOWrQDR8S38f2nbbTHcpzweBXMkyzzZJyT3pY43uJe5Jr0/wJ8OpdQlS8vkKwDnBHWgCj4G8BXGszLcXKFLdTnJHWvetN0230u0S3t0Cqo7d6faWMFjbLBBGERRgAVYoAKKKKACiiigAooooAKKKKACiiigAooooAKq3dlBeQtHcRq6t2Iq1RQB5D4y&amp;#43;GX2m5S7gZpIF&amp;#43;9H3A9q838QtfX1xHoOl2721sh27AMZPqa&amp;#43;pSARgjiuU1/wZbal5lzaYgu9pAdR1oA8JmuLPwhaLY25W51WVcPMBnyz6Ck0vw9HZq2veJ58p96OJur1tDw7B4SvbrUNZhae4UnyQRlSfWvPdf1/UNavZZZyfKH3Yx0ArM0Luu&amp;#43;J5Nev40gijhtYziNFHah7NjOkcKl2bGR6VmaNZrcSqbdXeYn7uOBXvngX4fiJI9Q1SPdKfmVSP51oZmd4D&amp;#43;HBcpfagmE6qp717FBbx20IiiUKo6AU5EWNAqqAB0Ap1ABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAGfqmj2Wr2rwXcCSKw7jkV5HrXwala9MmnuhhY/dbtXtlFAHnPgz4aW2gP8AabpVkn7ADgV6KoCqAAABS0UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH//2Q=="
+ data-src="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/ttp229-full.jpg"
+ data-srcset="https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/ttp229-full.jpg 1000w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/ttp229-full_hu_eca419b83515efdf.jpg 200w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/ttp229-full_hu_999c5e762c9abfdc.jpg 333w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/ttp229-full_hu_edce3ac5e861f06.jpg 500w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/ttp229-full_hu_4784024dbbffc2fe.jpg 666w, https://bharvey88.github.io/esphome-docs/components/binary_sensor/images/ttp229-full_hu_8471b9877092102f.jpg 1000w"
+ width="50.0%" 
+ 
+ alt="Image"/>
+ 
+ 
+ &lt;figcaption>
+ &lt;em>TTP229 Capacitive Touch Sensor. Image by RobotDyn.&lt;/em>
+ &lt;/figcaption>
+ 
+ &lt;/figure>
+
+
+&lt;h2 id="ttp229_lsf-component">
+ &lt;code>ttp229_lsf&lt;/code> Component
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="ttp229_lsf-component" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">ttp229_lsf&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ttp229_lsf&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">TTP229 Channel 0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">channel&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h3 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h3>
+&lt;p>The configuration is made up of two parts: The central component, and individual Binary sensors per channel.&lt;/p></description></item><item><title>Tuya Binary Sensor</title><link>https://bharvey88.github.io/esphome-docs/components/binary_sensor/tuya/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/binary_sensor/tuya/</guid><description>&lt;p>The &lt;code>tuya&lt;/code> binary sensor platform creates a binary sensor from a
+tuya component and requires &lt;a href="https://bharvey88.github.io/esphome-docs/components/tuya/">Tuya MCU&lt;/a> to be configured.&lt;/p>
+&lt;p>You can create the binary sensor as follows:&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Create a binary sensor&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">binary_sensor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;tuya&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;MyBinarySensor&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">sensor_datapoint&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>sensor_datapoint&lt;/strong> (&lt;strong>Required&lt;/strong>, int): The datapoint id number of the binary sensor.&lt;/li>
+&lt;li>All other options from &lt;a href="https://bharvey88.github.io/esphome-docs/components/binary_sensor#config-binary_sensor">Binary Sensor&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="see-also">
+ See Also
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="see-also" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://bharvey88.github.io/esphome-docs/components/tuya/">Tuya MCU&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://bharvey88.github.io/esphome-docs/components/binary_sensor/">Binary Sensor Component&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://api-docs.esphome.io/tuya__binary__sensor_8h">API Reference&lt;/a>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

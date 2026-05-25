@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Number Component on ESPHome - Smart Home Made Simple</title><link>https://bharvey88.github.io/esphome-docs/components/number/</link><description>Recent content in Number Component on ESPHome - Smart Home Made Simple</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://bharvey88.github.io/esphome-docs/components/number/index.xml" rel="self" type="application/rss+xml"/><item><title>Home Assistant Number</title><link>https://bharvey88.github.io/esphome-docs/components/number/homeassistant/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/number/homeassistant/</guid><description>&lt;p>The &lt;code>homeassistant&lt;/code> number platform allows you to create a number that is synchronized
+with Home Assistant. Min, Max and Step are not configurable for this platform because they are taken from the Home Assistant entity.&lt;/p>
+
+
+&lt;blockquote class="alert alert-note">
+ &lt;p class="alert-heading">
+ ℹ️
+ 
+ Note
+ 
+ &lt;/p>
+ &lt;p>Although you might not plan to &lt;em>export&lt;/em> states from the node and you do not need an entity of the node
+in Home Assistant, this component still requires you to register the node under Home Assistant. See:
+&lt;a href="https://bharvey88.github.io/esphome-docs/guides/getting_started_hassio#connecting-your-device-to-home-assistant">Connecting your device to Home Assistant&lt;/a>.&lt;/p></description></item><item><title>LVGL Number</title><link>https://bharvey88.github.io/esphome-docs/components/number/lvgl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/number/lvgl/</guid><description>&lt;p>The &lt;code>lvgl&lt;/code> number platform creates a number component from an LVGL widget
+and requires &lt;a href="https://bharvey88.github.io/esphome-docs/components/lvgl/">LVGL&lt;/a> to be configured.&lt;/p>
+&lt;p>Supported widgets are &lt;a href="https://bharvey88.github.io/esphome-docs/components/lvgl/widgets#lvgl-widget-arc">&lt;code>arc&lt;/code>&lt;/a>, &lt;a href="https://bharvey88.github.io/esphome-docs/components/lvgl/widgets#lvgl-widget-bar">&lt;code>bar&lt;/code>&lt;/a>, &lt;a href="https://bharvey88.github.io/esphome-docs/components/lvgl/widgets#lvgl-widget-slider">&lt;code>slider&lt;/code>&lt;/a> and &lt;a href="https://bharvey88.github.io/esphome-docs/components/lvgl/widgets#lvgl-widget-spinbox">&lt;code>spinbox&lt;/code>&lt;/a>. A single number supports only a single widget; in other words, it&amp;rsquo;s not possible to have multiple widgets associated with a single ESPHome number component.&lt;/p>
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>widget&lt;/strong> (&lt;strong>Required&lt;/strong>): The ID of a supported widget configured in LVGL, which will reflect the state of the number.&lt;/li>
+&lt;li>&lt;strong>animated&lt;/strong> (&lt;em>Optional&lt;/em>, boolean): Whether to set the value of the widget with an animation (if supported by the widget). Defaults to &lt;code>true&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>update_on_release&lt;/strong> (&lt;em>Optional&lt;/em>, boolean): By default the number will publish a new value each time the value of the associated widget changes. If this option is &lt;code>true&lt;/code> then the value will only be published when touch is released.&lt;/li>
+&lt;li>&lt;strong>restore_value&lt;/strong>: (&lt;em>Optional&lt;/em>, bool) Restore the value of the number from non-volatile memory when the device is restarted. Defaults to &lt;code>false&lt;/code>.&lt;/li>
+&lt;li>All other variables from &lt;a href="https://bharvey88.github.io/esphome-docs/components/number#config-number">Number&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p></description></item><item><title>Modbus Controller Number</title><link>https://bharvey88.github.io/esphome-docs/components/number/modbus_controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/number/modbus_controller/</guid><description>&lt;p>The &lt;code>modbus_controller&lt;/code> platform creates a Number from a modbus_controller.
+When the Number is updated a modbus write command is created sent to the device.&lt;/p>
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>address&lt;/strong> (&lt;strong>Required&lt;/strong>, int): start address of the first register in a range (can be decimal or hexadecimal).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>value_type&lt;/strong> (&lt;strong>Required&lt;/strong>): datatype of the modbus register data. The default data type for modbus is a 16 bit integer in big endian format (MSB first):&lt;/p></description></item><item><title>Template Number</title><link>https://bharvey88.github.io/esphome-docs/components/number/template/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/number/template/</guid><description>&lt;p>The &lt;code>template&lt;/code> number platform allows you to create a number with templated values
+using &lt;a href="https://bharvey88.github.io/esphome-docs/automations/templates#config-lambda">lambdas&lt;/a>.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Example configuration entry&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">number&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Template number&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">optimistic&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">min_value&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max_value&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">100&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">step&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="configuration-variables">
+ Configuration variables
+ &lt;img data-pagefind-ignore="all" alt="" aria-hidden="true" class="copy-link dark-invert" data-anchor="configuration-variables" title="Copy link" src="https://bharvey88.github.io/esphome-docs/images/link.svg">
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>min_value&lt;/strong> (&lt;strong>Required&lt;/strong>, float): The minimum value this number can be.&lt;/p></description></item><item><title>Tuya Number</title><link>https://bharvey88.github.io/esphome-docs/components/number/tuya/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bharvey88.github.io/esphome-docs/components/number/tuya/</guid><description>&lt;p>The &lt;code>tuya&lt;/code> number platform allows you to create a number that controls
+a tuya serial component. This platform requires &lt;a href="https://bharvey88.github.io/esphome-docs/components/tuya/">Tuya MCU&lt;/a> to be configured.&lt;/p>
+&lt;p>When &lt;a href="https://bharvey88.github.io/esphome-docs/components/tuya/">Tuya MCU&lt;/a> has been properly configured, it will output a list of
+valid data points to the log after start-up.&lt;/p>
+&lt;div class="code-block">
+ &lt;button class="copy-button" aria-label="Copy code">
+ &lt;svg xmlns="http://www.w3.org/2000/svg"
+ role="none"
+ width="16" height="16" viewBox="0 0 24 24" fill="none"
+ stroke="currentColor" stroke-width="2" stroke-linecap="round"
+ stroke-linejoin="round">
+ &lt;rect x="9" y="9" width="13" height="13" rx="2" ry="2">&lt;/rect>
+ &lt;path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">&lt;/path>
+ &lt;/svg>
+ &lt;span class="copy-feedback">&lt;/span>
+ &lt;/button>
+ &lt;div class="codeblock-content">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:028]: Tuya:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:045]: Datapoint 101: enum (value: 4)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:045]: Datapoint 102: enum (value: 1)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:041]: Datapoint 103: int value (value: 5)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:039]: Datapoint 104: switch (value: OFF)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:041]: Datapoint 105: int value (value: 229)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:041]: Datapoint 106: int value (value: 37)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:041]: Datapoint 107: int value (value: 10)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:041]: Datapoint 108: int value (value: 35)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:041]: Datapoint 109: int value (value: 30)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:041]: Datapoint 110: int value (value: 80)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:039]: Datapoint 112: switch (value: OFF)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:039]: Datapoint 113: switch (value: OFF)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:039]: Datapoint 114: switch (value: OFF)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:045]: Datapoint 115: enum (value: 4)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:045]: Datapoint 116: enum (value: 2)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[21:37:14][C][tuya:055]: Product: &amp;#39;{&amp;#34;p&amp;#34;:&amp;#34;ymf4oruxqx0xlogp&amp;#34;,&amp;#34;v&amp;#34;:&amp;#34;1.0.3&amp;#34;,&amp;#34;m&amp;#34;:0}&amp;#39;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+
+&lt;p>The example output above from a Tuya Siren with temperature and humidity sensors. The
+&lt;code>tuya&lt;/code> number platform can be used to control all of the integer and enum datapoints.&lt;/p></description></item></channel></rss>
