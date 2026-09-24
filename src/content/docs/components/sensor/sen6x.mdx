@@ -105,7 +105,7 @@ sensor:
   ignored on unsupported models.
 
   - **algorithm_tuning** (*Optional*): The VOC algorithm can be customized by tuning 6 different parameters.
-    For more details see the SEN6x datasheet.
+    For more details see the [SEN6x datasheet](https://sensirion.com/media/documents/FAFC548D/693FBB15/PS_DS_SEN6x.pdf).
 
     - **index_offset** (*Optional*): VOC index representing typical (average) conditions.
       Allowed values are in range 1..250. The default value is 100.
@@ -130,7 +130,8 @@ sensor:
   ignored on unsupported models.
 
   - **algorithm_tuning** (*Optional*): The NOx algorithm can be customized by tuning 5 different parameters.
-    For more details see the SEN6x datasheet. Unlike VOC, the NOx algorithm has no configurable `std_initial`;
+    For more details see the [SEN6x datasheet](https://sensirion.com/media/documents/FAFC548D/693FBB15/PS_DS_SEN6x.pdf).
+    Unlike VOC, the NOx algorithm has no configurable `std_initial`;
     the device requires it to be 50 and ESPHome always sends that value.
 
     - **index_offset** (*Optional*): NOx index representing typical (average) conditions.
